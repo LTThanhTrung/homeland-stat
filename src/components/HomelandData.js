@@ -11,6 +11,8 @@ export default function HomelandData(props) {
             await axios.post('/api/getPlots', { accessToken }).then((response) => {
                 let data = response.data
                 if (data.success) {
+                    let plots = data.plots
+                    plots.sort(function(a, b){ return parseInt(b.land_type) - parseInt(a.land_type)})
                     setPlots(data.plots)
                 }
             })

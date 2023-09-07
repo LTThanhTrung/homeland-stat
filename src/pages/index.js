@@ -33,6 +33,7 @@ export default function Home() {
     if (data.success) {
       let accessToken = data.accessToken
       setAccessToken(accessToken)
+      localStorage.setItem(StorageItem.ACCESS_TOKEN, JSON.stringify(accessToken))
     }
   }
 
@@ -66,8 +67,8 @@ export default function Home() {
             <HomelandData accessToken={accessToken} />
             :
             <VStack spacing={4}>
-              <Input width={300} placeholder='email' onChange={handleEmail} />
-              <Input width={300} placeholder='password' type='password' onChange={handlePassword} />
+              <Input width={300} placeholder='MavisHub Email' onChange={handleEmail} />
+              <Input width={300} placeholder='Password' type='password' onChange={handlePassword} />
               <Button colorScheme={'teal'} onClick={login} width={300}>Login</Button>
             </VStack>
           }
