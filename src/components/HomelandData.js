@@ -12,26 +12,31 @@ export default function HomelandData(props) {
                 let data = response.data
                 if (data.success) {
                     let plots = data.plots
-                    plots.sort(function(a, b){ return parseInt(b.land_type) - parseInt(a.land_type)})
+                    plots.sort(function (a, b) { return parseInt(b.land_type) - parseInt(a.land_type) })
                     setPlots(data.plots)
                 }
             })
         }
-
         fetchData()
     }, [])
 
     const renderPlot = () => {
         if (plots != undefined) {
             let renderItem = plots.map((item, index) => {
+                let today = new Date()
+                let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
+                console.log(toDate)
                 return (
                     <Flex key={index} direction={'row'} justify={'space-between'} align={'center'}>
                         <Image src={`/plot_${item.land_type}.webp`} width={16} alt="Plot" />
                         <Text ml={4}>{item.name}:</Text>
-                        <Text ml={6}>{item.plotData.reduce(function(sum, item){
+                        <Text ml={6}>24hrs: {item.plotData.reduce(function (sum, item) {
                             return sum + item.amount
                         }, 0) / 1000}</Text>
-                        <Text> / {item.land_type == 0 ? 16 : item.land_type == 1 ? 52 : item.land_type == 2 ? 148 : item.land_type == 3 ? 328 : 6540 }</Text>
+                        <Text ml={6}>today: {item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
+                            return sum + item.amount
+                        }, 0) / 1000}</Text>
+                        <Text> / {item.land_type == 0 ? 16 : item.land_type == 1 ? 52 : item.land_type == 2 ? 148 : item.land_type == 3 ? 328 : 6540}</Text>
                     </Flex>
                 )
             })
