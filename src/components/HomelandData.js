@@ -30,8 +30,8 @@ export default function HomelandData(props) {
                             }, 0)
                             total+= plots[i].land_type == 0 ? 16 : plots[i].land_type == 1 ? 52 : plots[i].land_type == 2 ? 148 : plots[i].land_type == 3 ? 328 : 6540
                         }
+                        setPlots(plots)
                     }
-                    setPlots(plots)
                     setAmount(amount / 1000)
                     setTotal(total)
                 }
@@ -53,12 +53,9 @@ export default function HomelandData(props) {
                     <Flex key={index} direction={'row'} justify={'space-between'} align={'center'}>
                         <Image src={`/plot_${item.land_type}.webp`} width={16} alt="Plot" />
                         <Text ml={4}>{item.name}:</Text>
-                        <Text ml={6}>24hrs: {item.plotData.reduce(function (sum, item) {
+                        <Text ml={6}>{item.plotData != undefined ? item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
                             return sum + item.amount
-                        }, 0) / 1000}</Text>
-                        <Text ml={6}>today: {item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
-                            return sum + item.amount
-                        }, 0) / 1000}</Text>
+                        }, 0) / 1000 : "Getting Data"}</Text>
                         <Text> / {item.land_type == 0 ? 16 : item.land_type == 1 ? 52 : item.land_type == 2 ? 148 : item.land_type == 3 ? 328 : 6540}</Text>
                     </Flex>
                 )
