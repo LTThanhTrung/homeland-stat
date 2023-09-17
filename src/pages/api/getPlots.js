@@ -21,13 +21,6 @@ export default async function handler(req, res) {
                 break;
             }
         }
-
-        for(let i = 0 ; i < plots.length ; i ++){
-            let plot = plots[i]
-            let plotData = await getPlotData(plot, accessToken)
-            console.log(plotData)
-            plots[i].plotData = plotData
-        }   
         res.status(200).send({ success: true, plots })
     } catch (error) {
         res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
@@ -41,10 +34,4 @@ async function getPlots(offset, accessToken) {
     let data = response.data
     let result = { hasNext: hasNext, data: data }
     return result
-}
-
-async function getPlotData(plot, accessToken){
-    const url = `https://land-api.skymavis.com/insights/maxs/logs_by_day?pid=${plot.id}&offset=0&limit=100`
-    let data = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + accessToken } })).data
-    return data.data
 }
