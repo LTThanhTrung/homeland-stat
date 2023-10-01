@@ -48,7 +48,9 @@ export default function HomelandData(props) {
         if (plots != undefined) {
             let renderItem = plots.map((item, index) => {
                 let today = new Date()
-                let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
+                let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
+                
+                console.log(toDate)
                 return (
                     <Flex key={index} direction={'row'} justify={'space-between'} align={'center'}>
                         <Image src={`/plot_${item.land_type}.webp`} width={16} alt="Plot" />
