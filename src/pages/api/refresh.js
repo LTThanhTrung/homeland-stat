@@ -2,10 +2,11 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
-    let { email, password } = req.body
-    let url = 'https://athena.skymavis.com/v2/public/auth/login'
+    let { refreshToken } = req.body
+    let url = 'https://athena.skymavis.com/v2/public/auth/token/refresh'
+
     try {
-        let request = await axios.post(url, { email, password })
+        let request = await axios.post(url, { refreshToken })
         console.log(request.data)
         if (request.status == 200) {
             let data = request.data

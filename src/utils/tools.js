@@ -1,4 +1,6 @@
 export const StorageItem = {
     ACCESS_TOKEN: 'ACCESS_TOKEN',
+    REFRESH_TOKEN: 'REFRESH_TOKEN',
     USER_DATA: 'USER_DATA',
+    ACCOUNTS_DATA : 'ACCOUNTS_DATA',
 }
