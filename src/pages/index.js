@@ -82,7 +82,7 @@ export default function Home() {
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={12}>
-          <Heading mr={4}>Homeland Stats</Heading>
+          <Heading mr={4}>Homeland Stats v1.3</Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
@@ -102,7 +102,7 @@ export default function Home() {
           </HStack>
         </Flex>
 
-        <Flex direction={'column'} height={'100%'} >
+        <Flex direction={'column'} h={'100%'} w={['100%','100%','auto','auto']} >
           {accounts.length > 0 ? <HomelandData accounts={accounts} /> : <></>}
         </Flex>
       </Flex>
