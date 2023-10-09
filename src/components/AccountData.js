@@ -1,18 +1,18 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Text, Flex, Grid } from '@chakra-ui/react'
+import { Text, Flex, Grid, Box } from '@chakra-ui/react'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import PlotData from "./PlotData"
+import { StorageItem } from "@/utils/tools"
 
 export default function AccountData(props) {
 
     const [plots, setPlots] = useState()
     const [amount, setAmount] = useState(0)
     const [total, setTotal] = useState(0)
+    const [account, setAccount] = useState(props.account)
 
-    const account = props.account
-    console.log(account)
     let accessToken = account.accessToken
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,6 +31,7 @@ export default function AccountData(props) {
                     for (let i = 0; i < plots.length; i++) {
                         let obj = plots[i]
                         let plotData = (await axios.post('/api/getPlotDetail', { accessToken, plotData: obj })).data
+
                         if (plotData.success) {
                             plots[i].plotData = plotData.data
 
@@ -39,19 +40,24 @@ export default function AccountData(props) {
                             }, 0)
                             total += plots[i].land_type == 0 ? 16 : plots[i].land_type == 1 ? 52 : plots[i].land_type == 2 ? 148 : plots[i].land_type == 3 ? 328 : 6540
                         }
+                        setPlots(plots)
                     }
-                    console.log(plots)
-                    setPlots(plots)
+                    // setPlots(plots)
                     setAmount(amount / 1000)
                     setTotal(total)
                 }
             })
         }
-        fetchData()
-    }, [])
+        
+        if(account.display == undefined || account.display == true){
+            console.log(account.display)
+            fetchData()
+        }
+
+    }, [account])
 
     const renderPlot = () => {
-        if (plots != undefined) {
+        if (plots != undefined && (account.display == true || account.display == undefined)) {
             let renderItem = plots.map((item, index) => {
                 return (
                     <PlotData key={index} item={item} />
@@ -64,11 +70,33 @@ export default function AccountData(props) {
         }
     }
 
+    const handleViewClick = async () => {
+        let temp = (account.display == undefined || account.display == true)
+
+        setAccount(prevState => ({
+            ...prevState,
+            display: !temp
+        }))
+
+        let accounts = JSON.parse(await localStorage.getItem(StorageItem.ACCOUNTS_DATA))
+        let index = accounts.findIndex(obj => obj.userID == account.userID)
+        if(index != -1){
+            accounts[index].display = !temp
+        }
+        
+        await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
+        console.log(accounts)
+    }
+
     return (
         <>
-            <Flex flexDirection={'row'} align={'center'} mt={4}>
+            <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
+                <Flex w={8} h={8} justify={'center'} align={'center'} borderWidth={1} borderRadius={100} mr={4} cursor={'pointer'} onClick={handleViewClick}>
+                    {(account.display == undefined || account.display == true) ? <ViewIcon alignSelf={'center'} /> :<ViewOffIcon alignSelf={'center'} />}
+                </Flex>
                 <Text fontSize={24} fontWeight={'extrabold'} mr={4}>{account.name}</Text>
-                <Text>{Math.floor(amount * 100 * 100 / total) / 100 }%</Text> 
+                <Text fontWeight={'bold'} mr={4}>{amount} / {total}</Text>
+                <Text>{Math.floor(amount * 100 * 100 / total) / 100}%</Text>
             </Flex>
 
             <Flex mt={4}>

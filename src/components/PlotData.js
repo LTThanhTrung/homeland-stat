@@ -1,14 +1,17 @@
 import { Flex, Text, Image, VStack, Box, Table, TableContainer, TableCaption, Thead, Tr, Th, Td, Tbody, Tfoot } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 export default function PlotData(props) {
+
+
 
     const item = props.item
     const today = new Date()
     const toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
-    const amount = item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
+    const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
         return sum + item.amount
-    }, 0) / 1000
+    }, 0) / 1000 : 0
     const total = item.land_type == 0 ? 16 : item.land_type == 1 ? 52 : item.land_type == 2 ? 148 : item.land_type == 3 ? 328 : 6540
 
     return (
