@@ -108,9 +108,7 @@ export default function AccountWeekly(props) {
     }
 
     const CustomTooltip = ({ active, payload, label }) => {
-        console.log(active, payload, label)
         if (active && payload && payload.length) {
-            console.log(payload)
           return (
             <div className="custom-tooltip">
               <p className="label">{`mAXS: ${payload[0].payload.dailyAXS / 1000}`}</p>

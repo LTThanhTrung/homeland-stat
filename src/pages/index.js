@@ -55,8 +55,6 @@ export default function Home() {
 
 
   const upsert = (array, item) => {
-    console.log(array)
-    console.log(item)
     if (array == null) array = []
     const i = array.findIndex(_item => _item.userID == item.userID)
     if (i > -1) array[i] = item
@@ -65,9 +63,7 @@ export default function Home() {
   }
 
   const renderAccount = () => {
-    console.log(accounts)
     if (accounts.length > 0) {
-      console.log('here')
       let renderItems = accounts.map((account, index) => {
         return (
           <>

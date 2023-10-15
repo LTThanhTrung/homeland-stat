@@ -39,7 +39,6 @@ export default function AccountData(props) {
                             amount += plotData.data.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
                                 return sum + item.amount
                             }, 0)
-                            console.log(plots[i].land_type)
                             total += PlotDetail[plots[i].land_type].dailyAXS
                         }
                         setPlots(plots)
@@ -53,7 +52,6 @@ export default function AccountData(props) {
         }
         
         if(account.display == undefined || account.display == true){
-            console.log(account.display)
             fetchData()
         }
 
@@ -88,7 +86,6 @@ export default function AccountData(props) {
         }
         
         await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
-        console.log(accounts)
     }
 
     return (
