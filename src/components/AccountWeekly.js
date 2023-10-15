@@ -37,8 +37,10 @@ export default function AccountWeekly(props) {
                         let plotData = (await axios.post('/api/getPlotWeekly', { accessToken, plotData: obj })).data
 
                         if (plotData.success) {
-                            // rewardsData[plotData.data.created_at.replace('T00:00:00', '')] +=  plotData.data.amount
                             plots[i].plotData = plotData.data
+                            plotData.data.sort(function(a, b) {
+                                return new Date(a.created_at) - new Date(b.created_at);
+                            });
                             
                             for(let j = 0 ; j < plotData.data.length ; j++){
                                 let year = new Date().getFullYear()
