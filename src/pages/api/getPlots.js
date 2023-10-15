@@ -21,10 +21,18 @@ export default async function handler(req, res) {
                 break;
             }
         }
-        res.status(200).send({ success: true, plots })
+        let claimAbleAXS = await getAxs(accessToken)
+        res.status(200).send({ success: true, plots, claimAbleAXS : claimAbleAXS })
     } catch (error) {
         res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
     }
+}
+
+async function getAxs(accessToken){
+    const url = 'https://distribution-reward-api.skymavis.com/public/v1/users/me/tokens/0x97a9107c1793bc407d6f527b77e7fff4d812bece'
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + accessToken } })).data
+    let total_amount = response.total_amount
+    return total_amount
 }
 
 async function getPlots(offset, accessToken) {

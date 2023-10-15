@@ -1,11 +1,14 @@
 import Head from 'next/head'
-import { Heading, Button, Flex, useColorMode, HStack, Text, Box } from '@chakra-ui/react'
+import { Heading, Button, Flex, useColorMode, HStack, Tabs, Tab, TabPanels, TabPanel, TabList, calc } from '@chakra-ui/react'
 import { uuid } from 'uuidv4'
 import { useRouter } from 'next/router'
 import { useEffect, useState, useRef, } from 'react'
 import { StorageItem } from '@/utils/tools'
 import { SunIcon } from '@chakra-ui/icons'
+
 import HomelandData from '@/components/HomelandData'
+import HomelandWeekly from '@/components/HomelandWeekly'
+
 import crypto from 'crypto'
 import axios from 'axios'
 import Header from '@/components/Header'
@@ -77,12 +80,14 @@ export default function Home() {
     }
   }
 
+  
+
   return (
     <>
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={12}>
-          <Heading mr={4}>Homeland Stats v1.4</Heading>
+          <Heading mr={4}>Homeland Stats v1.5</Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
@@ -102,9 +107,35 @@ export default function Home() {
           </HStack>
         </Flex>
 
-        <Flex direction={'column'} h={'100%'} w={['100%','100%','auto','auto']} >
-          {accounts.length > 0 ? <HomelandData accounts={accounts} /> : <></>}
-        </Flex>
+        
+
+        <Tabs isLazy w={'1376px'}>
+          <TabList>
+            <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
+              <Tab>Daily</Tab>
+              <Tab>Weekly</Tab>
+              <Tab>Monthly</Tab>
+            </Flex>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel>
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                {accounts.length > 0 ? <HomelandData/> : <></>}
+              </Flex>
+            </TabPanel>
+            <TabPanel>
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                {accounts.length > 0 ? <HomelandWeekly/> : <></>}
+              </Flex>
+            </TabPanel>
+            <TabPanel>
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                Coming Soon&#8482; when Cream is less lazy
+              </Flex>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Flex>
     </>
   )

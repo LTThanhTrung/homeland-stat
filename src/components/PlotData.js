@@ -1,9 +1,8 @@
 import { Flex, Text, Image, VStack, Box, Table, TableContainer, TableCaption, Thead, Tr, Th, Td, Tbody, Tfoot } from '@chakra-ui/react'
 import { useEffect } from 'react'
+import { PlotDetail } from '@/utils/tools'
 
 export default function PlotData(props) {
-
-
 
     const item = props.item
     const today = new Date()
@@ -12,8 +11,8 @@ export default function PlotData(props) {
     const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
         return sum + item.amount
     }, 0) / 1000 : 0
-    const total = item.land_type == 0 ? 16 : item.land_type == 1 ? 52 : item.land_type == 2 ? 148 : item.land_type == 3 ? 328 : 6540
-
+    const total = PlotDetail[item.land_type].dailyAXS 
+    
     return (
         <Flex width={64} height={64} direction={'column'} align={'center'} background={'#F6E2C1'} shadow={'lg'} borderRadius={5}>
             <Flex height={20} w={64} justifyContent={'space-around'} mt={4} alignItems={'center'} >
@@ -33,11 +32,7 @@ export default function PlotData(props) {
                         justify={'center'}
                         align={'center'}
                         borderRadius={10}
-                        bg={
-                            item.land_type == 0 ? "#dd8a0e" :
-                                item.land_type == 1 ? "#91b80f" :
-                                    item.land_type == 2 ? "#87c4ed" :
-                                        item.land_type == 3 ? "#4f9fb0" : "#12557a"}  >
+                        bg={PlotDetail[item.land_type].bg}  >
                         <Text color={"white"} fontWeight={'bold'}>{item.x};{item.y}</Text>
                     </Flex>
                 </VStack>

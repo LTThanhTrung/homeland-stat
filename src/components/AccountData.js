@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Text, Flex, Grid, Box } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import PlotData from "./PlotData"
-import { StorageItem } from "@/utils/tools"
+import { StorageItem, PlotDetail } from "@/utils/tools"
 
 export default function AccountData(props) {
 
@@ -11,6 +11,7 @@ export default function AccountData(props) {
     const [amount, setAmount] = useState(0)
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
+    const [claimable, setClaimable] = useState(0)
 
     let accessToken = account.accessToken
 
@@ -38,13 +39,15 @@ export default function AccountData(props) {
                             amount += plotData.data.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
                                 return sum + item.amount
                             }, 0)
-                            total += plots[i].land_type == 0 ? 16 : plots[i].land_type == 1 ? 52 : plots[i].land_type == 2 ? 148 : plots[i].land_type == 3 ? 328 : 6540
+                            console.log(plots[i].land_type)
+                            total += PlotDetail[plots[i].land_type].dailyAXS
                         }
                         setPlots(plots)
                     }
                     // setPlots(plots)
                     setAmount(amount / 1000)
                     setTotal(total)
+                    setClaimable(data.claimAbleAXS)
                 }
             })
         }
@@ -97,6 +100,10 @@ export default function AccountData(props) {
                 <Text fontSize={24} fontWeight={'extrabold'} mr={4}>{account.name}</Text>
                 <Text fontWeight={'bold'} mr={4}>{amount} / {total}</Text>
                 <Text>{Math.floor(amount * 100 * 100 / total) / 100}%</Text>
+                {claimable > 0 && <>
+                    <Text fontWeight={'bold'} ml={4} mr={4}>Claimable</Text>
+                    <Text>{Math.round(claimable / ( 10 ** 18) * 100) / 100} $AXS</Text>
+                </>}
             </Flex>
 
             <Flex mt={4}>
