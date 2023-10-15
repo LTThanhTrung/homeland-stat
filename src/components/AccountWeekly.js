@@ -1,30 +1,27 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Text, Flex, Grid, Box } from '@chakra-ui/react'
+import { Text, Flex } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import PlotData from "./PlotData"
 import { StorageItem, PlotDetail } from "@/utils/tools"
-import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts'
+import { LineChart, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts'
 
 export default function AccountWeekly(props) {
 
-    const [plots, setPlots] = useState()
     const [amount, setAmount] = useState(0)
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
     const [data, setData] = useState([])
 
     let accessToken = account.accessToken
+    let userID = account.userID
 
     useEffect(() => {
         const fetchData = async () => {
             let amount = 0
             let moonfall = 0
             let total = 0
-            let today = new Date()
-            let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
-            await axios.post('/api/getPlots', { accessToken }).then(async (response) => {
+            await axios.post('/api/getPlots', { accessToken, userID }).then(async (response) => {
                 let data = response.data
                 let rewardsData = []
                 if (data.success) {
@@ -41,7 +38,7 @@ export default function AccountWeekly(props) {
                             plotData.data.sort(function(a, b) {
                                 return new Date(a.created_at) - new Date(b.created_at);
                             });
-                            
+
                             for(let j = 0 ; j < plotData.data.length ; j++){
                                 let year = new Date().getFullYear()
                                 let key = plotData.data[j].created_at.replace('T00:00:00', '').replace(year + "-", "")
@@ -65,7 +62,6 @@ export default function AccountWeekly(props) {
 
                             total += PlotDetail[plots[i].land_type].dailyAXS * 7
                         }
-                        setPlots(plots)
                     }
 
                     let keys = Object.keys(rewardsData)
@@ -92,17 +88,23 @@ export default function AccountWeekly(props) {
         if (account.display == undefined || account.display == true) {
             fetchData()
         }
-
     }, [account])
 
-    const renderPlot = () => {
-        if (plots != undefined && (account.display == true || account.display == undefined)) {
-            let renderItem = plots.map((item, index) => {
-                return (
-                    <PlotData key={index} item={item} />
-                )
-            })
-            return renderItem
+    const renderChart = () => {
+        if ((account.display == true || account.display == undefined)) {
+            return (
+                <Flex mt={4}>
+                    <LineChart width={730} height={250} data={data}
+                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                        <Line type='linear' dataKey="dailyAXSPercent" stroke="#8884d8" name="daily mAXS" />
+                        <Line type="linear" dataKey="moonfallPercent" stroke="#82ca9d" name="moonfall" />
+                    </LineChart>
+                </Flex>
+            )
         }
         else {
             return
@@ -115,11 +117,9 @@ export default function AccountWeekly(props) {
             <div className="custom-tooltip">
               <p className="label">{`mAXS: ${payload[0].payload.dailyAXS / 1000}`}</p>
               <p className="label">{`moonfall: ${payload[0].payload.moonfall / 1000}`}</p>
-
             </div>
           );
         }
-      
         return null;
       };
 
@@ -136,11 +136,8 @@ export default function AccountWeekly(props) {
         if (index != -1) {
             accounts[index].display = !temp
         }
-
         await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
     }
-
-    
 
     return (
         <>
@@ -152,18 +149,7 @@ export default function AccountWeekly(props) {
                 <Text fontWeight={'bold'} mr={4}>{amount} / {total}</Text>
                 <Text>{Math.floor(amount * 100 * 100 / total) / 100}%</Text>
             </Flex>
-
-            <Flex mt={4}>
-                <LineChart width={730} height={250} data={data}
-                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Legend />
-                    <Line type='linear' dataKey="dailyAXSPercent" stroke="#8884d8" name="daily mAXS"/>
-                    <Line type="linear" dataKey="moonfallPercent" stroke="#82ca9d" name="moonfall"/>
-                </LineChart>
-            </Flex>
+            {renderChart()}
         </>
     )
 }

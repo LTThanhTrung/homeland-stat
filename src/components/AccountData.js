@@ -14,6 +14,7 @@ export default function AccountData(props) {
     const [claimable, setClaimable] = useState(0)
 
     let accessToken = account.accessToken
+    let userID = account.userID
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,7 +23,7 @@ export default function AccountData(props) {
             let today = new Date()
             let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
-            await axios.post('/api/getPlots', { accessToken }).then(async (response) => {
+            await axios.post('/api/getPlots', { accessToken, userID }).then(async (response) => {
                 let data = response.data
                 if (data.success) {
                     /* Get plots by accounts, then render plotData */
