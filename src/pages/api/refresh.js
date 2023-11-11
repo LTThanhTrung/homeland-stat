@@ -3,9 +3,11 @@ import axios from "axios"
 
 export default async function handler(req, res) {
     let { refreshToken } = req.body
+    console.log(refreshToken)
     let url = 'https://athena.skymavis.com/v2/public/auth/token/refresh'
 
     try {
+        let request = await axios.post(url, { refreshToken })
         if (request.status == 200) {
             let data = request.data
             let userID = request.data.userID
