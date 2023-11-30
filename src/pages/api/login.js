@@ -3,12 +3,19 @@ import axios from "axios"
 
 export default async function handler(req, res) {
     let { email, password } = req.body
-    let url = 'https://athena.skymavis.com/v2/public/auth/login'
+    let loginUrl = 'https://athena.skymavis.com/v2/public/auth/login'
+    let tokenUrl = 'https://land-api.skymavis.com/token-exchange/public/token'
+
     try {
-        let request = await axios.post(url, { email, password })
+        let request = await axios.post(loginUrl, { email, password })
         if (request.status == 200) {
+            
             let data = request.data
             let userID = request.data.userID
+            let accessToken = data.accessToken
+            let gameToken = await axios.post(tokenUrl, {token: accessToken})
+
+            data.accessToken = gameToken.data.game_token
 
             let nameData = await axios.post('https://graphql-gateway.axieinfinity.com/graphql',
                 {

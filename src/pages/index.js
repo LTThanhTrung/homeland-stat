@@ -1,15 +1,12 @@
-import Head from 'next/head'
-import { Heading, Button, Flex, useColorMode, HStack, Tabs, Tab, TabPanels, TabPanel, TabList, calc } from '@chakra-ui/react'
-import { uuid } from 'uuidv4'
+import { Heading, Button, Flex, useColorMode, HStack, Tabs, Tab, TabPanels, TabPanel, TabList } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import { useEffect, useState, useRef, } from 'react'
+import { useEffect, useState } from 'react'
 import { StorageItem } from '@/utils/tools'
 import { SunIcon } from '@chakra-ui/icons'
 
 import HomelandData from '@/components/HomelandData'
 import HomelandWeekly from '@/components/HomelandWeekly'
 
-import crypto from 'crypto'
 import axios from 'axios'
 import Header from '@/components/Header'
 import Account from '@/components/Account'
@@ -76,14 +73,14 @@ export default function Home() {
     }
   }
 
-  
+
 
   return (
     <>
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={12}>
-          <Heading mr={4}>Homeland Stats v1.5.2</Heading>
+          <Heading mr={4}>Homeland Stats v1.6.0</Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
@@ -103,7 +100,7 @@ export default function Home() {
           </HStack>
         </Flex>
 
-        
+
 
         <Tabs isLazy w={'1376px'}>
           <TabList>
@@ -117,12 +114,12 @@ export default function Home() {
           <TabPanels>
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
-                {accounts.length > 0 ? <HomelandData/> : <></>}
+                {accounts.length > 0 ? <HomelandData /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
-                {accounts.length > 0 ? <HomelandWeekly/> : <></>}
+                {accounts.length > 0 ? <HomelandWeekly /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
@@ -136,5 +133,3 @@ export default function Home() {
     </>
   )
 }
-
-
