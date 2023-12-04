@@ -3,13 +3,12 @@ import { ethers } from 'ethers'
 
 export default async function handler(req, res) {
     try {
-        let { accessToken, userID } = req.body
+        let { accessToken, gameToken, userID } = req.body.account
 
         let gql = {
             "query": `query MyQuery {\n  publicProfile(id: \"${userID}\") {\n    addresses {\n      ronin\n    }\n  }\n}`,
             "operationName": "MyQuery"
         }
-        
 
         let walletRequest = (await axios.post('https://graphql-gateway.axieinfinity.com/graphql', gql)).data
         let walletAddress = walletRequest.data.publicProfile.addresses.ronin
@@ -18,7 +17,7 @@ export default async function handler(req, res) {
         let offset = 0
         while (true) {
             try {
-                let data = await getPlots(offset, accessToken)
+                let data = await getPlots(offset, gameToken)
                 plots = [...plots, ...data.data]
                 if (data.hasNext) {
                     offset = offset + 100
@@ -33,7 +32,10 @@ export default async function handler(req, res) {
             }
         }
         let claimAbleAXS = await getAxs(accessToken, walletAddress)
-        res.status(200).send({ success: true, plots, claimAbleAXS: claimAbleAXS })
+        let pendingAXS = await getPendingAXS(gameToken)
+        let balanceAXS = await getBalanceAXS(gameToken)
+
+        res.status(200).send({ success: true, plots, claimAbleAXS, pendingAXS, balanceAXS })
     } catch (error) {
         res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
     }
@@ -84,9 +86,28 @@ async function getAxs(accessToken, walletAddress) {
     }
 }
 
-async function getPlots(offset, accessToken) {
+async function getBalanceAXS(gameToken) {
+    const url = `https://land-api.skymavis.com/insights/maxs/balance`
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
+    return response.amount
+}
+
+async function getPendingAXS(gameToken) {
+    const url = `https://land-api.skymavis.com/insights/maxs/withdrawals`
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
+
+    let total = 0
+    for (let i = 0; i < response.data.length; i++) {
+        if (response.data[i].status == 1) break;
+        total = total + response.data[i].amount
+    }
+
+    return total
+}
+
+async function getPlots(offset, gameToken) {
     const url = `https://land-api.skymavis.com/insights/plots/undelegated?order=asc&sort_by=plot_name&offset=${offset}&limit=100`
-    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + accessToken } })).data
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
     let hasNext = response.total > offset + 100
     let data = response.data
     let result = { hasNext: hasNext, data: data }

@@ -21,7 +21,7 @@ export default function AccountWeekly(props) {
             let moonfall = 0
             let total = 0
 
-            await axios.post('/api/getPlots', { accessToken, userID }).then(async (response) => {
+            await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
                 let rewardsData = []
                 if (data.success) {
@@ -31,7 +31,7 @@ export default function AccountWeekly(props) {
 
                     for (let i = 0; i < plots.length; i++) {
                         let obj = plots[i]
-                        let plotData = (await axios.post('/api/getPlotWeekly', { accessToken, plotData: obj })).data
+                        let plotData = (await axios.post('/api/getPlotWeekly', { account, plotData: obj })).data
 
                         if (plotData.success) {
                             plots[i].plotData = plotData.data

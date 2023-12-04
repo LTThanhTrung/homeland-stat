@@ -12,6 +12,8 @@ export default function AccountData(props) {
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
     const [claimable, setClaimable] = useState(0)
+    const [balanceAXS, setBalanceAXS] = useState(0)
+    const [pendingAXS, setPendingAXS] = useState(0)
 
     let accessToken = account.accessToken
     let userID = account.userID
@@ -23,7 +25,7 @@ export default function AccountData(props) {
             let today = new Date()
             let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
-            await axios.post('/api/getPlots', { accessToken, userID }).then(async (response) => {
+            await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
                 if (data.success) {
                     /* Get plots by accounts, then render plotData */
@@ -32,7 +34,7 @@ export default function AccountData(props) {
 
                     for (let i = 0; i < plots.length; i++) {
                         let obj = plots[i]
-                        let plotData = (await axios.post('/api/getPlotDetail', { accessToken, plotData: obj })).data
+                        let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
 
                         if (plotData.success) {
                             plots[i].plotData = plotData.data
@@ -48,11 +50,13 @@ export default function AccountData(props) {
                     setAmount(amount / 1000)
                     setTotal(total)
                     setClaimable(data.claimAbleAXS)
+                    setBalanceAXS(data.balanceAXS)
+                    setPendingAXS(data.pendingAXS)
                 }
             })
         }
-        
-        if(account.display == undefined || account.display == true){
+
+        if (account.display == undefined || account.display == true) {
             fetchData()
         }
 
@@ -82,10 +86,10 @@ export default function AccountData(props) {
 
         let accounts = JSON.parse(await localStorage.getItem(StorageItem.ACCOUNTS_DATA))
         let index = accounts.findIndex(obj => obj.userID == account.userID)
-        if(index != -1){
+        if (index != -1) {
             accounts[index].display = !temp
         }
-        
+
         await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
     }
 
@@ -93,14 +97,22 @@ export default function AccountData(props) {
         <>
             <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
                 <Flex w={8} h={8} justify={'center'} align={'center'} borderWidth={1} borderRadius={100} mr={4} cursor={'pointer'} onClick={handleViewClick}>
-                    {(account.display == undefined || account.display == true) ? <ViewIcon alignSelf={'center'} /> :<ViewOffIcon alignSelf={'center'} />}
+                    {(account.display == undefined || account.display == true) ? <ViewIcon alignSelf={'center'} /> : <ViewOffIcon alignSelf={'center'} />}
                 </Flex>
                 <Text fontSize={24} fontWeight={'extrabold'} mr={4}>{account.name}</Text>
                 <Text fontWeight={'bold'} mr={4}>{amount} / {total}</Text>
                 <Text>{Math.floor(amount * 100 * 100 / total) / 100}%</Text>
                 {claimable > 0 && <>
                     <Text fontWeight={'bold'} ml={4} mr={4}>Claimable</Text>
-                    <Text>{Math.round(claimable / ( 10 ** 18) * 100) / 100} $AXS</Text>
+                    <Text>{Math.round(claimable / (10 ** 18) * 100) / 100} AXS</Text>
+                </>}
+                {pendingAXS > 0 && <>
+                    <Text fontWeight={'bold'} ml={4} mr={4}>Pending AXS</Text>
+                    <Text>{Math.round(pendingAXS / (1000000) * 100) / 100} AXS</Text>
+                </>}
+                {balanceAXS > 0 && <>
+                    <Text fontWeight={'bold'} ml={4} mr={4}>In-game AXS</Text>
+                    <Text>{Math.round(balanceAXS / (1000000) * 100) / 100} AXS</Text>
                 </>}
             </Flex>
 

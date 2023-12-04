@@ -15,7 +15,7 @@ export default async function handler(req, res) {
             let accessToken = data.accessToken
             let gameToken = await axios.post(tokenUrl, {token: accessToken})
 
-            data.accessToken = gameToken.data.game_token
+            data.gameToken = gameToken.data.game_token
 
             let nameData = await axios.post('https://graphql-gateway.axieinfinity.com/graphql',
                 {
@@ -23,6 +23,8 @@ export default async function handler(req, res) {
                     "operationName": "MyQuery"
                 }
             )
+
+            console.log(data)
 
             data.name = nameData.data.data.publicProfile.name
             res.status(200).json({ success: true, data: data })

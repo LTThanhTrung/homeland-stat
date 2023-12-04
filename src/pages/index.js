@@ -80,7 +80,7 @@ export default function Home() {
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={12}>
-          <Heading mr={4}>Homeland Stats v1.6.0</Heading>
+          <Heading mr={4}>Homeland Stats v1.7.0</Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
@@ -99,8 +99,6 @@ export default function Home() {
             }}>Log out</Button>
           </HStack>
         </Flex>
-
-
 
         <Tabs isLazy w={'1376px'}>
           <TabList>
