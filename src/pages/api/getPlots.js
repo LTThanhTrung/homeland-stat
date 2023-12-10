@@ -95,10 +95,12 @@ async function getBalanceAXS(gameToken) {
 async function getPendingAXS(gameToken) {
     const url = `https://land-api.skymavis.com/insights/maxs/withdrawals`
     let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
-
     let total = 0
     for (let i = 0; i < response.data.length; i++) {
-        if (response.data[i].status == 1) break;
+        let created_at = response.data[i].created_at + "Z"
+        let time = new Date(created_at).getTime() + 86400 * 4 * 1000
+
+        if (response.data[i].status == 1 && Date.now() > time) break;
         total = total + response.data[i].amount
     }
 

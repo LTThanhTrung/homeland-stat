@@ -3,7 +3,6 @@ import axios from "axios"
 
 export default async function handler(req, res) {
     let { refreshToken } = req.body
-    console.log(refreshToken)
     let url = 'https://athena.skymavis.com/v2/public/auth/token/refresh'
 
     try {
