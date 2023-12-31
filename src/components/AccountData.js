@@ -23,7 +23,7 @@ export default function AccountData(props) {
             let amount = 0
             let total = 0
             let today = new Date()
-            let toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
+            let toDate = today.getUTCFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
             await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
