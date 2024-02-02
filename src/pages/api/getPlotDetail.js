@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 }
 
 async function getPlotData(plot, gameToken) {
-    const url = `https://land-api.skymavis.com/insights/maxs/logs_by_day?pid=${plot.id}&offset=0&limit=100`
+    const url = `https://land-api.skymavis.com/insights/earning/logs_by_day?pid=${plot.id}&offset=0&limit=96`
     let data = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
     return data.data
 }

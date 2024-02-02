@@ -17,7 +17,41 @@ export default async function handler(req, res) {
         let offset = 0
         while (true) {
             try {
-                let data = await getPlots(offset, gameToken)
+                let data = await getSelfPlots(offset, gameToken)
+                plots = [...plots, ...data.data]
+                if (data.hasNext) {
+                    offset = offset + 100
+                }
+                else {
+                    break;
+                }
+            }
+            catch (ex) {
+                console.log(ex)
+                break;
+            }
+        }
+        offset = 0
+        while (true) {
+            try {
+                let data = await getAssignedPlots(offset, gameToken)
+                plots = [...plots, ...data.data]
+                if (data.hasNext) {
+                    offset = offset + 100
+                }
+                else {
+                    break;
+                }
+            }
+            catch (ex) {
+                console.log(ex)
+                break;
+            }
+        }
+        offset = 0
+        while (true) {
+            try {
+                let data = await getDelegatedPlots(offset, gameToken)
                 plots = [...plots, ...data.data]
                 if (data.hasNext) {
                     offset = offset + 100
@@ -43,12 +77,12 @@ export default async function handler(req, res) {
 
 async function getAxs(accessToken, walletAddress) {
     try {
-        const url = 'https://distribution-reward-api.skymavis.com/public/v1/users/me/tokens/0x97a9107c1793bc407d6f527b77e7fff4d812bece'
+        const url = 'https://land-api.skymavis.com/insights/currency/balance'
         let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + accessToken } })).data
-        let total_amount = response.total_amount
+        let total_amount = response.axs_amount
 
         const provider = new ethers.JsonRpcProvider('https://api.roninchain.com/rpc')
-        const rewardDistributorABI = [
+        const rewardDistributorABI =  [
             {
                 "inputs": [
                     {
@@ -87,9 +121,9 @@ async function getAxs(accessToken, walletAddress) {
 }
 
 async function getBalanceAXS(gameToken) {
-    const url = `https://land-api.skymavis.com/insights/maxs/balance`
+    const url = `https://land-api.skymavis.com/insights/currency/balance`
     let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
-    return response.amount
+    return response.axs_amount
 }
 
 async function getPendingAXS(gameToken) {
@@ -107,8 +141,26 @@ async function getPendingAXS(gameToken) {
     return total
 }
 
-async function getPlots(offset, gameToken) {
+async function getSelfPlots(offset, gameToken) {
     const url = `https://land-api.skymavis.com/insights/plots/undelegated?order=asc&sort_by=plot_name&offset=${offset}&limit=100`
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
+    let hasNext = response.total > offset + 100
+    let data = response.data
+    let result = { hasNext: hasNext, data: data }
+    return result
+}
+
+async function getAssignedPlots(offset, gameToken) {
+    const url = `https://land-api.skymavis.com/insights/plots/assigned?order=asc&sort_by=plot_name&offset=${offset}&limit=100`
+    let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
+    let hasNext = response.total > offset + 100
+    let data = response.data
+    let result = { hasNext: hasNext, data: data }
+    return result
+}
+
+async function getDelegatedPlots(offset, gameToken) {
+    const url = `https://land-api.skymavis.com/insights/plots/delegated?order=asc&sort_by=plot_name&offset=${offset}&limit=100`
     let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + gameToken } })).data
     let hasNext = response.total > offset + 100
     let data = response.data
