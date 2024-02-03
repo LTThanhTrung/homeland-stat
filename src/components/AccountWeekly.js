@@ -48,16 +48,16 @@ export default function AccountWeekly(props) {
                                         moonfall : 0
                                     }
                                 }
-                                rewardsData[key].dailyAXS += plotData.data[j].from_action == 94 ? 0 : plotData.data[j].amount
-                                rewardsData[key].moonfall += plotData.data[j].from_action == 94 ? plotData.data[j].amount : 0
+                                rewardsData[key].dailyAXS += plotData.data[j].from_action == 94 ? 0 : plotData.data[j].axs_amount
+                                rewardsData[key].moonfall += plotData.data[j].from_action == 94 ? plotData.data[j].axs_amount : 0
                             }
                             
                             amount += plotData.data.filter(item => item.from_action != 94).reduce(function (sum, item) {
-                                return sum + item.amount
+                                return sum + item.axs_amount
                             }, 0)
 
                             moonfall +=  plotData.data.filter(item => item.from_action == 94).reduce(function (sum, item) {
-                                return sum + item.amount
+                                return sum + item.axs_amount
                             }, 0)
 
                             total += PlotDetail[plots[i].land_type].dailyAXS * 7

@@ -135,7 +135,7 @@ async function getPendingAXS(gameToken) {
         let time = new Date(created_at).getTime() + 86400 * 4 * 1000
 
         if (response.data[i].status == 1 && Date.now() > time) break;
-        total = total + response.data[i].amount
+        total = total + response.data[i].axs_amount
     }
 
     return total

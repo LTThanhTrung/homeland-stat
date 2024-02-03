@@ -35,12 +35,11 @@ export default function AccountData(props) {
                     for (let i = 0; i < plots.length; i++) {
                         let obj = plots[i]
                         let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
-
                         if (plotData.success) {
                             plots[i].plotData = plotData.data
 
                             amount += plotData.data.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
-                                return sum + item.amount
+                                return sum + item.axs_amount
                             }, 0)
                             total += PlotDetail[plots[i].land_type].dailyAXS
                         }

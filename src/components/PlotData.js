@@ -9,7 +9,7 @@ export default function PlotData(props) {
     const toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
 
     const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
-        return sum + item.amount
+        return sum + item.axs_amount
     }, 0) / 1000 : 0
     const total = PlotDetail[item.land_type].dailyAXS 
     
