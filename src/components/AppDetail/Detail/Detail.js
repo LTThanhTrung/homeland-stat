@@ -5,23 +5,21 @@ import Plot from "../Plot/Plot"
 
 export default function Detail(props) {
 
-    const [loading, setLoading] = useState(true)
     const [plots, setPlots] = useState()
     const [account, setAccount] = useState(props.account)
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true)
             await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
                 if (data.success) {
                     /* Get plots by accounts, then render plotData */
-                    let plots = data.plots
-                    plots.map((item) => item.loaded = false)
-                    await plots.sort(function (a, b) { return parseInt(b.land_type) - parseInt(a.land_type) })
+                    let plotsItem = data.plots
+                    plotsItem.map((item) => item.loaded = false)
+
 
                     // Sort if plot is played by steward or by self
-                    await plots.sort(function (a, b) {
+                    await plotsItem.sort(function (a, b) {
                         if (a.steward == undefined && b.steward == undefined) {
                             return parseInt(b.land_type) - parseInt(a.land_type)
                         }
@@ -39,17 +37,20 @@ export default function Detail(props) {
                         // return parseInt(b.steward.assignee_id) - parseInt(a.steward.assignee_id) 
                     })
 
-                    for (let i = 0; i < plots.length; i++) {
-                        let obj = plots[i]
+                    setPlots(plotsItem)
+
+
+                    for (let i = 0; i < plotsItem.length; i++) {
+                        console.log(plotsItem)
+                        let obj = plotsItem[i]
                         let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
                         if (plotData.success) {
-                            plots[i].plotData = plotData.data
-                            plots[i].loaded = true
+                            plotsItem[i].plotData = plotData.data
+                            plotsItem[i].loaded = true
+                            let x = [...plotsItem]
+                            setPlots(x)
                         }
-                        setPlots([...plots])
                     }
-                    // setPlots(plots)
-                    // setLoading(false)
                 }
             })
         }
@@ -66,7 +67,7 @@ export default function Detail(props) {
         if (plots != undefined && (account.display == true || account.display == undefined)) {
             let renderItem = plots.map((item, index) => {
                 return (
-                    <Plot key={item.loaded + index} item={item} account={account} />
+                    <Plot key={index} item={item}/>
                 )
             })
             return renderItem
