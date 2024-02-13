@@ -76,7 +76,7 @@ export default function Home() {
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
-          <Heading mr={4}>Homeland Stats 2.0.0  </Heading>
+          <Heading mr={4}>Homeland Stats 2.0.1  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>

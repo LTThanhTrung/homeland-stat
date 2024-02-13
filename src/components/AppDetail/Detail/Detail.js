@@ -17,20 +17,20 @@ export default function Detail(props) {
                 if (data.success) {
                     /* Get plots by accounts, then render plotData */
                     let plots = data.plots
-
+                    plots.map((item) => item.loaded = false)
                     await plots.sort(function (a, b) { return parseInt(b.land_type) - parseInt(a.land_type) })
 
                     // Sort if plot is played by steward or by self
-                    await plots.sort(function (a, b) {  
-                        if(a.steward == undefined && b.steward == undefined){
+                    await plots.sort(function (a, b) {
+                        if (a.steward == undefined && b.steward == undefined) {
                             return parseInt(b.land_type) - parseInt(a.land_type)
                         }
-                        
-                        if(a.steward == undefined){
+
+                        if (a.steward == undefined) {
                             return -1
                         }
 
-                        if(b.steward == undefined){
+                        if (b.steward == undefined) {
                             return 1
                         }
 
@@ -44,10 +44,12 @@ export default function Detail(props) {
                         let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
                         if (plotData.success) {
                             plots[i].plotData = plotData.data
+                            plots[i].loaded = true
                         }
+                        setPlots([...plots])
                     }
-                    setPlots(plots)
-                    setLoading(false)
+                    // setPlots(plots)
+                    // setLoading(false)
                 }
             })
         }
@@ -58,11 +60,13 @@ export default function Detail(props) {
 
     }, [account])
 
+    useEffect(() => { }, [plots])
+
     const renderPlot = () => {
         if (plots != undefined && (account.display == true || account.display == undefined)) {
             let renderItem = plots.map((item, index) => {
                 return (
-                    <Plot key={index} item={item} />
+                    <Plot key={item.loaded + index} item={item} account={account} />
                 )
             })
             return renderItem
@@ -76,12 +80,9 @@ export default function Detail(props) {
         // TODO: Make a better loading ^_^
         <>
             <Flex mt={4}>
-                {loading ?
-                    <>Loading data</> :
-                    <Grid w={'100%'} templateColumns='repeat(5, 1fr)' gap={6}>
-                        <>{renderPlot()}</>
-                    </Grid>
-                }
+                <Grid w={'100%'} templateColumns='repeat(5, 1fr)' gap={6}>
+                    <>{renderPlot()}</>
+                </Grid>
             </Flex>
         </>
     )
