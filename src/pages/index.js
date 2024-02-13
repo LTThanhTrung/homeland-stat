@@ -1,11 +1,10 @@
-import { Heading, Button, Flex, useColorMode, HStack, Tabs, Tab, TabPanels, TabPanel, TabList } from '@chakra-ui/react'
+import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { StorageItem } from '@/utils/tools'
-import { SunIcon } from '@chakra-ui/icons'
 
-import HomelandData from '@/components/HomelandData'
-import HomelandWeekly from '@/components/HomelandWeekly'
+import AppSummary from '@/components/AppSummary/AppSummary'
+import AppDetail from '@/components/AppDetail/AppDetail'
 
 import axios from 'axios'
 import Header from '@/components/Header'
@@ -13,7 +12,6 @@ import Account from '@/components/Account'
 
 export default function Home() {
   const router = useRouter()
-  const { toggleColorMode } = useColorMode()
   const [accessToken, setAccessToken] = useState()
   const [accounts, setAccounts] = useState([])
 
@@ -73,21 +71,18 @@ export default function Home() {
     }
   }
 
-
-
   return (
     <>
       <Header />
-      <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
-        <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={12}>
-          <Heading mr={4}>Homeland Stats v1.7.2</Heading>
+      <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'}>
+        <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
+          <Heading mr={4}>Homeland Stats 2.0.0  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
                 {renderAccount()}
               </Flex>
             </Flex>
-            <SunIcon onClick={toggleColorMode} cursor={'pointer'} />
             <Button
               colorScheme={'blue'}
               onClick={() => {
@@ -101,23 +96,23 @@ export default function Home() {
         </Flex>
 
         <Tabs isLazy w={'1376px'}>
-          <TabList>
+          <TabList borderColor={'whiteAlpha.300'}>
             <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
-              <Tab>Daily</Tab>
-              <Tab>Weekly</Tab>
-              <Tab>Monthly</Tab>
+              <Tab>Summary</Tab>
+              <Tab>Details</Tab>
+              <Tab>Stewards Performance</Tab>
             </Flex>
           </TabList>
 
           <TabPanels>
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
-                {accounts.length > 0 ? <HomelandData /> : <></>}
+                {accounts.length > 0 ? <AppSummary /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
-                {accounts.length > 0 ? <HomelandWeekly /> : <></>}
+                {accounts.length > 0 ? <AppDetail /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>

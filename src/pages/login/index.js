@@ -1,10 +1,7 @@
 import { Heading, Button, Flex, useColorMode, Input, VStack } from '@chakra-ui/react'
-import { uuid } from 'uuidv4'
 import { useRouter } from 'next/router'
-import { useEffect, useState, useRef, } from 'react'
+import {  useState,  } from 'react'
 import { StorageItem } from '@/utils/tools'
-import { SunIcon } from '@chakra-ui/icons'
-import HomelandData from '@/components/HomelandData'
 import crypto from 'crypto'
 import axios from 'axios'
 import Header from '@/components/Header'
@@ -50,7 +47,7 @@ export default function Login() {
     return (
         <>
             <Header />
-            <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'}>
+            <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} backgroundColor={'gray.800'} color={'white'}>
                 <Flex direction={'row'} align={'center'} mt={12}>
                     <Heading mr={4}>Login</Heading>
                 </Flex>

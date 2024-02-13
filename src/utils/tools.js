@@ -32,3 +32,18 @@ export const PlotDetail = {
         bg : "#12557a"
     }
 }
+
+export const GameConfig = {
+    moonfall_action_id : 92,
+    moonfall_amount: 6000
+}
+
+export function formatDate(date) {
+    var dd = date.getUTCDate();
+    var mm = date.getUTCMonth() + 1;
+    var yyyy = date.getUTCFullYear();
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+    date = `${yyyy}-${mm}-${dd}`
+    return date
+}

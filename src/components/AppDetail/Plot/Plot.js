@@ -1,18 +1,17 @@
-import { Flex, Text, Image, VStack, Box, Table, TableContainer, TableCaption, Thead, Tr, Th, Td, Tbody, Tfoot } from '@chakra-ui/react'
-import { useEffect } from 'react'
-import { PlotDetail } from '@/utils/tools'
+import { Flex, Text, Image, VStack, Box, Table, TableContainer, Tr, Th, HStack } from '@chakra-ui/react'
+import { PlotDetail, formatDate } from '@/utils/tools'
+import { ArrowUpDownIcon } from '@chakra-ui/icons'
 
-export default function PlotData(props) {
+export default function Plot(props) {
 
     const item = props.item
-    const today = new Date()
-    const toDate = today.getFullYear() + '-' + (today.getUTCMonth() + 1 < 10 ? "0" + (today.getUTCMonth() + 1) : today.getUTCMonth() + 1) + '-' + (today.getUTCDate() < 10 ? "0" + today.getUTCDate() : today.getUTCDate())
+    const today = formatDate(new Date())
 
-    const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(toDate)).reduce(function (sum, item) {
+    const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(today)).reduce(function (sum, item) {
         return sum + item.axs_amount
     }, 0) / 1000 : 0
-    const total = PlotDetail[item.land_type].dailyAXS 
-    
+    const total = PlotDetail[item.land_type].dailyAXS
+
     return (
         <Flex width={64} height={64} direction={'column'} align={'center'} background={'#F6E2C1'} shadow={'lg'} borderRadius={5}>
             <Flex height={20} w={64} justifyContent={'space-around'} mt={4} alignItems={'center'} >
@@ -21,8 +20,13 @@ export default function PlotData(props) {
                 </Flex>
                 <VStack>
                     <Box w={32} >
+                        {props.item.steward ?
+                        <HStack spacing={2}>
+                            <Text fontSize={12} noOfLines={1} color={"#A28C76"}>{props.item.steward.assignee_name}</Text>
+                        </HStack>
+                            : <></>}
                         <Text noOfLines={2} color={"#A28C76"} fontWeight={'bold'}>
-                            {item.name}
+                            {item.name.length > 0 ? item.name : "No Name"}
                         </Text>
                     </Box>
 
@@ -37,6 +41,7 @@ export default function PlotData(props) {
                     </Flex>
                 </VStack>
             </Flex>
+
             <TableContainer w={'100%'}>
                 <Table variant='unstyled' color={"#72573A"} w={'100%'} mt={3}>
                     <Tr>
