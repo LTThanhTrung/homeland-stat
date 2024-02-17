@@ -8,8 +8,8 @@ import { PlotDetail, formatDate, GameConfig } from "@/utils/tools"
 export default function Summary(props) {
 
     // const [plots, setPlots] = useState()
-    const [amount, setAmount] = useState(0)
-    const [weeklyAmount, setWeeklyAmount] = useState(0)
+    const [dailyAmount, setDailyAmount] = useState({ axs: 0, moonfall: 0 })
+    const [weeklyAmount, setWeeklyAmount] = useState({ axs: 0, moonfall: 0 })
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
     const [landTypes, setLandTypes] = useState({ '0': 0, '1': 0, '2': 0, '3': 0, '4': 0 }) // Hashmap to count different land types
@@ -21,7 +21,6 @@ export default function Summary(props) {
     useEffect(() => {
         const fetchData = async () => {
             let total = 0
-            let weeklyAmount = 0
 
             await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
@@ -48,9 +47,12 @@ export default function Summary(props) {
             await axios.post('/api/getAccountWeekly', { account }).then(async (response) => {
                 let data = response.data.data
                 let today = formatDate(new Date())
-                let todayAXS = data[today].dailyAXS + data[today].moonfallAXS
+
+                setDailyAmount({
+                    axs: Math.round(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
+                    moonfall: Math.round(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
+                })
                 let chartData = []
-                setAmount(Math.round(todayAXS / 1000 / 1000 * 1000) / 1000)
                 let keys = Object.keys(data)
                 for (let i = 0; i < keys.length; i++) {
                     let item = {
@@ -60,11 +62,15 @@ export default function Summary(props) {
                         'moonfall': data[keys[i]].moonfallAXS,
                         'moonfallPercent': data[keys[i]].moonfallAXS / (GameConfig.moonfall_amount) / 1000 * 100
                     }
-                    weeklyAmount = (weeklyAmount + data[keys[i]].dailyAXS + data[keys[i]].moonfallAXS)
+                    weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
+                    weeklyAmount.moonfall = (weeklyAmount.moonfall + data[keys[i]].moonfallAXS)
                     chartData.push(item)
                 }
+
+                weeklyAmount.axs = weeklyAmount.axs / 1000
+                weeklyAmount.moonfall = weeklyAmount.moonfall / (GameConfig.moonfall_amount * 1000)
                 setChartData(chartData)
-                setWeeklyAmount(weeklyAmount / 1000)
+                setWeeklyAmount(weeklyAmount)
             })
         }
 
@@ -149,9 +155,14 @@ export default function Summary(props) {
                             </Th>
                             <Th>
                                 <Flex direction={'row'} align={'center'}>
-                                    <Text>{amount}</Text>
+                                    <Text>{dailyAmount.axs}</Text>
                                     <Text> / {total}</Text>
                                     <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
+                                    {dailyAmount.moonfall > 0 ?
+                                        <>
+                                            <Text>+{Math.round(dailyAmount.moonfall)} Moonfall</Text>
+                                        </>
+                                        : <></>}
                                 </Flex>
                             </Th>
                         </Tr>
@@ -162,7 +173,7 @@ export default function Summary(props) {
                                 </Text>
                             </Th>
                             <Flex direction={'row'}>
-                                <Th >{Math.floor(amount * 100 * 100 / total) / 100} %</Th>
+                                <Th >{Math.floor(dailyAmount.axs * 100 * 100 / total) / 100} %</Th>
                             </Flex>
                         </Tr>
                         <Tr>
@@ -174,9 +185,14 @@ export default function Summary(props) {
                             <Flex direction={'row'}>
                                 <Th>
                                     <Flex direction={'row'} align={'center'}>
-                                        <Text>{Math.round(weeklyAmount / 1000 * 100) / 100}</Text>
+                                        <Text>{Math.round(weeklyAmount.axs / 1000 * 100) / 100}</Text>
                                         <Text> / {total * 7}</Text>
                                         <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
+                                        {weeklyAmount.moonfall > 0 ?
+                                            <>
+                                                <Text>+{Math.round(weeklyAmount.moonfall)} Moonfall</Text>
+                                            </>
+                                            : <></>}
                                     </Flex>
                                 </Th>
                             </Flex>
@@ -189,7 +205,7 @@ export default function Summary(props) {
                             </Th>
                             <Flex direction={'row'}>
                                 <Th>
-                                    {Math.round(weeklyAmount / 1000 / (total * 7) * 100 * 100) / 100}%
+                                    {Math.round(weeklyAmount.axs / 1000 / (total * 7) * 100 * 100) / 100}%
                                 </Th>
                             </Flex>
                         </Tr>

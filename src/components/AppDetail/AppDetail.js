@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
 import { StorageItem } from '@/utils/tools'
 import Detail from './Detail/Detail'
 
@@ -17,8 +17,8 @@ export default function AppDetail() {
     }
 
     return (
-        <Flex w={'100%'} flexDirection={'column'}>
+        <VStack w={'100%'} flexDirection={'column'} spacing={4}>
             <>{renderAccount()}</>
-        </Flex>
+        </VStack>
     )
 }
