@@ -9,32 +9,32 @@ export const PlotDetail = {
     "0": {
         dailyAXS: 43,
         name: "Savannah",
-        bg : "#dd8a0e"
+        bg: "#dd8a0e"
     },
     "1": {
         dailyAXS: 139,
         name: "Forest",
-        bg : "#91b80f"
+        bg: "#91b80f"
     },
     "2": {
         dailyAXS: 396,
         name: "Arctic",
-        bg : "#87c4ed"
+        bg: "#87c4ed"
     },
     "3": {
         dailyAXS: 878,
         name: "Mystic",
-        bg : "#4f9fb0"
+        bg: "#4f9fb0"
     },
     "4": {
         dailyAXS: 17495,
         name: "Genesis",
-        bg : "#12557a"
+        bg: "#12557a"
     }
 }
 
 export const GameConfig = {
-    moonfall_action_id : 92,
+    moonfall_action_id: [91, 92, 93, 94],
     moonfall_amount: 6000
 }
 
