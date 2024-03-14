@@ -77,12 +77,11 @@ export default async function handler(req, res) {
 
 async function getAxs(accessToken, walletAddress) {
     try {
-        const url = 'https://land-api.skymavis.com/insights/currency/balance'
+        const url = "https://distribution-reward-api.skymavis.com/public/v1/users/me/tokens/0x97a9107c1793bc407d6f527b77e7fff4d812bece?ref_service_code=land"
         let response = (await axios.get(url, { headers: { 'Authorization': 'Bearer ' + accessToken } })).data
-        let total_amount = response.axs_amount
-
+        let total_amount = Number(response.total_amount)
         const provider = new ethers.JsonRpcProvider('https://api.roninchain.com/rpc')
-        const rewardDistributorABI =  [
+        const rewardDistributorABI = [
             {
                 "inputs": [
                     {
@@ -110,7 +109,6 @@ async function getAxs(accessToken, walletAddress) {
         ]
         const rewardDistributorContract = new ethers.Contract('0x193e04a8944d9aaa57abd2586b0c5c8044d21804', rewardDistributorABI, provider)
         const claimed = await rewardDistributorContract.getTotalClaimed(walletAddress, '0x97a9107c1793bc407d6f527b77e7fff4d812bece')
-
         total_amount = total_amount - Number(claimed)
         return total_amount
     }

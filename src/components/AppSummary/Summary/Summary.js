@@ -37,7 +37,7 @@ export default function Summary(props) {
 
                     plots.sort(function (a, b) { return parseInt(b.land_type) - parseInt(a.land_type) })
 
-                    setTotal(Math.round(total / 1000 * 1000) / 1000)
+                    setTotal(Math.floor(total / 1000 * 1000) / 1000)
                     setClaimable(data.claimAbleAXS)
                     setBalanceAXS(data.balanceAXS)
                     setPendingAXS(data.pendingAXS)
@@ -49,8 +49,8 @@ export default function Summary(props) {
                 let today = formatDate(new Date())
 
                 setDailyAmount({
-                    axs: Math.round(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
-                    moonfall: Math.round(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
+                    axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
+                    moonfall: Math.floor(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
                 })
                 let chartData = []
                 let keys = Object.keys(data)
@@ -116,17 +116,17 @@ export default function Summary(props) {
                         <HStack direction={'row'} spacing={4}>
                             {claimable > 0 && <>
                                 <Text fontWeight={'bold'}>Claimable</Text>
-                                <Text>{Math.round(claimable / (10 ** 18) * 100) / 100} AXS</Text>
+                                <Text>{Math.floor(claimable / (10 ** 18) * 100) / 100} AXS</Text>
                                 <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                             </>}
                             {pendingAXS > 0 && <>
                                 <Text fontWeight={'bold'}>Pending AXS</Text>
-                                <Text>{Math.round(pendingAXS / (1000000) * 100) / 100} AXS</Text>
+                                <Text>{Math.floor(pendingAXS / (1000000) * 100) / 100} AXS</Text>
                                 <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                             </>}
                             {balanceAXS > 0 && <>
                                 <Text fontWeight={'bold'}>In-game AXS</Text>
-                                <Text>{Math.round(balanceAXS / (1000000) * 100) / 100} AXS</Text>
+                                <Text>{Math.floor(balanceAXS / (1000000) * 100) / 100} AXS</Text>
                                 <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                             </>}
                         </HStack>
@@ -160,7 +160,7 @@ export default function Summary(props) {
                                     <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                                     {dailyAmount.moonfall > 0 ?
                                         <>
-                                            <Text>+{Math.round(dailyAmount.moonfall)} Moonfall</Text>
+                                            <Text>+{Math.floor(dailyAmount.moonfall)} Moonfall</Text>
                                         </>
                                         : <></>}
                                 </Flex>
@@ -185,12 +185,12 @@ export default function Summary(props) {
                             <Flex direction={'row'}>
                                 <Th>
                                     <Flex direction={'row'} align={'center'}>
-                                        <Text>{Math.round(weeklyAmount.axs / 1000 * 100) / 100}</Text>
+                                        <Text>{Math.floor(weeklyAmount.axs / 1000 * 100) / 100}</Text>
                                         <Text> / {total * 7}</Text>
                                         <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                                         {weeklyAmount.moonfall > 0 ?
                                             <>
-                                                <Text>+{Math.round(weeklyAmount.moonfall)} Moonfall</Text>
+                                                <Text>+{Math.floor(weeklyAmount.moonfall)} Moonfall</Text>
                                             </>
                                             : <></>}
                                     </Flex>
@@ -205,7 +205,7 @@ export default function Summary(props) {
                             </Th>
                             <Flex direction={'row'}>
                                 <Th>
-                                    {Math.round(weeklyAmount.axs / 1000 / (total * 7) * 100 * 100) / 100}%
+                                    {Math.floor(weeklyAmount.axs / 1000 / (total * 7) * 100 * 100) / 100}%
                                 </Th>
                             </Flex>
                         </Tr>

@@ -2,6 +2,7 @@ import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList 
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { StorageItem } from '@/utils/tools'
+import { version } from '../../package.json'
 
 import AppSummary from '@/components/AppSummary/AppSummary'
 import AppDetail from '@/components/AppDetail/AppDetail'
@@ -28,8 +29,10 @@ export default function Home() {
       for (let i = 0; i < accounts.length; i++) {
         if (now > new Date(accounts[i].accessTokenExpiresAt).getTime()) {
           let tokenData = await refreshToken(accounts[i].refreshToken)
-          accounts = upsert(accounts, tokenData)
-          localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
+          if (tokenData) {
+            accounts = upsert(accounts, tokenData)
+            localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
+          }
         }
       }
 
@@ -51,7 +54,9 @@ export default function Home() {
 
   const upsert = (array, item) => {
     if (array == null) array = []
-    const i = array.findIndex(_item => _item.userID == item.userID)
+    const i = array.findIndex(_item => {
+      _item.userID == item.userID
+    })
     if (i > -1) array[i] = item
     else array.push(item)
     return array
@@ -76,7 +81,7 @@ export default function Home() {
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
-          <Heading mr={4}>Homeland Stats 2.1.0  </Heading>
+          <Heading mr={4}>Homeland Stats {version}  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>

@@ -41,7 +41,6 @@ export default function Detail(props) {
 
 
                     for (let i = 0; i < plotsItem.length; i++) {
-                        console.log(plotsItem)
                         let obj = plotsItem[i]
                         let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
                         if (plotData.success) {
