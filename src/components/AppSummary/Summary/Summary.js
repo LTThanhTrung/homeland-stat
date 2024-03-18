@@ -52,19 +52,40 @@ export default function Summary(props) {
                     axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
                     moonfall: Math.floor(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
                 })
-                let chartData = []
+                let chartData = {
+                    "name" : [],
+                    "dailyAXS" : [],
+                    "dailyAXSPercent" : [],
+                    "moonfall": [],
+                    "moonfallPercent" : [],
+                    "1" : [],
+                    "2" : [],
+                    "3" : [],
+                    "4" : [],
+                    "91" : [],
+                    "92" : [],
+                    "93" : [],
+                    "94" : []
+                }
+                // let chartData = []
                 let keys = Object.keys(data)
                 for (let i = 0; i < keys.length; i++) {
-                    let item = {
-                        'name': keys[i].slice(5),
-                        'dailyAXS': data[keys[i]].dailyAXS,
-                        'dailyAXSPercent': data[keys[i]].dailyAXS / total / 1000 * 100,
-                        'moonfall': data[keys[i]].moonfallAXS,
-                        'moonfallPercent': data[keys[i]].moonfallAXS / (GameConfig.moonfall_amount) / 1000 * 100
-                    }
+                    console.log(data[keys[i]]["1"])
+                    chartData.name.push(keys[i].slice(5))
+                    chartData.dailyAXS.push(Math.floor(data[keys[i]].dailyAXS / 1000 / 1000 * 100) / 100)
+                    chartData.dailyAXSPercent.push(data[keys[i]].dailyAXS / total / 1000 * 100)
+                    chartData.moonfall.push(data[keys[i]].moonfallAXS)
+                    chartData.moonfallPercent.push(data[keys[i]].moonfallAXS / (GameConfig.moonfall_amount) / 1000 * 100)
+                    // let item = {
+                    //     'name': keys[i].slice(5),
+                    //     'dailyAXS': data[keys[i]].dailyAXS,
+                    //     'dailyAXSPercent': data[keys[i]].dailyAXS / total / 1000 * 100,
+                    //     'moonfall': data[keys[i]].moonfallAXS,
+                    //     'moonfallPercent': data[keys[i]].moonfallAXS / (GameConfig.moonfall_amount) / 1000 * 100
+                    // }
+                    // chartData.push(item)
                     weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
                     weeklyAmount.moonfall = (weeklyAmount.moonfall + data[keys[i]].moonfallAXS)
-                    chartData.push(item)
                 }
 
                 weeklyAmount.axs = weeklyAmount.axs / 1000
