@@ -51,16 +51,13 @@ export default function Home() {
     }
   }
 
-
   const upsert = (array, item) => {
     if (array == null) array = []
-    const i = array.findIndex(_item => {
-      _item.userID == item.userID
-    })
+    let i = array.findIndex(_item => _item.userID == item.userID)
     if (i > -1) array[i] = item
     else array.push(item)
     return array
-  }
+}
 
   const renderAccount = () => {
     if (accounts.length > 0) {
