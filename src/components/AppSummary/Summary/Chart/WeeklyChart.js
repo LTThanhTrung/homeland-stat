@@ -29,11 +29,11 @@ export default function WeeklyChart(props) {
 
             for (let i = 0; i < keys.length; i++) {
                 data.name.push(keys[i].slice(5))
-                data["1"].push(Math.round(props.data[keys[i]]["1"] / 1000 / 1000 * 100) / 100)
-                data["2"].push(Math.round(props.data[keys[i]]["2"] / 1000 / 1000 * 100) / 100)
-                data["3"].push(Math.round(props.data[keys[i]]["3"] / 1000 / 1000 * 100) / 100)
-                data["4"].push(Math.round(props.data[keys[i]]["4"] / 1000 / 1000 * 100) / 100)
-                data.dailyAXS.push(Math.round(props.data[keys[i]].dailyAXS / 1000 / 1000 * 100) / 100)
+                data["1"].push(Math.round(props.data[keys[i]]["1"] / 1000 / 1000 * 1000) / 1000)
+                data["2"].push(Math.round(props.data[keys[i]]["2"] / 1000 / 1000 * 1000) / 1000)
+                data["3"].push(Math.round(props.data[keys[i]]["3"] / 1000 / 1000 * 1000) / 1000)
+                data["4"].push(Math.round(props.data[keys[i]]["4"] / 1000 / 1000 * 1000) / 1000)
+                data.dailyAXS.push(Math.round(props.data[keys[i]].dailyAXS / 1000 / 1000 * 1000) / 1000)
                 data.moonfall.push(props.data[keys[i]].moonfallAXS / 1000 / 1000)
             }
 
