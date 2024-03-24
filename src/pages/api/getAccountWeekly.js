@@ -25,6 +25,7 @@ async function getPlotData(gameToken) {
     logs.map((item) => {
         Object.keys(days).forEach(key => {
             if (item.created_at.startsWith(key)) {
+                days[key][item.from_action] = (days[key][item.from_action] ? days[key][item.from_action] : 0) + item.axs_amount
                 if (GameConfig.moonfall_action_id.includes(item.from_action)) {
                     days[key].moonfallAXS = days[key].moonfallAXS + item.axs_amount
                 }

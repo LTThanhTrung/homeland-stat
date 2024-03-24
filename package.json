@@ -1,6 +1,6 @@
 {
   "name": "homeland-stat",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -18,6 +18,8 @@
     "eslint-config-next": "13.4.19",
     "ethers": "^6.8.0",
     "framer-motion": "^10.16.4",
+    "highcharts": "^11.4.0",
+    "highcharts-react-official": "^3.2.1",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",

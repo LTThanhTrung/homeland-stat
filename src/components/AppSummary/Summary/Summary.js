@@ -13,7 +13,7 @@ export default function Summary(props) {
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
     const [landTypes, setLandTypes] = useState({ '0': 0, '1': 0, '2': 0, '3': 0, '4': 0 }) // Hashmap to count different land types
-    const [chartData, setChartData] = useState([])
+    const [chartData, setChartData] = useState()
     const [claimable, setClaimable] = useState(0)
     const [balanceAXS, setBalanceAXS] = useState(0)
     const [pendingAXS, setPendingAXS] = useState(0)
@@ -52,24 +52,15 @@ export default function Summary(props) {
                     axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
                     moonfall: Math.floor(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
                 })
-                let chartData = []
                 let keys = Object.keys(data)
                 for (let i = 0; i < keys.length; i++) {
-                    let item = {
-                        'name': keys[i].slice(5),
-                        'dailyAXS': data[keys[i]].dailyAXS,
-                        'dailyAXSPercent': data[keys[i]].dailyAXS / total / 1000 * 100,
-                        'moonfall': data[keys[i]].moonfallAXS,
-                        'moonfallPercent': data[keys[i]].moonfallAXS / (GameConfig.moonfall_amount) / 1000 * 100
-                    }
                     weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
                     weeklyAmount.moonfall = (weeklyAmount.moonfall + data[keys[i]].moonfallAXS)
-                    chartData.push(item)
                 }
 
                 weeklyAmount.axs = weeklyAmount.axs / 1000
                 weeklyAmount.moonfall = weeklyAmount.moonfall / (GameConfig.moonfall_amount * 1000)
-                setChartData(chartData)
+                setChartData(data)
                 setWeeklyAmount(weeklyAmount)
             })
         }
