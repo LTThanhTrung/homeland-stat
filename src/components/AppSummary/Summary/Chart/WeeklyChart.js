@@ -100,19 +100,19 @@ export default function WeeklyChart(props) {
                 },
 
                 series: [{
-                    name: "Gathering",
+                    name: "Crafting",
                     data: data["1"],
                     stack: "Regular",
                     color: "#fd7f6f"
                 },
                 {
-                    name: "Crafting",
+                    name: "Gathering",
                     data: data["2"],
                     stack: "Regular",
                     color: "#7eb0d5"
                 },
                 {
-                    name: "Producing",
+                    name: "Production",
                     data: data["3"],
                     stack: "Regular",
                     color: "#b2e061"
