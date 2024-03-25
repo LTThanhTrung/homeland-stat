@@ -76,7 +76,7 @@ export default function WeeklyChart(props) {
                             color: 'white'
                         },
                         formatter: function () {
-                            return Highcharts.numberFormat(this.total, 2);
+                            return this.total == 0 ? "" : Highcharts.numberFormat(this.total, 2);
                         }
                     }
                 },
