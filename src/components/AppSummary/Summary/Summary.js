@@ -177,7 +177,7 @@ export default function Summary(props) {
                                 <Th>
                                     <Flex direction={'row'} align={'center'}>
                                         <Text>{Math.floor(weeklyAmount.axs / 1000 * 100) / 100}</Text>
-                                        <Text> / {total * 7}</Text>
+                                        <Text> / {Math.round(total * 7 * 1000) / 1000}</Text>
                                         <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                                         {weeklyAmount.moonfall > 0 ?
                                             <>
@@ -208,11 +208,10 @@ export default function Summary(props) {
                             </Th>
                             <Flex direction={'row'}>
                                 <Th p={2}>
-                                    <WeeklyChart data={chartData} />
+                                    <WeeklyChart data={chartData} dailyCap={total} />
                                 </Th>
                             </Flex>
                         </Tr>
-
                     </Table>
                 </TableContainer>
             </Flex >

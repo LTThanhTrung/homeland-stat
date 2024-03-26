@@ -52,7 +52,6 @@ export default function WeeklyChart(props) {
                 },
 
                 xAxis: {
-                    // categories: ["Gold", "Silver", "Bronze"]
                     categories: data.name
                 },
 
@@ -62,11 +61,10 @@ export default function WeeklyChart(props) {
                     title: {
                         text: undefined
                     },
-                    gridLineWidth: 0.5,
-                    gridLineDashStyle: "longdash",
+                    gridLineDashStyle: "ShortDash",
                     labels: {
                         formatter: function () {
-                            return Highcharts.numberFormat(this.value, 2);
+                            return Highcharts.numberFormat(this.value, 3);
                         }
                     },
                     stackLabels: {
@@ -76,9 +74,11 @@ export default function WeeklyChart(props) {
                             color: 'white'
                         },
                         formatter: function () {
-                            return this.total == 0 ? "" : Highcharts.numberFormat(this.total, 2);
+                            return this.total == 0 ? "" : Highcharts.numberFormat(this.total, 3);
                         }
-                    }
+                    },
+                    tickInterval: props.dailyCap / 5,
+                    minTickInterval: props.dailyCap / 5,
                 },
                 lang: {
                     decimalPoint: ",",
@@ -86,7 +86,7 @@ export default function WeeklyChart(props) {
                 },
 
                 tooltip: {
-                    pointFormat: "{series.name}: <b>{point.y:,.2f}</b><br/>" + "Total: <b>{point.stackTotal:,.2f}</b><br/>",
+                    pointFormat: "{series.name}: <b>{point.y:,.3f}</b><br/>" + "Total: <b>{point.stackTotal:,.3f}</b><br/>",
                 },
 
                 plotOptions: {
