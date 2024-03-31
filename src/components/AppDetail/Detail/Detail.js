@@ -66,7 +66,7 @@ export default function Detail(props) {
         if (plots != undefined && (account.display == true || account.display == undefined)) {
             let renderItem = plots.map((item, index) => {
                 return (
-                    <Plot key={index} item={item}/>
+                    <Plot key={index} item={item} account={account}/>
                 )
             })
             return renderItem
