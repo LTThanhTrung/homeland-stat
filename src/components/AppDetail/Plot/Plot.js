@@ -2,6 +2,7 @@ import { Flex, Text, Image, VStack, Box, Table, TableContainer, Tr, Th, HStack }
 import { PlotDetail, formatDate } from '@/utils/tools'
 import { useState } from 'react'
 import axios from 'axios'
+import { GameConfig } from '@/utils/tools'
 
 export default function Plot(props) {
     console.log(props)
@@ -17,8 +18,9 @@ export default function Plot(props) {
             setItem(prev => ({ ...prev, loaded: false }))
             let obj = item
             let plotData = (await axios.post('/api/getPlotDetail', { account: props.account, plotData: obj })).data
-            obj.plotData = plotData.data
-            setItem(prev => ({ ...prev, plotData: plotData.data, loaded: true }))
+            let data = plotData.data
+            let filteredData = data.filter((e) => !(GameConfig.moonfall_action_id.includes(e.from_action)))
+            setItem(prev => ({ ...prev, plotData: filteredData, loaded: true }))
         }
         catch (ex) {
             console.log(ex)
