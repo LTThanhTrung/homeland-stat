@@ -151,7 +151,8 @@ export default function Summary(props) {
                                     <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                                     {dailyAmount.moonfall > 0 ?
                                         <>
-                                            <Text>+{Math.floor(dailyAmount.moonfall)} Moonfall</Text>
+                                            <Text>+{Math.floor(dailyAmount.moonfall)}</Text>
+                                            <Image w={8} src="/icon-jackpot.png"/>
                                         </>
                                         : <></>}
                                 </Flex>
@@ -181,7 +182,8 @@ export default function Summary(props) {
                                         <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
                                         {weeklyAmount.moonfall > 0 ?
                                             <>
-                                                <Text>+{Math.floor(weeklyAmount.moonfall)} Moonfall</Text>
+                                                <Text>+{Math.floor(weeklyAmount.moonfall)} </Text>
+                                                <Image w={8} src="/icon-jackpot.png"/>
                                             </>
                                             : <></>}
                                     </Flex>

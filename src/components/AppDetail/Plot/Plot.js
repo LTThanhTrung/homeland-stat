@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 export default function Plot(props) {
+    console.log(props)
     const [item, setItem] = useState(props.item)
     const today = formatDate(new Date())
     const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(today)).reduce(function (sum, item) {
@@ -71,10 +72,11 @@ export default function Plot(props) {
                             <Tr>
                                 <Th color={"#ffffff"} textAlign={'left'} p={2} >
                                     <Text fontWeight={"extrabold"} ml={4}>
-                                        Current mAXS
+                                        Current mAXS 
                                     </Text>
                                 </Th>
                                 <Th p={2}>{amount}</Th>
+                                {item.moonfall > 0 ? <Image w={8} src="/icon-jackpot.png"/> : <></>}
                             </Tr>
                             <Tr>
                                 <Th color={"#ffffff"} textAlign={'left'} p={2} >
