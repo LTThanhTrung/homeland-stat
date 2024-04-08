@@ -42,7 +42,7 @@ export default function Plot(props) {
                                 <Text fontSize={12} noOfLines={1} color={"#A28C76"}>{props.item.steward.assignee_name}</Text>
                             </HStack>
                             : <></>}
-                        <Text noOfLines={2} color={"#ffffff"} fontWeight={'bold'}>
+                        <Text noOfLines={2} color={"#e2e4e9b3"} fontWeight={'bold'}>
                             {item.name.length > 0 ? item.name : "No Name"}
                         </Text>
                     </Box>
@@ -62,9 +62,9 @@ export default function Plot(props) {
             {item.loaded ?
                 <>
                     <TableContainer w={'100%'}>
-                        <Table variant='unstyled' color={"#ffffff"} w={'100%'} mt={3}>
+                        <Table variant='unstyled' color={"#e2e4e9b3"} w={'100%'} mt={3}>
                             <Tr>
-                                <Th color={"#ffffff"} textAlign={'left'} p={2} >
+                                <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
                                     <Text fontWeight={"extrabold"} ml={4}>
                                         Townhall Level
                                     </Text>
@@ -72,7 +72,7 @@ export default function Plot(props) {
                                 <Th p={2}>{item.townhall_level}</Th>
                             </Tr>
                             <Tr>
-                                <Th color={"#ffffff"} textAlign={'left'} p={2} >
+                                <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
                                     <Text fontWeight={"extrabold"} ml={4}>
                                         Current mAXS 
                                     </Text>
@@ -81,7 +81,7 @@ export default function Plot(props) {
                                 {item.moonfall > 0 ? <Image w={8} src="/icon-jackpot.png"/> : <></>}
                             </Tr>
                             <Tr>
-                                <Th color={"#ffffff"} textAlign={'left'} p={2} >
+                                <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
                                     <Text fontWeight={"extrabold"} ml={4}>
                                         Total mAXS
                                     </Text>
@@ -89,7 +89,7 @@ export default function Plot(props) {
                                 <Th p={2}>{total}</Th>
                             </Tr>
                             <Tr>
-                                <Th color={"#ffffff"} textAlign={'left'} p={2} >
+                                <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
                                     <Text fontWeight={"extrabold"} ml={4}>
                                         Percentage
                                     </Text>

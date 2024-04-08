@@ -2,12 +2,13 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Flex, Grid } from '@chakra-ui/react'
 import Plot from "../Plot/Plot"
-import { GameConfig } from "@/utils/tools"
+import { GameConfig, formatDate } from "@/utils/tools"
 
 export default function Detail(props) {
 
     const [plots, setPlots] = useState()
     const [account, setAccount] = useState(props.account)
+    const today = formatDate(new Date())
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,7 +39,7 @@ export default function Detail(props) {
                         if (plotData.success) {
                             plotsItem[i].moonfall = 0
                             let data = plotData.data
-                            let filteredData = data.filter((e) => !(GameConfig.moonfall_action_id.includes(e.from_action)))
+                            let filteredData = data.filter((e) => !((GameConfig.moonfall_action_id.includes(e.from_action) && e.created_at.startsWith(today))))
                             if(filteredData.length != data.length) plotsItem[i].moonfall = 1
                             plotsItem[i].plotData = filteredData
                             plotsItem[i].loaded = true

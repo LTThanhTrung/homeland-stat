@@ -125,9 +125,9 @@ export default function Summary(props) {
                 </Flex>
 
                 <TableContainer w={'100%'}>
-                    <Table variant='unstyled' color={'white'} w={'100%'} mt={3}>
+                    <Table variant='unstyled' color={'#e2e4e9b3'} w={'100%'} mt={3}>
                         <Tr>
-                            <Th color={"white"} textAlign={'left'} >
+                            <Th color={"#e2e4e9b3"} textAlign={'left'} >
                                 <Text fontWeight={"extrabold"}>
                                     Plots
                                 </Text>
@@ -140,7 +140,7 @@ export default function Summary(props) {
                         </Tr>
                         <Tr>
                             <Th textAlign={'left'} >
-                                <Text fontWeight={"extrabold"} color={'white'}>
+                                <Text fontWeight={"extrabold"} color={'#e2e4e9b3'}>
                                     Today Earning
                                 </Text>
                             </Th>

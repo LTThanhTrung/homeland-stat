@@ -94,7 +94,7 @@ export default function WeeklyChart(props) {
                         stacking: "normal",
                         dataLabels: {
                             enabled: false,
-                            color: '#FFFFFF'
+                            color: '#e2e4e9b3'
                         }
                     },
                     series: {
