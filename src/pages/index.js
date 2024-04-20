@@ -6,6 +6,7 @@ import { version } from '../../package.json'
 
 import AppSummary from '@/components/AppSummary/AppSummary'
 import AppDetail from '@/components/AppDetail/AppDetail'
+import AppLeaderboard from '@/components/AppLeaderboard/AppLeaderboard'
 
 import axios from 'axios'
 import Header from '@/components/Header'
@@ -102,6 +103,7 @@ export default function Home() {
             <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
               <Tab>Summary</Tab>
               <Tab>Details</Tab>
+              <Tab>Leaderboard</Tab>
               <Tab>Stewards Performance</Tab>
             </Flex>
           </TabList>
@@ -115,6 +117,11 @@ export default function Home() {
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
                 {accounts.length > 0 ? <AppDetail /> : <></>}
+              </Flex>
+            </TabPanel>
+            <TabPanel>
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                {accounts.length > 0 ? <AppLeaderboard /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
