@@ -18,16 +18,13 @@ export default function Leaderboard(props) {
                         if (leaderboardData.success) {
                             for (let i = 0; i < leaderboardData.data.length; i++) {
                                 for (let j = 0; j < data.plots.length; j++) {
-                                    console.log(data.plots[j].id)
-                                    console.log(leaderboardData.data[i].plot_id)
                                     if (data.plots[j].id == leaderboardData.data[i].plot_id) {
                                         data.plots[j].point = leaderboardData.data[i].point
                                         data.plots[j].rank = leaderboardData.data[i].rank
 
                                     }
                                 }
-                            }
-                            console.log(data.plots)
+                            }   
                             setItems(data.plots)
                         }
                     })
@@ -47,7 +44,7 @@ export default function Leaderboard(props) {
             if(item.point){
                 return (
                     <Flex>
-                        <Item rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point}/>
+                        <Item key={index} rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point} />
                     </Flex>
                 )
             }

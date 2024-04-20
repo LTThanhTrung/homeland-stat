@@ -5,7 +5,6 @@ import axios from 'axios'
 import { GameConfig } from '@/utils/tools'
 
 export default function Plot(props) {
-    console.log(props)
     const [item, setItem] = useState(props.item)
     const today = formatDate(new Date())
     const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(today)).reduce(function (sum, item) {

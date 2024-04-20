@@ -7,7 +7,6 @@ export default async function handler(req, res) {
         let plot_ids = plots.map(function (obj) {
             return obj.id;
         });
-        console.log(plot_ids)
         let header = { 'Authorization': `Bearer ${account.gameToken}` }
         let response = (await axios.post(url, { plot_ids }, { headers: header })).data
         res.status(200).send({ success: true, data: response })
