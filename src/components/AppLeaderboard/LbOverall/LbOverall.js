@@ -30,8 +30,8 @@ export default function LbOverall(props) {
     const renderLB = () => {
         let renderItem = items.map((item, index) => {
             return (
-                <Flex>
-                    <Item key={index} rank={item.rank} owner_name={item.owner_name} point={item.point} />
+                <Flex key={index}>
+                    <Item rank={item.rank} owner_name={item.owner_name} point={item.point} />
                 </Flex>
             )
         })

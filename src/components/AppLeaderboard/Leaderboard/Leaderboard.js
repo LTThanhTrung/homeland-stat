@@ -43,8 +43,8 @@ export default function Leaderboard(props) {
         let renderItem = items.map((item, index) => {
             if(item.point){
                 return (
-                    <Flex>
-                        <Item key={index} rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point} />
+                    <Flex key={index}>
+                        <Item rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point} />
                     </Flex>
                 )
             }
