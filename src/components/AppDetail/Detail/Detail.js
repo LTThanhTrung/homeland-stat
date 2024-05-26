@@ -40,7 +40,7 @@ export default function Detail(props) {
                             plotsItem[i].moonfall = 0
                             let data = plotData.data
                             let filteredData = data.filter((e) => !((GameConfig.moonfall_action_id.includes(e.from_action) && e.created_at.startsWith(today))))
-                            if(filteredData.length != data.length) plotsItem[i].moonfall = 1
+                            if (filteredData.length != data.length) plotsItem[i].moonfall = 1
                             plotsItem[i].plotData = filteredData
                             plotsItem[i].loaded = true
                             let x = [...plotsItem]
@@ -84,3 +84,115 @@ export default function Detail(props) {
         </>
     )
 }
+
+
+[
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T01:00:00",
+       "axs_amount": 3000,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 4,
+       "created_at": "2024-05-26T10:00:00",
+       "axs_amount": 7800,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T05:00:00",
+       "axs_amount": 1200,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T06:00:00",
+       "axs_amount": 1800,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T09:00:00",
+       "axs_amount": 1200,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 4,
+       "created_at": "2024-05-26T03:00:00",
+       "axs_amount": 1200,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 4,
+       "created_at": "2024-05-26T00:00:00",
+       "axs_amount": 2400,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T13:00:00",
+       "axs_amount": 1800,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 2,
+       "created_at": "2024-05-26T03:00:00",
+       "axs_amount": 3000,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T00:00:00",
+       "axs_amount": 1800,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T12:00:00",
+       "axs_amount": 2400,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 2,
+       "created_at": "2024-05-26T02:00:00",
+       "axs_amount": 6000,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T10:00:00",
+       "axs_amount": 600,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T15:00:00",
+       "axs_amount": 600,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T02:00:00",
+       "axs_amount": 600,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T11:00:00",
+       "axs_amount": 600,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T08:00:00",
+       "axs_amount": 2400,
+       "oct_amount": 0
+    },
+    {
+       "from_action": 3,
+       "created_at": "2024-05-26T07:00:00",
+       "axs_amount": 600,
+       "oct_amount": 0
+    },
+ ]

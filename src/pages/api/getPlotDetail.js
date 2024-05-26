@@ -1,6 +1,7 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     try {
         let { account, plotData } = req.body
         let response = await getPlotData(plotData, account.gameToken)

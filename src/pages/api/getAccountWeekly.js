@@ -2,6 +2,7 @@ import axios from "axios"
 import { formatDate, GameConfig } from "@/utils/tools"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     try {
         let { account } = req.body
         let response = await getPlotData(account.gameToken)

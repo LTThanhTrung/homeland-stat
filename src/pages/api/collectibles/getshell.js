@@ -1,6 +1,8 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
+
     try {
         let url = 'https://graphql-gateway.axieinfinity.com/graphql'
         let body = {

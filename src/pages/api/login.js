@@ -3,6 +3,7 @@ import axios from "axios"
 import { headers } from "../../../next.config"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     let { email, password, captcha } = req.body
     let loginUrl = 'https://athena.skymavis.com/v2/public/auth/login'
     let tokenUrl = 'https://land-api.skymavis.com/token-exchange/public/token'

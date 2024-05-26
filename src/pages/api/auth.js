@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     try {
         let { code } = JSON.parse(req.body)
         const url = 'https://athena.skymavis.com/oauth2'

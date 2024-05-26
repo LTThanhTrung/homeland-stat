@@ -2,6 +2,7 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     let { refreshToken } = req.body
     let url = 'https://athena.skymavis.com/v2/public/auth/token/refresh'
     let tokenUrl = 'https://land-api.skymavis.com/token-exchange/public/token'

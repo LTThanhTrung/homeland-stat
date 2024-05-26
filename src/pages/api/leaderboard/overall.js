@@ -1,6 +1,7 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     try {
         let { account, offset } = req.body
         let url = `https://land-api.skymavis.com/insights/leaderboard/all?offset=${offset}&limit=100`

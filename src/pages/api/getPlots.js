@@ -2,6 +2,7 @@ import axios from "axios"
 import { ethers } from 'ethers'
 
 export default async function handler(req, res) {
+    res.setHeader('Cache-Control', 'public, s-maxage=1');
     try {
         let { accessToken, gameToken, userID } = req.body.account
 
