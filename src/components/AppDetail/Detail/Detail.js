@@ -7,7 +7,7 @@ import { GameConfig, formatDate } from "@/utils/tools"
 export default function Detail(props) {
 
     const [plots, setPlots] = useState()
-    const [account, setAccount] = useState(props.account)
+    const account = props.account
     const today = formatDate(new Date())
 
     useEffect(() => {
@@ -38,11 +38,18 @@ export default function Detail(props) {
                         let plotData = (await axios.post('/api/getPlotDetail', { account, plotData: obj })).data
                         if (plotData.success) {
                             plotsItem[i].moonfall = 0
-                            let data = plotData.data
+                            let data = plotData.data.axsData
+
+                            if (obj.payout_ratio == 5000) {
+                                data = data.map((item) => { return { ...item, axs_amount: item.axs_amount * 2 } })
+                            }
+
                             let filteredData = data.filter((e) => !((GameConfig.moonfall_action_id.includes(e.from_action) && e.created_at.startsWith(today))))
-                            if (filteredData.length != data.length) plotsItem[i].moonfall = 1
+
+                            if (filteredData.length != data.length) plotsItem[i].moonfall = 1 // TODO: Change logic to support custom moonfall
                             plotsItem[i].plotData = filteredData
                             plotsItem[i].loaded = true
+                            plotsItem[i].plotDetail = plotData.data.landData[0]
                             let x = [...plotsItem]
                             setPlots(x)
                         }
@@ -51,16 +58,14 @@ export default function Detail(props) {
             })
         }
 
-        if (account.display == undefined || account.display == true) {
-            fetchData()
-        }
+        fetchData()
 
-    }, [account])
+    }, [])
 
     useEffect(() => { }, [plots])
 
     const renderPlot = () => {
-        if (plots != undefined && (account.display == true || account.display == undefined)) {
+        if (plots != undefined) {
             let renderItem = plots.map((item, index) => {
                 return (
                     <Plot key={index} item={item} account={account} />
@@ -84,115 +89,3 @@ export default function Detail(props) {
         </>
     )
 }
-
-
-[
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T01:00:00",
-       "axs_amount": 3000,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 4,
-       "created_at": "2024-05-26T10:00:00",
-       "axs_amount": 7800,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T05:00:00",
-       "axs_amount": 1200,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T06:00:00",
-       "axs_amount": 1800,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T09:00:00",
-       "axs_amount": 1200,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 4,
-       "created_at": "2024-05-26T03:00:00",
-       "axs_amount": 1200,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 4,
-       "created_at": "2024-05-26T00:00:00",
-       "axs_amount": 2400,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T13:00:00",
-       "axs_amount": 1800,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 2,
-       "created_at": "2024-05-26T03:00:00",
-       "axs_amount": 3000,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T00:00:00",
-       "axs_amount": 1800,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T12:00:00",
-       "axs_amount": 2400,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 2,
-       "created_at": "2024-05-26T02:00:00",
-       "axs_amount": 6000,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T10:00:00",
-       "axs_amount": 600,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T15:00:00",
-       "axs_amount": 600,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T02:00:00",
-       "axs_amount": 600,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T11:00:00",
-       "axs_amount": 600,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T08:00:00",
-       "axs_amount": 2400,
-       "oct_amount": 0
-    },
-    {
-       "from_action": 3,
-       "created_at": "2024-05-26T07:00:00",
-       "axs_amount": 600,
-       "oct_amount": 0
-    },
- ]

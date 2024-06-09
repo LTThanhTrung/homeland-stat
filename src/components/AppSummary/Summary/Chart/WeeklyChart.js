@@ -39,7 +39,7 @@ export default function WeeklyChart(props) {
 
             let options = {
                 chart: {
-                    backgroundColor: "rgba(13,14,18,.7)",
+                    backgroundColor: "#13161b",
                     type: "column",
                     borderColor: "#334eff"
                 },

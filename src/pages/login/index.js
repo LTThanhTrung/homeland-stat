@@ -22,22 +22,12 @@ export default function Login() {
         let data = (await axios.post('/api/login', { email: email, password: password, captcha: captcha })).data
 
         if (data.success) {
-            let storageItem = await JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
-            storageItem = upsert(storageItem, data.data)
-            await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(storageItem))
+            await localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(data.data))
             router.push('/')
         }
         else {
             alert(data.error)
         }
-    }
-
-    const upsert = (array, item) => {
-        if (array == null) array = []
-        const i = array.findIndex(_item => _item.userID == item.userID)
-        if (i > -1) array[i] = item
-        else array.push(item)
-        return array
     }
 
     const handleEmail = (e) => {

@@ -11,10 +11,7 @@ export default function LbOverall(props) {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        if (account.display == undefined || account.display == true) {
-            fetchData(page)
-        }
-
+        fetchData(page)
     }, [account])
 
     const fetchData = async (offset) => {
