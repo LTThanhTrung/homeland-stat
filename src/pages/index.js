@@ -1,8 +1,8 @@
-import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList, Text, Image } from '@chakra-ui/react'
+import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { StorageItem } from '@/utils/tools'
-import packageInfo from '../../package.json';
+import { version } from '../../package.json'
 
 import AppSummary from '@/components/AppSummary/AppSummary'
 import AppDetail from '@/components/AppDetail/AppDetail'
@@ -11,46 +11,39 @@ import AppLeaderboard from '@/components/AppLeaderboard/AppLeaderboard'
 import axios from 'axios'
 import Header from '@/components/Header'
 import Account from '@/components/Account'
-import Footer from '@/components/Footer';
 
 export default function Home() {
   const router = useRouter()
-  const [account, setAccount] = useState([])
-  const [price, setPrice] = useState()
+  const [accessToken, setAccessToken] = useState()
+  const [accounts, setAccounts] = useState([])
 
   useEffect(() => {
     const getItemsFromStorage = async () => {
-      let account = await JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
-
-      // To clear previous accounts
-      // Remove in a few patches
-      if (Array.isArray(account)) {
-        localStorage.clear()
-        router.push("/login")
-      }
-
+      let accounts = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
       let now = new Date().getTime()
 
-      if (account == "" || account == null || account == undefined) {
+      if (accounts == "" || accounts == null || accounts == undefined || accounts.length == 0) {
         router.push('/login')
         return
       }
 
-      if (now > new Date(account.accessTokenExpiresAt).getTime()) {
-        let tokenData = await refreshToken(account.refreshToken)
-        if (tokenData) {
-          account = upsert(account, tokenData)
-          localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(account))
+      for (let i = 0; i < accounts.length; i++) {
+        if (now > new Date(accounts[i].accessTokenExpiresAt).getTime()) {
+          let tokenData = await refreshToken(accounts[i].refreshToken)
+          if (tokenData) {
+            accounts = upsert(accounts, tokenData)
+            localStorage.setItem(StorageItem.ACCOUNTS_DATA, JSON.stringify(accounts))
+          }
         }
       }
 
-      let x = await axios.get('/api/getAXSPrice')
-      setPrice(x.data.data.usd)
-      setAccount(account)
+      setAccounts(accounts)
     }
 
     getItemsFromStorage()
   }, [])
+
+  useEffect(() => { }, [accessToken])
 
   const refreshToken = async (refreshToken) => {
     let data = (await axios.post('/api/refresh', { refreshToken: refreshToken })).data
@@ -65,26 +58,43 @@ export default function Home() {
     if (i > -1) array[i] = item
     else array.push(item)
     return array
+}
+
+  const renderAccount = () => {
+    if (accounts.length > 0) {
+      let renderItems = accounts.map((account, index) => {
+        return (
+          <>
+            <Account account={account} key={index} />
+          </>
+        )
+      })
+
+      return renderItems
+    }
   }
 
-
-
   return (
-    <Flex w={'100%'} h={'100%'} direction={'column'} pb={20}>
+    <>
       <Header />
-      <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'} pb={20} marginBottom={20}>
+      <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
-          <Heading mr={4}>Homeland Stats {packageInfo.version}  </Heading>
-          
+          <Heading mr={4}>Homeland Stats {version}  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
-            <Image src="axs-logo-small.png" w={12} />
-            <Text fontWeight={'bold'}> {price} USD</Text>
+            <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
+              <Flex marginLeft={'auto'}>
+                {renderAccount()}
+              </Flex>
+            </Flex>
             <Button
               colorScheme={'blue'}
               onClick={() => {
-                localStorage.clear()
                 router.push('/login')
-              }}>Log out</Button>
+              }}>Login</Button>
+            <Button onClick={() => {
+              localStorage.clear()
+              setAccounts([])
+            }}>Log out</Button>
           </HStack>
         </Flex>
 
@@ -97,20 +107,21 @@ export default function Home() {
               <Tab>Stewards Performance</Tab>
             </Flex>
           </TabList>
+
           <TabPanels>
             <TabPanel>
               <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
-                <AppSummary />
+                {accounts.length > 0 ? <AppSummary /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
-                <AppDetail />
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                {accounts.length > 0 ? <AppDetail /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} position={'relative'} pb={20}>
-                <AppLeaderboard />
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+                {accounts.length > 0 ? <AppLeaderboard /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
@@ -121,7 +132,6 @@ export default function Home() {
           </TabPanels>
         </Tabs>
       </Flex>
-      <Footer />
-    </Flex>
+    </>
   )
 }

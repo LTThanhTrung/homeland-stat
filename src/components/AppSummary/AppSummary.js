@@ -1,21 +1,18 @@
 import { VStack } from '@chakra-ui/react'
 import { StorageItem } from '@/utils/tools'
 import Summary from './Summary/Summary';
-import { useEffect, useState } from 'react'
 
 export default function AppSummary() {
-    const [account, setAccount] = useState()
-
-    useEffect(() => {
-        let account = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
-        setAccount(account)
-    }, [])
+    let accounts = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
 
     const renderAccount = () => {
-        if (account != undefined) {
-            return (
-                <Summary account={account} />
-            )
+        if (accounts != undefined && accounts.length > 0) {
+            let renderItems = accounts.map((account, index) => {
+                return (
+                    <Summary key={index} account={account} />
+                )
+            })
+            return renderItems
         }
     }
 

@@ -3,13 +3,16 @@ import { StorageItem } from '@/utils/tools'
 import Detail from './Detail/Detail'
 
 export default function AppDetail() {
-    let account = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
+    let accounts = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
 
     const renderAccount = () => {
-        if (account != undefined) {
-            return (
-                <Detail account={account} />
-            )
+        if (accounts != undefined && accounts.length > 0) {
+            let renderItems = accounts.map((account, index) => {
+                return (
+                    <Detail key={index} account={account} />
+                )
+            })
+            return renderItems
         }
     }
 
