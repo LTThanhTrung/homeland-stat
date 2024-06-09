@@ -1,13 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Text, Flex, TableContainer, Table, Tr, Th, Image, HStack } from '@chakra-ui/react'
+import { Text, Flex, TableContainer, Table, Tr, Th, Image, HStack, Tbody } from '@chakra-ui/react'
 import WeeklyChart from "./Chart/WeeklyChart"
 import { CopyIcon } from '@chakra-ui/icons'
 import { PlotDetail, formatDate, GameConfig } from "@/utils/tools"
 
 export default function Summary(props) {
 
-    // const [plots, setPlots] = useState()
+    const [loading, setLoading] = useState(true)
     const [dailyAmount, setDailyAmount] = useState({ axs: 0, moonfall: 0 })
     const [weeklyAmount, setWeeklyAmount] = useState({ axs: 0, moonfall: 0 })
     const [total, setTotal] = useState(0)
@@ -20,6 +20,7 @@ export default function Summary(props) {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             let total = 0
 
             await axios.post('/api/getPlots', { account }).then(async (response) => {
@@ -63,22 +64,22 @@ export default function Summary(props) {
                 setChartData(data)
                 setWeeklyAmount(weeklyAmount)
             })
+            setLoading(false)
         }
 
         if (account.display == undefined || account.display == true) {
             fetchData()
         }
-
     }, [account])
 
     const renderPlots = () => {
         let keys = Object.keys(landTypes)
         return (
-            keys.map((item) => {
+            keys.map((item, index) => {
                 {
                     if (landTypes[item] > 0) {
                         return (
-                            <Flex direction={'row'} justify={'center'} align={'center'} mr={4}>
+                            <Flex key={index} direction={'row'} justify={'center'} align={'center'} mr={4}>
                                 <Image src={`plot_${item}.png`} mr={2} w={10} />
                                 <Text>{landTypes[item]}</Text>
                             </Flex>
@@ -89,43 +90,40 @@ export default function Summary(props) {
         )
     }
 
-    return (
-        <>
-            <Flex direction={'column'} background={'#13161b'} borderColor={'##282c34'} borderWidth={1} shadow={'lg'} borderRadius={10} p={5}>
-                <Flex p={4} flexDirection={"row"} alignItems={'center'} >
-                    <Image src="avatar.png" borderRadius={50} w={24} />
-                    <Flex direction={'column'} p={4}>
-                        <Text fontWeight={'bold'} fontSize={20}>
-                            {account.name}
+    const renderBody = () => {
+        return <>
+            <Flex p={4} flexDirection={"row"} alignItems={'center'} >
+                <Image src="avatar.png" borderRadius={50} w={24} />
+                <Flex direction={'column'} p={4}>
+                    <Text fontWeight={'bold'} fontSize={20}>
+                        {account.name}
+                    </Text>
+                    <Flex direction={'row'} align={'center'}>
+                        <Text color={'#b4bccb'}>
+                            {account.userID}
                         </Text>
-                        <Flex direction={'row'} align={'center'}>
-                            <Text color={'#b4bccb'}>
-                                {account.userID}
-                            </Text>
-                            <CopyIcon cursor={'pointer'} ml={2} onClick={() => { navigator.clipboard.writeText(account.userID) }} />
-                        </Flex>
-                        <HStack direction={'row'} spacing={4}>
-                            {claimable > 0 && <>
-                                <Text fontWeight={'bold'}>Claimable</Text>
-                                <Text>{Math.floor(claimable / (10 ** 18) * 100) / 100} AXS</Text>
-                                <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                            </>}
-                            {pendingAXS > 0 && <>
-                                <Text fontWeight={'bold'}>Pending AXS</Text>
-                                <Text>{Math.floor(pendingAXS / (1000000) * 100) / 100} AXS</Text>
-                                <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                            </>}
-                            {balanceAXS > 0 && <>
-                                <Text fontWeight={'bold'}>In-game AXS</Text>
-                                <Text>{Math.floor(balanceAXS / (1000000) * 100) / 100} AXS</Text>
-                                <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                            </>}
-                        </HStack>
+                        <CopyIcon cursor={'pointer'} ml={2} onClick={() => { navigator.clipboard.writeText(account.userID) }} />
                     </Flex>
+                    <HStack direction={'row'} spacing={4}>
+                        {claimable > 0 && <>
+                            <Text fontWeight={'bold'}>Claimable</Text>
+                            <Text>{Math.floor(claimable / (10 ** 18) * 1000) / 1000} AXS</Text>
+                        </>}
+                        {pendingAXS > 0 && <>
+                            <Text fontWeight={'bold'}>Pending AXS</Text>
+                            <Text>{Math.floor(pendingAXS / (1000000) * 1000) / 1000} AXS</Text>
+                        </>}
+                        {balanceAXS > 0 && <>
+                            <Text fontWeight={'bold'}>In-game AXS</Text>
+                            <Text>{Math.floor(balanceAXS / (1000000) * 1000) / 1000} AXS</Text>
+                        </>}
+                    </HStack>
                 </Flex>
+            </Flex>
 
-                <TableContainer w={'100%'}>
-                    <Table variant='unstyled' color={'#e2e4e9b3'} w={'100%'} mt={3}>
+            <TableContainer w={'100%'}>
+                <Table variant='unstyled' color={'#e2e4e9b3'} w={'100%'} mt={3}>
+                    <Tbody>
                         <Tr>
                             <Th color={"#e2e4e9b3"} textAlign={'left'} >
                                 <Text fontWeight={"extrabold"}>
@@ -152,7 +150,7 @@ export default function Summary(props) {
                                     {dailyAmount.moonfall > 0 ?
                                         <>
                                             <Text>+{Math.floor(dailyAmount.moonfall)}</Text>
-                                            <Image w={8} src="/icon-jackpot.png"/>
+                                            <Image w={8} src="/icon-jackpot.png" />
                                         </>
                                         : <></>}
                                 </Flex>
@@ -164,9 +162,9 @@ export default function Summary(props) {
                                     Daily Percentage
                                 </Text>
                             </Th>
-                            <Flex direction={'row'}>
-                                <Th >{Math.floor(dailyAmount.axs * 100 * 100 / total) / 100} %</Th>
-                            </Flex>
+                            <Th >{Math.floor(dailyAmount.axs * 100 * 100 / total) / 100} %</Th>
+
+
                         </Tr>
                         <Tr>
                             <Th textAlign={'left'}>
@@ -174,21 +172,21 @@ export default function Summary(props) {
                                     Weekly Earning
                                 </Text>
                             </Th>
-                            <Flex direction={'row'}>
-                                <Th>
-                                    <Flex direction={'row'} align={'center'}>
-                                        <Text>{Math.floor(weeklyAmount.axs / 1000 * 100) / 100}</Text>
-                                        <Text> / {Math.round(total * 7 * 1000) / 1000}</Text>
-                                        <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                                        {weeklyAmount.moonfall > 0 ?
-                                            <>
-                                                <Text>+{Math.floor(weeklyAmount.moonfall)} </Text>
-                                                <Image w={8} src="/icon-jackpot.png"/>
-                                            </>
-                                            : <></>}
-                                    </Flex>
-                                </Th>
-                            </Flex>
+                            <Th>
+                                <Flex direction={'row'} align={'center'}>
+                                    <Text>{Math.floor(weeklyAmount.axs / 1000 * 100) / 100}</Text>
+                                    <Text> / {Math.round(total * 7 * 1000) / 1000}</Text>
+                                    <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
+                                    {weeklyAmount.moonfall > 0 ?
+                                        <>
+                                            <Text>+{Math.floor(weeklyAmount.moonfall)} </Text>
+                                            <Image w={8} src="/icon-jackpot.png" />
+                                        </>
+                                        : <></>}
+                                </Flex>
+                            </Th>
+
+
                         </Tr>
                         <Tr>
                             <Th textAlign={'left'}>
@@ -196,11 +194,11 @@ export default function Summary(props) {
                                     Weekly Percentage
                                 </Text>
                             </Th>
-                            <Flex direction={'row'}>
-                                <Th>
-                                    {Math.floor(weeklyAmount.axs / 1000 / (total * 7) * 100 * 100) / 100}%
-                                </Th>
-                            </Flex>
+                            <Th>
+                                {Math.floor(weeklyAmount.axs / 1000 / (total * 7) * 100 * 100) / 100}%
+                            </Th>
+
+
                         </Tr>
                         <Tr>
                             <Th textAlign={'left'} >
@@ -208,14 +206,24 @@ export default function Summary(props) {
                                     Weekly Data
                                 </Text>
                             </Th>
-                            <Flex direction={'row'}>
-                                <Th p={2}>
-                                    <WeeklyChart data={chartData} dailyCap={total} />
-                                </Th>
-                            </Flex>
+                            <Th p={2}>
+                                <WeeklyChart data={chartData} dailyCap={total} />
+                            </Th>
                         </Tr>
-                    </Table>
-                </TableContainer>
+                    </Tbody>
+                </Table>
+            </TableContainer>
+        </>
+    }
+
+    return (
+        <>
+            <Flex direction={'column'} minW={850} minH={900} bg={"#13161b"} borderColor={'#282c34'} borderWidth={2} shadow={'lg'} borderRadius={10} p={5}>
+                {loading ?
+                    <Flex display={'flex'} minW={"100%"} height={"100%"} justify={'center'} align={'center'}>
+                        <Text fontWeight={'bold'}>Loading</Text>
+                    </Flex>
+                    : renderBody()}
             </Flex >
         </>
     )

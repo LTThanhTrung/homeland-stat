@@ -1,8 +1,9 @@
-import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList } from '@chakra-ui/react'
+import { Heading, Button, Flex, HStack, Tabs, Tab, TabPanels, TabPanel, TabList, Text, Image } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { StorageItem } from '@/utils/tools'
-import { version } from '../../package.json'
+import packageInfo from '../../package.json';
+import Footer from '@/components/Footer';
 
 import AppSummary from '@/components/AppSummary/AppSummary'
 import AppDetail from '@/components/AppDetail/AppDetail'
@@ -14,8 +15,8 @@ import Account from '@/components/Account'
 
 export default function Home() {
   const router = useRouter()
-  const [accessToken, setAccessToken] = useState()
   const [accounts, setAccounts] = useState([])
+  const [price, setPrice] = useState()
 
   useEffect(() => {
     const getItemsFromStorage = async () => {
@@ -37,13 +38,14 @@ export default function Home() {
         }
       }
 
+      let x = await axios.get('/api/getAXSPrice')
+      setPrice(x.data.data.usd)
       setAccounts(accounts)
     }
 
     getItemsFromStorage()
   }, [])
 
-  useEffect(() => { }, [accessToken])
 
   const refreshToken = async (refreshToken) => {
     let data = (await axios.post('/api/refresh', { refreshToken: refreshToken })).data
@@ -58,7 +60,7 @@ export default function Home() {
     if (i > -1) array[i] = item
     else array.push(item)
     return array
-}
+  }
 
   const renderAccount = () => {
     if (accounts.length > 0) {
@@ -79,8 +81,10 @@ export default function Home() {
       <Header />
       <Flex height={'100%'} width={'100%'} align={'center'} direction={'column'} bg='gray.800' color={'white'}>
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
-          <Heading mr={4}>Homeland Stats {version}  </Heading>
+          <Heading mr={4}>Homeland Stats {packageInfo.version}  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
+          <Image src="axs-logo-small.png" w={12} />
+            <Text fontWeight={'bold'}> {price} USD</Text>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
                 {renderAccount()}
@@ -94,6 +98,7 @@ export default function Home() {
             <Button onClick={() => {
               localStorage.clear()
               setAccounts([])
+              router.push('/login')
             }}>Log out</Button>
           </HStack>
         </Flex>
@@ -110,27 +115,28 @@ export default function Home() {
 
           <TabPanels>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
                 {accounts.length > 0 ? <AppSummary /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
                 {accounts.length > 0 ? <AppDetail /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
                 {accounts.length > 0 ? <AppLeaderboard /> : <></>}
               </Flex>
             </TabPanel>
             <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} >
+              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
                 Coming Soon&#8482; when Cream is less lazy
               </Flex>
             </TabPanel>
           </TabPanels>
         </Tabs>
+        <Footer />
       </Flex>
     </>
   )
