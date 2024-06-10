@@ -1,16 +1,20 @@
 import { Flex, Text } from '@chakra-ui/react'
 
 export default function Item(props) {
+    console.log(props)
     return (
         <>
             <Flex w={800}>
                 <Flex w={100}>
-                    <Text>{props.rank}</Text>
+                    <Text>{props.item.rank}</Text>
+                </Flex>
+                <Flex w={200}>
+                    <Text>{props.item.plot_id % 1024 - 512}, {Math.round(props.item.plot_id / 1024 - 512)} </Text>
                 </Flex>
                 <Flex w={800}>
-                    <Text>{props.owner_name}</Text>
+                    <Text>{props.item.owner_name}</Text>
                 </Flex>
-                <Flex w={100}><Text>{numberWithCommas(props.point)}</Text></Flex>
+                <Flex w={100}><Text>{numberWithCommas(props.item.point)}</Text></Flex>
             </Flex>
         </>
     )

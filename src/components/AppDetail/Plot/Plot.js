@@ -7,7 +7,6 @@ import { InfoIcon } from '@chakra-ui/icons'
 
 export default function Plot(props) {
     const [item, setItem] = useState(props.item)
-    console.log(item)
     const now = new Date()
     const today = formatDate(now)
     const amount = item.plotData ? item.plotData.filter(obj => obj.created_at.startsWith(today)).reduce(function (sum, item) {

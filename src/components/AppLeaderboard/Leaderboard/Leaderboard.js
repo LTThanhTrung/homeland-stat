@@ -46,10 +46,11 @@ export default function Leaderboard(props) {
 
     const renderLB = () => {
         let renderItem = items.map((item, index) => {
+            console.log(item)
             if (item.point) {
                 return (
                     <Flex key={index}>
-                        <Item rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point} />
+                        <Item item={item} />
                     </Flex>
                 )
             }
@@ -58,6 +59,7 @@ export default function Leaderboard(props) {
     }
 
     return (
+
         // TODO: Make a better loading ^_^
         <>
             <Flex mt={4} direction={'column'}>
