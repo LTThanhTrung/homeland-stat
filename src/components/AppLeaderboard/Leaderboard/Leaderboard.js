@@ -13,21 +13,26 @@ export default function Leaderboard(props) {
             await axios.post('/api/getPlots', { account }).then(async (response) => {
                 let data = response.data
                 if (data.success) {
-                    await axios.post('/api/leaderboard/me', { account, plots: data.plots }).then(async (response) => {
-                        let leaderboardData = response.data
-                        if (leaderboardData.success) {
-                            for (let i = 0; i < leaderboardData.data.length; i++) {
-                                for (let j = 0; j < data.plots.length; j++) {
-                                    if (data.plots[j].id == leaderboardData.data[i].plot_id) {
-                                        data.plots[j].point = leaderboardData.data[i].point
-                                        data.plots[j].rank = leaderboardData.data[i].rank
+                    try {
+                        await axios.post('/api/leaderboard/me', { account, plots: data.plots }).then(async (response) => {
+                            let leaderboardData = response.data
+                            if (leaderboardData.success) {
+                                for (let i = 0; i < leaderboardData.data.length; i++) {
+                                    for (let j = 0; j < data.plots.length; j++) {
+                                        if (data.plots[j].id == leaderboardData.data[i].plot_id) {
+                                            data.plots[j].point = leaderboardData.data[i].point
+                                            data.plots[j].rank = leaderboardData.data[i].rank
 
+                                        }
                                     }
                                 }
-                            }   
-                            setItems(data.plots)
-                        }
-                    })
+                                setItems(data.plots)
+                            }
+                        })
+                    }
+                    catch {
+
+                    }
                 }
             })
         }
@@ -41,7 +46,7 @@ export default function Leaderboard(props) {
 
     const renderLB = () => {
         let renderItem = items.map((item, index) => {
-            if(item.point){
+            if (item.point) {
                 return (
                     <Flex key={index}>
                         <Item rank={item.rank} owner_name={item.x + ", " + item.y} point={item.point} />
@@ -56,7 +61,7 @@ export default function Leaderboard(props) {
         // TODO: Make a better loading ^_^
         <>
             <Flex mt={4} direction={'column'}>
-                    <>{renderLB()}</>
+                <>{renderLB()}</>
             </Flex>
         </>
     )

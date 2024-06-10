@@ -83,7 +83,7 @@ export default function Home() {
         <Flex direction={'row'} align={'center'} w={'100%'} justify={'space-between'} padding={8}>
           <Heading mr={4}>Homeland Stats {packageInfo.version}  </Heading>
           <HStack alignSelf={'flex-end'} right={12} justify={'center'} align={'center'} spacing={4}>
-          <Image src="axs-logo-small.png" w={12} />
+            <Image src="axs-logo-small.png" w={12} />
             <Text fontWeight={'bold'}> {price} USD</Text>
             <Flex flexDirection={'row'} width={96} overflow={'auto'} whiteSpace={'nowrap'} pt={2}>
               <Flex marginLeft={'auto'}>
@@ -103,39 +103,41 @@ export default function Home() {
           </HStack>
         </Flex>
 
-        <Tabs isLazy w={'1376px'}>
-          <TabList borderColor={'whiteAlpha.300'}>
-            <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
-              <Tab>Summary</Tab>
-              <Tab>Details</Tab>
-              <Tab>Leaderboard</Tab>
-              <Tab>Stewards Performance</Tab>
-            </Flex>
-          </TabList>
+        <Flex flex={1}>
+          <Tabs isLazy w={'1376px'}>
+            <TabList borderColor={'whiteAlpha.300'}>
+              <Flex flexDirection={'row'} align={'flex-end'} textAlign={'end'} mt={4} w={['100%', '100%', 'auto', 'auto']}>
+                <Tab>Summary</Tab>
+                <Tab>Details</Tab>
+                <Tab>Leaderboard</Tab>
+                <Tab>Stewards Performance</Tab>
+              </Flex>
+            </TabList>
 
-          <TabPanels>
-            <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
-                {accounts.length > 0 ? <AppSummary /> : <></>}
-              </Flex>
-            </TabPanel>
-            <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
-                {accounts.length > 0 ? <AppDetail /> : <></>}
-              </Flex>
-            </TabPanel>
-            <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
-                {accounts.length > 0 ? <AppLeaderboard /> : <></>}
-              </Flex>
-            </TabPanel>
-            <TabPanel>
-              <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
-                Coming Soon&#8482; when Cream is less lazy
-              </Flex>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+            <TabPanels>
+              <TabPanel>
+                <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
+                  {accounts.length > 0 ? <AppSummary /> : <></>}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
+                  {accounts.length > 0 ? <AppDetail /> : <></>}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
+                  {accounts.length > 0 ? <AppLeaderboard /> : <></>}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex direction={'column'} h={'100%'} w={['100%', '100%', 'auto', 'auto']} pb={20}>
+                  Coming Soon&#8482; when Cream is less lazy
+                </Flex>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Flex>
         <Footer />
       </Flex>
     </>

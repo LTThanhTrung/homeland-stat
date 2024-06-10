@@ -12,6 +12,6 @@ export default async function handler(req, res) {
         let response = (await axios.post(url, { plot_ids }, { headers: header })).data
         res.status(200).send({ success: true, data: response })
     } catch (error) {
-        res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
+        res.status(200).json({ success: false, error: error instanceof Error ? error.message : error })
     }
 }

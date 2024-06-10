@@ -3,7 +3,7 @@ import { CopyIcon } from '@chakra-ui/icons'
 
 export default function Footer() {
     return (
-        <Flex w={'100%'} h={20} bg={'#0d0e12'} position={'absolute'} bottom={0} justify={'center'} align={'flex-end'} flexDirection={'column'} pr={20}>
+        <Flex w={'100%'} minH={20} bg={'#0d0e12'} bottom={0} justify={'center'} align={'flex-end'} flexDirection={'column'} pr={20}>
             <Flex flexDirection={'column'}>
                 <Text color={'white'} fontWeight={'bold'}>Want to show support? </Text>
                 <Flex direction={'row'}>
