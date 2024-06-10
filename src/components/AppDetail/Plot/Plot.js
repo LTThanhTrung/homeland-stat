@@ -51,13 +51,19 @@ export default function Plot(props) {
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />
                 </Flex>
                 <Flex mb={2} flexDirection={'column'} mt={4}>
-                    <Box w={32} >
+                    <Box w={40} >
                         {item.steward ?
                             <Text fontSize={12} noOfLines={1} color={now.getTime() / 1000 > item.steward.expiry_timestamp ? "red" : "#A28C76"}>{item.steward.assignee_name}</Text>
                             : <></>}
-                        <Text noOfLines={2} color={"#e2e4e9b3"} fontWeight={'bold'}>
-                            {item.name.length > 0 ? item.name : "No Name"}
-                        </Text>
+                        <Flex direction={'row'} align={'center'}>
+                            {item.land_property == 0 ?
+                                <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
+                                    <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
+                                    <Image src='filter-building-crafting.png' w={4} h={4} />}
+                            <Text ml={2} noOfLines={2} fontSize={16} color={"#e2e4e9b3"} fontWeight={'bold'}>
+                                {item.name.length > 0 ? item.name : "No Name"}
+                            </Text>
+                        </Flex>
                     </Box>
 
                     <Flex
@@ -76,7 +82,7 @@ export default function Plot(props) {
             {item.loaded ?
                 <>
                     <Flex w={'100%'} direction={'row'} justify={'center'} align={'center'} mt={1}>
-                        <Flex bg={"#282c34"} p={2} flexDirection={'row'} justify={'center'} align={'center'} borderRadius={10} mr={2}>
+                        <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'center'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-pawnworker.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
@@ -88,7 +94,7 @@ export default function Plot(props) {
                                 /{item.plotDetail.number_of_workers}
                             </Text>
                         </Flex>
-                        <Flex bg={"#282c34"} p={2} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
+                        <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-npc.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
@@ -98,7 +104,7 @@ export default function Plot(props) {
                                 {item.plotDetail.number_of_idle_npcs}/{item.plotDetail.number_of_npcs}
                             </Text>
                         </Flex>
-                        <Flex bg={"#282c34"} p={2} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
+                        <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-contruct.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
@@ -108,10 +114,7 @@ export default function Plot(props) {
                                 Lv. {item.townhall_level}
                             </Text>
                         </Flex>
-                        {item.land_property == 0 ?
-                            <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
-                                <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
-                                <Image src='filter-building-crafting.png' w={4} h={4} />}
+
                     </Flex>
 
                     <TableContainer w={'100%'}>
@@ -143,7 +146,7 @@ export default function Plot(props) {
                                                 {amount}
                                             </Text>
                                             <Tooltip label={TooltipItem()} cursor={'pointer'}>
-                                                <InfoIcon mr={2} />
+                                                <InfoIcon color={'white'} mr={2} />
                                             </Tooltip>
                                         </Flex>
                                     </Td>
