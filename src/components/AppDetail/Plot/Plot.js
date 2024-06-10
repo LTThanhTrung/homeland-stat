@@ -44,30 +44,31 @@ export default function Plot(props) {
     }
 
     return (
-        <Flex width={64} minH={64} direction={'column'} align={'center'} background={'#13161b'} shadow={'lg'} borderRadius={5} pos={"relative"} >
-            <Image src='icon-flat-switch.png' w={8} pos={"absolute"} right={4} top={4} alt={"refresh plots"} onClick={resetPlotData} cursor={"pointer"} />
-            <Flex height={24} w={64} justifyContent={'space-around'} alignItems={'center'} >
-                <Flex w={16} h={16} borderRadius={100} bgGradient='linear(to-r, #3F7A73, #4CA69B, #3F7A73)' justifyContent={'center'} align={'center'}>
+        <Flex width={64} minH={60} direction={'column'} align={'center'} background={'#13161b'} shadow={'lg'} borderRadius={10} pos={"relative"} >
+            <Flex height={24} w={64} p={4} justifyContent={'space-around'} alignItems={'center'} >
+                <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'#178172'} justifyContent={'center'} align={'center'} pos={'relative'}>
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />
+                    <Box pos={'absolute'} bottom={0} right={0}>
+                        
+                    </Box>
                 </Flex>
-                <Flex mb={2} flexDirection={'column'} mt={4}>
+                <Flex w={24} h={'100%'} flexDirection={'column'} >
                     <Box w={40} >
                         {item.steward ?
                             <Text fontSize={12} noOfLines={1} color={now.getTime() / 1000 > item.steward.expiry_timestamp ? "red" : "#A28C76"}>{item.steward.assignee_name}</Text>
                             : <></>}
-                        <Flex direction={'row'} align={'center'}>
-                            {item.land_property == 0 ?
-                                <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
-                                    <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
-                                    <Image src='filter-building-crafting.png' w={4} h={4} />}
-                            <Text ml={2} noOfLines={2} fontSize={16} color={"#e2e4e9b3"} fontWeight={'bold'}>
+                        <Flex direction={'row'} align={'center'} textAlign={'left'} >
+                        {item.land_property == 0 ?
+                            <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
+                                <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
+                                <Image src='filter-building-crafting.png' w={4} h={4} />}
+                            <Text ml={1} noOfLines={2} fontSize={16} color={"#e2e4e9b3"} fontWeight={'bold'}>
                                 {item.name.length > 0 ? item.name : "No Name"}
                             </Text>
                         </Flex>
                     </Box>
 
                     <Flex
-                        width={"100%"}
                         height={8}
                         justify={'center'}
                         align={'center'}
@@ -77,16 +78,56 @@ export default function Plot(props) {
                         <Text color={"white"} fontWeight={'bold'}>{item.x};{item.y}</Text>
                     </Flex>
                 </Flex>
+                <Flex direction={'column'} h={'100%'} justify={'space-between'} align={'center'}>
+                    <Image src='icon-flat-switch.png' w={7} right={4} top={4} alt={"refresh plots"} onClick={resetPlotData} cursor={"pointer"} />
+                    <Text fontSize={14} fontWeight={'extrabold'}> LV. {item.townhall_level} </Text>
+                </Flex>
             </Flex>
 
             {item.loaded ?
                 <>
-                    <Flex w={'100%'} direction={'row'} justify={'center'} align={'center'} mt={1}>
+                    <TableContainer w={'100%'}>
+                        <Table variant='unstyled' size={'sm'} color={"#e2e4e9b3"} w={'100%'} >
+                            <Tbody>
+                                <Tr>
+                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
+                                        <Text fontWeight={"medium"}>
+                                            Percentage
+                                        </Text>
+                                    </Td>
+                                    <Td >
+                                    <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
+                                            <Text mr={2} fontWeight={'extrabold'} fontSize={20}>{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
+                                            {item.moonfall > 0 ? <Image w={6} src="/icon-jackpot.png" /> : <></>}
+                                        </Flex>
+                                    </Td>
+                                </Tr>
+                                <Tr>
+                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
+                                        <Text fontWeight={"medium"}>
+                                            mAXS
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
+                                            <Text mr={2} fontWeight={'extrabold'} fontSize={20}>
+                                                {amount}
+                                            </Text>
+                                            <Tooltip label={TooltipItem()} cursor={'pointer'}>
+                                                <InfoIcon color={'white'} mr={2} />
+                                            </Tooltip>
+                                        </Flex>
+                                    </Td>
+                                </Tr>
+                            </Tbody>
+                        </Table>
+                    </TableContainer>
+                    <Flex w={'100%'} direction={'row'} justify={'space-between'} align={'center'} p={4} >
                         <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'center'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-pawnworker.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
-                                fontWeight={'bold'}
+                                fontWeight={'extrabold'}
                                 fontSize={11}
                             >
                                 {item.plotDetail.number_of_workers < item.plotDetail.number_of_working_workers ?
@@ -98,7 +139,7 @@ export default function Plot(props) {
                             <Image src='icon-flat-npc.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
-                                fontWeight={'bold'}
+                                fontWeight={'extrabold'}
                                 fontSize={11}
                             >
                                 {item.plotDetail.number_of_idle_npcs}/{item.plotDetail.number_of_npcs}
@@ -108,67 +149,15 @@ export default function Plot(props) {
                             <Image src='icon-flat-contruct.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
-                                fontWeight={'bold'}
+                                fontWeight={'extrabold'}
                                 fontSize={11}
                             >
-                                Lv. {item.townhall_level}
+                                {item.plotDetail.number_of_buildings}
                             </Text>
                         </Flex>
 
                     </Flex>
-
-                    <TableContainer w={'100%'}>
-                        <Table variant='unstyled' size={'sm'} color={"#e2e4e9b3"} w={'100%'} mt={3}>
-                            <Tbody>
-                                <Tr>
-                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
-                                        <Text fontWeight={"extrabold"} ml={4}>
-                                            Percentage
-                                        </Text>
-                                    </Td>
-                                    <Td >
-                                        <Flex direction={'row'} h={6} align={'center'}>
-                                            <Text mr={2} fontWeight={'medium'}>{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
-                                            {item.moonfall > 0 ? <Image w={6} src="/icon-jackpot.png" /> : <></>}
-                                        </Flex>
-                                    </Td>
-                                </Tr>
-
-                                <Tr>
-                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
-                                        <Text fontWeight={"extrabold"} ml={4}>
-                                            mAXS
-                                        </Text>
-                                    </Td>
-                                    <Td>
-                                        <Flex direction={'row'} align={'center'} h={6}>
-                                            <Text mr={2} fontWeight={'medium'}>
-                                                {amount}
-                                            </Text>
-                                            <Tooltip label={TooltipItem()} cursor={'pointer'}>
-                                                <InfoIcon color={'white'} mr={2} />
-                                            </Tooltip>
-                                        </Flex>
-                                    </Td>
-                                </Tr>
-
-                                <Tr>
-                                    <Td color={"#e2e4e9b3"} textAlign={'left'} >
-                                        <Flex h={6}>
-                                            <Text fontWeight={"extrabold"} ml={4}>
-                                                Building
-                                            </Text>
-                                        </Flex>
-                                    </Td>
-                                    <Td >
-                                        <Text mr={2} fontWeight={'medium'}>
-                                            {item.plotDetail.number_of_buildings}
-                                        </Text>
-                                    </Td>
-                                </Tr>
-                            </Tbody>
-                        </Table>
-                    </TableContainer></>
+                    </>
                 : <Text color={"#A28C76"}>Loading</Text>}
         </Flex>
     )
