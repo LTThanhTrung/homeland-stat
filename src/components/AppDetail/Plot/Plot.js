@@ -1,8 +1,9 @@
-import { Flex, Text, Image, VStack, Box, Table, TableContainer, Tbody, Tr, Th, HStack } from '@chakra-ui/react'
+import { Flex, Text, Image, Tooltip, Box, Table, TableContainer, Tbody, Tr, Th, Td, HStack } from '@chakra-ui/react'
 import { PlotDetail, formatDate } from '@/utils/tools'
 import { useState } from 'react'
 import axios from 'axios'
 import { GameConfig } from '@/utils/tools'
+import { InfoIcon } from '@chakra-ui/icons'
 
 export default function Plot(props) {
     const [item, setItem] = useState(props.item)
@@ -32,6 +33,14 @@ export default function Plot(props) {
             console.log(ex)
             setItem(prev => ({ ...prev, loaded: true }))
         }
+    }
+
+    const TooltipItem = () => {
+        return (
+            <Flex direction={'column'}>
+                <Text>current mAXS: {amount}</Text>
+                <Text>total mAXS: {total}</Text>
+            </Flex>)
     }
 
     return (
@@ -100,38 +109,59 @@ export default function Plot(props) {
                             </Text>
                         </Flex>
                         {item.land_property == 0 ?
-                        <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
-                        <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
-                        <Image src='filter-building-crafting.png' w={4} h={4} />}
+                            <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
+                                <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
+                                <Image src='filter-building-crafting.png' w={4} h={4} />}
                     </Flex>
 
                     <TableContainer w={'100%'}>
-                        <Table variant='unstyled' color={"#e2e4e9b3"} w={'100%'} mt={3}>
+                        <Table variant='unstyled' size={'sm'} color={"#e2e4e9b3"} w={'100%'} mt={3}>
                             <Tbody>
                                 <Tr>
-                                    <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
-                                        <Text fontWeight={"extrabold"} ml={4}>
-                                            Current mAXS
-                                        </Text>
-                                    </Th>
-                                    <Th p={2}>{amount}</Th>
-                                    {item.moonfall > 0 ? <Image w={8} src="/icon-jackpot.png" /> : <></>}
-                                </Tr>
-                                <Tr>
-                                    <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
-                                        <Text fontWeight={"extrabold"} ml={4}>
-                                            Total mAXS
-                                        </Text>
-                                    </Th>
-                                    <Th p={2}>{total}</Th>
-                                </Tr>
-                                <Tr>
-                                    <Th color={"#e2e4e9b3"} textAlign={'left'} p={2} >
+                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
                                         <Text fontWeight={"extrabold"} ml={4}>
                                             Percentage
                                         </Text>
-                                    </Th>
-                                    <Th p={2}>{Math.floor(amount * 100 * 100 / total) / 100} %</Th>
+                                    </Td>
+                                    <Td >
+                                        <Flex direction={'row'} h={6} align={'center'}>
+                                            <Text mr={2} fontWeight={'medium'}>{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
+                                            {item.moonfall > 0 ? <Image w={6} src="/icon-jackpot.png" /> : <></>}
+                                        </Flex>
+                                    </Td>
+                                </Tr>
+
+                                <Tr>
+                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
+                                        <Text fontWeight={"extrabold"} ml={4}>
+                                            mAXS
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Flex direction={'row'} align={'center'} h={6}>
+                                            <Text mr={2} fontWeight={'medium'}>
+                                                {amount}
+                                            </Text>
+                                            <Tooltip label={TooltipItem()} cursor={'pointer'}>
+                                                <InfoIcon mr={2} />
+                                            </Tooltip>
+                                        </Flex>
+                                    </Td>
+                                </Tr>
+
+                                <Tr>
+                                    <Td color={"#e2e4e9b3"} textAlign={'left'} >
+                                        <Flex h={6}>
+                                            <Text fontWeight={"extrabold"} ml={4}>
+                                                Building
+                                            </Text>
+                                        </Flex>
+                                    </Td>
+                                    <Td >
+                                        <Text mr={2} fontWeight={'medium'}>
+                                            {item.plotDetail.number_of_buildings}
+                                        </Text>
+                                    </Td>
                                 </Tr>
                             </Tbody>
                         </Table>
