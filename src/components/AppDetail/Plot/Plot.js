@@ -74,7 +74,9 @@ export default function Plot(props) {
                                 fontWeight={'bold'}
                                 fontSize={11}
                             >
-                                {item.plotDetail.number_of_workers - item.plotDetail.number_of_working_workers}/{item.plotDetail.number_of_workers}
+                                {item.plotDetail.number_of_workers < item.plotDetail.number_of_working_workers ?
+                                    0 : item.plotDetail.number_of_workers - item.plotDetail.number_of_working_workers}
+                                /{item.plotDetail.number_of_workers}
                             </Text>
                         </Flex>
                         <Flex bg={"#282c34"} p={2} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
@@ -97,12 +99,10 @@ export default function Plot(props) {
                                 Lv. {item.townhall_level}
                             </Text>
                         </Flex>
-                        {item.land_property == 0 ? 
-                        <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ? 
-                        <Image src='icon-flat-agriculture.png' w={4} h={4}/> : 
+                        {item.land_property == 0 ?
+                        <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
+                        <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
                         <Image src='filter-building-crafting.png' w={4} h={4} />}
-                        
-                        
                     </Flex>
 
                     <TableContainer w={'100%'}>
