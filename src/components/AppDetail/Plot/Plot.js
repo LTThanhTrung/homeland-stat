@@ -1,6 +1,6 @@
 import { Flex, Text, Image, Tooltip, Box, Table, TableContainer, Tbody, Tr, Th, Td, HStack } from '@chakra-ui/react'
 import { PlotDetail, formatDate } from '@/utils/tools'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { GameConfig } from '@/utils/tools'
 import { InfoIcon } from '@chakra-ui/icons'
@@ -13,6 +13,12 @@ export default function Plot(props) {
         return sum + item.axs_amount
     }, 0) / 1000 : 0
     const total = PlotDetail[item.land_type].dailyAXS
+    const [isFull, setIsFull] = useState(false)
+
+    useEffect(()=>{
+        let isFull = Math.floor(amount * 100 * 100 / total) / 100 == 100
+        setIsFull(isFull)
+    })
 
     const resetPlotData = async () => {
         try {
@@ -27,6 +33,7 @@ export default function Plot(props) {
 
             let filteredData = data.filter((e) => !((GameConfig.moonfall_action_id.includes(e.from_action) && e.created_at.startsWith(today))))
             setItem(prev => ({ ...prev, plotData: filteredData, plotDetail: plotData.data.landData[0], loaded: true }))
+            setIsFull(Math.floor(amount * 100 * 100 / total) / 100 == 100)
         }
         catch (ex) {
             console.log(ex)
@@ -43,12 +50,12 @@ export default function Plot(props) {
     }
 
     return (
-        <Flex width={64} minH={60} direction={'column'} align={'center'} background={'#13161b'} shadow={'lg'} borderRadius={10} pos={"relative"} >
+        <Flex width={64} minH={60} direction={'column'} align={'center'} shadow={'lg'} borderRadius={10} bg={isFull? 'seagreen':'#13161b'} color={isFull? "white" : "#e2e4e9b3"}>
             <Flex height={24} w={64} p={4} justifyContent={'space-around'} alignItems={'center'} >
-                <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'#178172'} justifyContent={'center'} align={'center'} pos={'relative'}>
+                <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'lightblue'} justifyContent={'center'} align={'center'} pos={'relative'}>
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />
                     <Box pos={'absolute'} bottom={0} right={0}>
-                        
+
                     </Box>
                 </Flex>
                 <Flex w={24} h={'100%'} flexDirection={'column'} >
@@ -57,11 +64,11 @@ export default function Plot(props) {
                             <Text fontSize={12} noOfLines={1} color={now.getTime() / 1000 > item.steward.expiry_timestamp ? "red" : "#A28C76"}>{item.steward.assignee_name}</Text>
                             : <></>}
                         <Flex direction={'row'} align={'center'} textAlign={'left'} >
-                        {item.land_property == 0 ?
-                            <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
-                                <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
-                                <Image src='filter-building-crafting.png' w={4} h={4} />}
-                            <Text ml={1} noOfLines={2} fontSize={16} color={"#e2e4e9b3"} fontWeight={'bold'}>
+                            {item.land_property == 0 ?
+                                <Image src='icon-flat-landproperties-normal.png' w={4} h={4} /> : item.land_property == 1 ?
+                                    <Image src='icon-flat-agriculture.png' w={4} h={4} /> :
+                                    <Image src='filter-building-crafting.png' w={4} h={4} />}
+                            <Text ml={1} noOfLines={2} fontSize={16} fontWeight={'bold'}>
                                 {item.name.length > 0 ? item.name : "No Name"}
                             </Text>
                         </Flex>
@@ -86,30 +93,35 @@ export default function Plot(props) {
             {item.loaded ?
                 <>
                     <TableContainer w={'100%'}>
-                        <Table variant='unstyled' size={'sm'} color={"#e2e4e9b3"} w={'100%'} >
+                        <Table variant='unstyled' size={'sm'}  w={'100%'} >
                             <Tbody>
                                 <Tr>
-                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
-                                        <Text fontWeight={"medium"}>
+                                    <Td textAlign={'left'} >
+                                        <Text fontWeight={'medium'} fontSize={16}>
                                             Percentage
                                         </Text>
                                     </Td>
                                     <Td >
-                                    <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
-                                            <Text mr={2} fontWeight={'extrabold'} fontSize={20}>{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
+                                        <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
+                                            <Text
+                                                mr={2}
+                                                fontSize={16}
+                                                fontWeight={Math.floor(amount * 100 * 100 / total) / 100 == 100 ? 'bold' : 'medium'}
+                                                
+                                            >{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
                                             {item.moonfall > 0 ? <Image w={6} src="/icon-jackpot.png" /> : <></>}
                                         </Flex>
                                     </Td>
                                 </Tr>
                                 <Tr>
-                                    <Td color={"#e2e4e9b3"} textAlign={'left'}  >
-                                        <Text fontWeight={"medium"}>
+                                    <Td textAlign={'left'}  >
+                                        <Text fontWeight={'medium'} fontSize={16}>
                                             mAXS
                                         </Text>
                                     </Td>
                                     <Td>
                                         <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
-                                            <Text mr={2} fontWeight={'extrabold'} fontSize={20}>
+                                            <Text mr={2} fontWeight={'medium'} fontSize={16}>
                                                 {amount}
                                             </Text>
                                             <Tooltip label={TooltipItem()} cursor={'pointer'}>
@@ -156,7 +168,7 @@ export default function Plot(props) {
                         </Flex>
 
                     </Flex>
-                    </>
+                </>
                 : <Text color={"#A28C76"}>Loading</Text>}
         </Flex>
     )
