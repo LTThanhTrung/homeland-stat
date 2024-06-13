@@ -1,0 +1,4512 @@
+[
+    {
+      "quest_config_id": 10000,
+      "_note": "Gather Material {X} times",
+      "required_value": 80
+    },
+    {
+      "quest_config_id": 10001,
+      "_note": "Gather Trees {X} times",
+      "required_value": 50
+    },
+    {
+      "quest_config_id": 10002,
+      "_note": "Gather Stone Deposit {X} times",
+      "required_value": 25
+    },
+    {
+      "quest_config_id": 10003,
+      "_note": "Gather at Public Deposit {X} times",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 10004,
+      "_note": "Gather Metal Mine {X} times",
+      "required_value": 35
+    },
+    {
+      "quest_config_id": 10005,
+      "_note": "Gather Precious Metal Mine {X} times",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 10006,
+      "_note": "Gather Gemstone Mine {X} times",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 11000,
+      "_note": "Gather {X} Wood",
+      "required_value": 300
+    },
+    {
+      "quest_config_id": 11001,
+      "_note": "Gather {X} Copper Ores",
+      "required_value": 134
+    },
+    {
+      "quest_config_id": 11002,
+      "_note": "Gather {X} Silver Ores",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 11003,
+      "_note": "Gather {X} Iron Ores",
+      "required_value": 80
+    },
+    {
+      "quest_config_id": 11004,
+      "_note": "Gather {X} Emerald Ores",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 11005,
+      "_note": "Gather {X} Ruby Ores",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 11006,
+      "_note": "Gather {X} Topaz Ores",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 11007,
+      "_note": "Gather {X} Amethyst Ores",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 11008,
+      "_note": "Gather {X} Gold Ores",
+      "required_value": 58
+    },
+    {
+      "quest_config_id": 11009,
+      "_note": "Gather {X} Diamond Ores",
+      "required_value": 58
+    },
+    {
+      "quest_config_id": 11010,
+      "_note": "Gather {X} Platinum Ores",
+      "required_value": 34
+    },
+    {
+      "quest_config_id": 12000,
+      "_note": "Gather from level 6+ Tree {X} times",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 12001,
+      "_note": "Gather from level 5+ Metal Mine {X} times",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 12002,
+      "_note": "Gather from level 5+ Precious Metal Mine {X} times",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12003,
+      "_note": "Gather from level 5+ Gemstone Mine {X} times",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 12004,
+      "_note": "Gather from level 8+ Tree {X} times",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12005,
+      "_note": "Gather from level 6+ Metal Mine {X} times",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 12006,
+      "_note": "Gather from level 6+ Precious Metal Mine {X} times",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 12007,
+      "_note": "Gather from level 6+ Gemstone Mine {X} times",
+      "required_value": 1
+    },
+    {
+      "quest_config_id": 12008,
+      "_note": "Gather {X} Legendary+ Material",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 12009,
+      "_note": "Gather {X} Mythical+ Material",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 12010,
+      "_note": "Gather {X} Rare Wood",
+      "required_value": 54
+    },
+    {
+      "quest_config_id": 12011,
+      "_note": "Gather {X} Rare Copper Ores",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 12012,
+      "_note": "Gather {X} Rare Silver Ores",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 12013,
+      "_note": "Gather {X} Rare Iron Ores",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 12014,
+      "_note": "Gather {X} Rare Emerald Ores",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12015,
+      "_note": "Gather {X} Rare Ruby Ores",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12016,
+      "_note": "Gather {X} Rare Topaz Ores",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12017,
+      "_note": "Gather {X} Rare Amethyst Ores",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12018,
+      "_note": "Gather {X} Rare Gold Ores",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 12019,
+      "_note": "Gather {X} Rare Diamond Ores",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 12020,
+      "_note": "Gather {X} Rare Platinum Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12021,
+      "_note": "Gather {X} Epic Wood",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 12022,
+      "_note": "Gather {X} Epic Copper Ores",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 12023,
+      "_note": "Gather {X} Epic Silver Ores",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 12024,
+      "_note": "Gather {X} Epic Iron Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12025,
+      "_note": "Gather {X} Epic Emerald Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12026,
+      "_note": "Gather {X} Epic Ruby Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12027,
+      "_note": "Gather {X} Epic Topaz Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12028,
+      "_note": "Gather {X} Epic Amethyst Ores",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 12029,
+      "_note": "Gather {X} Epic Gold Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12030,
+      "_note": "Gather {X} Epic Diamond Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12031,
+      "_note": "Gather {X} Epic Platinum Ores",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 12032,
+      "_note": "Gather {X} Legendary Wood",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 12033,
+      "_note": "Gather {X} Legendary Copper Ores",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 12034,
+      "_note": "Gather {X} Legendary Silver Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12035,
+      "_note": "Gather {X} Legendary Iron Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12036,
+      "_note": "Gather {X} Legendary Emerald Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12037,
+      "_note": "Gather {X} Legendary Ruby Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12038,
+      "_note": "Gather {X} Legendary Topaz Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12039,
+      "_note": "Gather {X} Legendary Amethyst Ores",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 12040,
+      "_note": "Gather {X} Legendary Gold Ores",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 12041,
+      "_note": "Gather {X} Legendary Diamond Ores",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 12042,
+      "_note": "Gather {X} Legendary Platinum Ores",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 13000,
+      "_note": "Produce {X} Material",
+      "required_value": 120
+    },
+    {
+      "quest_config_id": 13001,
+      "_note": "Produce {X} Agriculture Material",
+      "required_value": 80
+    },
+    {
+      "quest_config_id": 13002,
+      "_note": "Produce {X} Metalwork Material",
+      "required_value": 80
+    },
+    {
+      "quest_config_id": 13003,
+      "_note": "Produce {X} Material from Forager's Field",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 13004,
+      "_note": "Produce {X} Material from Coal Kiln",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 13005,
+      "_note": "Produce {X} Material from Forger's Furnace",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 13006,
+      "_note": "Produce {X} Material from Gala Garden",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 13007,
+      "_note": "Produce {X} Material from Animal Pasture",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 13008,
+      "_note": "Produce {X} Material from Grain Grinder",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 13009,
+      "_note": "Produce {X} Material from Polisher's Precision",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 14000,
+      "_note": "Produce {X} Wheat",
+      "required_value": 150
+    },
+    {
+      "quest_config_id": 14001,
+      "_note": "Produce {X} Corn",
+      "required_value": 150
+    },
+    {
+      "quest_config_id": 14002,
+      "_note": "Produce {X} Sugarcane",
+      "required_value": 120
+    },
+    {
+      "quest_config_id": 14003,
+      "_note": "Produce {X} Potato",
+      "required_value": 120
+    },
+    {
+      "quest_config_id": 14004,
+      "_note": "Produce {X} Rice",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14005,
+      "_note": "Produce {X} Carrot",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14006,
+      "_note": "Produce {X} Pumpkin",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14007,
+      "_note": "Produce {X} Cotton",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14008,
+      "_note": "Produce {X} Tomato",
+      "required_value": 55
+    },
+    {
+      "quest_config_id": 14009,
+      "_note": "Produce {X} Cabbage",
+      "required_value": 55
+    },
+    {
+      "quest_config_id": 14010,
+      "_note": "Produce {X} Apple",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14011,
+      "_note": "Produce {X} Orange",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14012,
+      "_note": "Produce {X} Strawberry",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14013,
+      "_note": "Produce {X} Peach",
+      "required_value": 86
+    },
+    {
+      "quest_config_id": 14014,
+      "_note": "Produce {X} Banana",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14015,
+      "_note": "Produce {X} Watermelon",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 14016,
+      "_note": "Produce {X} Chicken Feed",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14017,
+      "_note": "Produce {X} Pig Feed",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 14018,
+      "_note": "Produce {X} Cow Feed",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14019,
+      "_note": "Produce {X} Sheep Feed",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 14020,
+      "_note": "Produce {X} Egg",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14021,
+      "_note": "Produce {X} Chicken",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14022,
+      "_note": "Produce {X} Feather",
+      "required_value": 100
+    },
+    {
+      "quest_config_id": 14023,
+      "_note": "Produce {X} Pork",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 14024,
+      "_note": "Produce {X} Fat",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 14025,
+      "_note": "Produce {X} Milk",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14026,
+      "_note": "Produce {X} Beef",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14027,
+      "_note": "Produce {X} Leather",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14028,
+      "_note": "Produce {X} Sheep Meat",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 14029,
+      "_note": "Produce {X} Wool",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 14030,
+      "_note": "Produce {X} Charcoal",
+      "required_value": 150
+    },
+    {
+      "quest_config_id": 14031,
+      "_note": "Produce {X} Coal Dust",
+      "required_value": 86
+    },
+    {
+      "quest_config_id": 14032,
+      "_note": "Produce {X} Copper Ingot",
+      "required_value": 150
+    },
+    {
+      "quest_config_id": 14033,
+      "_note": "Produce {X} Iron Ingot",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 14034,
+      "_note": "Produce {X} Bronze Ingot",
+      "required_value": 67
+    },
+    {
+      "quest_config_id": 14035,
+      "_note": "Produce {X} Steel Ingot",
+      "required_value": 50
+    },
+    {
+      "quest_config_id": 14036,
+      "_note": "Produce {X} Silver Ingot",
+      "required_value": 50
+    },
+    {
+      "quest_config_id": 14037,
+      "_note": "Produce {X} Gold Ingot",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 14038,
+      "_note": "Produce {X} Amethyst",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14039,
+      "_note": "Produce {X} Emerald",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14040,
+      "_note": "Produce {X} Ruby",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14041,
+      "_note": "Produce {X} Topaz",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14042,
+      "_note": "Produce {X} Diamond",
+      "required_value": 75
+    },
+    {
+      "quest_config_id": 14043,
+      "_note": "Produce {X} Rose",
+      "required_value": 60
+    },
+    {
+      "quest_config_id": 14044,
+      "_note": "Produce {X} Beehive",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 14045,
+      "_note": "Produce {X} Platinum Ingot",
+      "required_value": 28
+    },
+    {
+      "quest_config_id": 14046,
+      "_note": "Produce {X} Platinum Dust",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 15000,
+      "_note": "Produce {X} Legendary+ Material",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15001,
+      "_note": "Produce {X} Mythical+ Material",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15002,
+      "_note": "Produce {X} Rare Material from Forager's Field",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 15003,
+      "_note": "Produce {X} Rare Material from Coal Kiln",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 15004,
+      "_note": "Produce {X} Rare Material from Forger's Furnace",
+      "required_value": 30
+    },
+    {
+      "quest_config_id": 15005,
+      "_note": "Produce {X} Rare Material from Gala Garden",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15006,
+      "_note": "Produce {X} Rare Material from Animal Pasture",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15007,
+      "_note": "Produce {X} Rare Material from Grain Grinder",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15008,
+      "_note": "Produce {X} Rare Material from Polisher's Precision",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15009,
+      "_note": "Produce {X} Epic Material from Forager's Field",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15010,
+      "_note": "Produce {X} Epic Material from Coal Kiln",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15011,
+      "_note": "Produce {X} Epic Material from Forger's Furnace",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15012,
+      "_note": "Produce {X} Epic Material from Gala Garden",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15013,
+      "_note": "Produce {X} Epic Material from Animal Pasture",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15014,
+      "_note": "Produce {X} Epic Material from Grain Grinder",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15015,
+      "_note": "Produce {X} Epic Material from Polisher's Precision",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 15016,
+      "_note": "Produce {X} Legendary Material from Forager's Field",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15017,
+      "_note": "Produce {X} Legendary Material from Coal Kiln",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15018,
+      "_note": "Produce {X} Legendary Material from Forger's Furnace",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15019,
+      "_note": "Produce {X} Legendary Material from Gala Garden",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15020,
+      "_note": "Produce {X} Legendary Material from Animal Pasture",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15021,
+      "_note": "Produce {X} Legendary Material from Grain Grinder",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15022,
+      "_note": "Produce {X} Legendary Material from Polisher's Precision",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15029,
+      "_note": "Produce {X} Epic+ Pumpkin",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15030,
+      "_note": "Produce {X} Epic+ Cotton",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15031,
+      "_note": "Produce {X} Epic+ Tomato",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15032,
+      "_note": "Produce {X} Epic+ Cabbage",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15033,
+      "_note": "Produce {X} Epic+ Apple",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15034,
+      "_note": "Produce {X} Epic+ Orange",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15035,
+      "_note": "Produce {X} Epic+ Strawberry",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15036,
+      "_note": "Produce {X} Epic+ Peach",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 15037,
+      "_note": "Produce {X} Epic+ Banana",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15038,
+      "_note": "Produce {X} Epic+ Watermelon",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15039,
+      "_note": "Produce {X} Epic+ Chicken Feed",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15040,
+      "_note": "Produce {X} Epic+ Pig Feed",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15041,
+      "_note": "Produce {X} Epic+ Cow Feed",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15042,
+      "_note": "Produce {X} Epic+ Sheep Feed",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15043,
+      "_note": "Produce {X} Epic+ Egg",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15044,
+      "_note": "Produce {X} Epic+ Chicken",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15045,
+      "_note": "Produce {X} Epic+ Feather",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 15046,
+      "_note": "Produce {X} Epic+ Pork",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15047,
+      "_note": "Produce {X} Epic+ Fat",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15048,
+      "_note": "Produce {X} Epic+ Milk",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15049,
+      "_note": "Produce {X} Epic+ Beef",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15050,
+      "_note": "Produce {X} Epic+ Leather",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15051,
+      "_note": "Produce {X} Epic+ Sheep Meat",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15052,
+      "_note": "Produce {X} Epic+ Wool",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15053,
+      "_note": "Produce {X} Epic+ Charcoal",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15054,
+      "_note": "Produce {X} Epic+ Coal Dust",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 15055,
+      "_note": "Produce {X} Epic+ Copper Ingot",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 15056,
+      "_note": "Produce {X} Epic+ Iron Ingot",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15057,
+      "_note": "Produce {X} Epic+ Bronze Ingot",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15058,
+      "_note": "Produce {X} Epic+ Steel Ingot",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 15059,
+      "_note": "Produce {X} Epic+ Silver Ingot",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 15060,
+      "_note": "Produce {X} Epic+ Gold Ingot",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 15061,
+      "_note": "Produce {X} Epic+ Amethyst",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15062,
+      "_note": "Produce {X} Epic+ Emerald",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15063,
+      "_note": "Produce {X} Epic+ Ruby",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15064,
+      "_note": "Produce {X} Epic+ Topaz",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15065,
+      "_note": "Produce {X} Epic+ Diamond",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 15066,
+      "_note": "Produce {X} Epic+ Rose",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 15067,
+      "_note": "Produce {X} Epic+ Beehive",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 15068,
+      "_note": "Produce {X} Epic+ Platinum Ingot",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 15069,
+      "_note": "Produce {X} Epic+ Platinum Dust",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 16000,
+      "_note": "Craft {X} Items",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 16001,
+      "_note": "Craft {X} Consumable",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 16002,
+      "_note": "Craft {X} Equipment",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 16003,
+      "_note": "Craft {X} Food",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 16004,
+      "_note": "Craft {X} Weapon",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 16005,
+      "_note": "Craft {X} Armor",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 16006,
+      "_note": "Craft {X} Potion",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 16007,
+      "_note": "Craft {X} Accessories",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 16008,
+      "_note": "Craft {X} Mystic Shell",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 17000,
+      "_note": "Craft {X} Baguette",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17001,
+      "_note": "Craft {X} Noodle",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17002,
+      "_note": "Craft {X} Grilled Corn",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17003,
+      "_note": "Craft {X} Sugar",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17004,
+      "_note": "Craft {X} Lunacian Fries",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17005,
+      "_note": "Craft {X} Steamed Rice",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17006,
+      "_note": "Craft {X} Boiled Carrot",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17007,
+      "_note": "Craft {X} Pumpkin Soup",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17008,
+      "_note": "Craft {X} Boiled Cabbage",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17009,
+      "_note": "Craft {X} Salad",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17010,
+      "_note": "Craft {X} Apple Jam",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17011,
+      "_note": "Craft {X} Orange Jam",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17012,
+      "_note": "Craft {X} Strawberry Jam",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17013,
+      "_note": "Craft {X} Apple Juice",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17014,
+      "_note": "Craft {X} Orange Juice",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17015,
+      "_note": "Craft {X} Strawberry Juice",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17016,
+      "_note": "Craft {X} Peach Juice",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17017,
+      "_note": "Craft {X} Pickled Peach",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17018,
+      "_note": "Craft {X} Banana Juice",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17019,
+      "_note": "Craft {X} Grilled Banana",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17020,
+      "_note": "Craft {X} Sliced Watermelon",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17021,
+      "_note": "Craft {X} Watermelon Juice",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17022,
+      "_note": "Craft {X} Deluxe Fruit Plate",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17023,
+      "_note": "Craft {X} Extra Deluxe Fruit Plate",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17024,
+      "_note": "Craft {X} Boiled Egg",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17025,
+      "_note": "Craft {X} Steamed Chicken",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17026,
+      "_note": "Craft {X} Steamed Pork",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17027,
+      "_note": "Craft {X} Fried Pork",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17028,
+      "_note": "Craft {X} Cream",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17029,
+      "_note": "Craft {X} Butter",
+      "required_value": 40
+    },
+    {
+      "quest_config_id": 17030,
+      "_note": "Craft {X} Grilled Steak",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17031,
+      "_note": "Craft {X} Butter Chicken",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17032,
+      "_note": "Craft {X} Grilled Lamb Chop",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17033,
+      "_note": "Craft {X} Baguette with Apple Jam",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17034,
+      "_note": "Craft {X} Baguette with Orange Jam",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17035,
+      "_note": "Craft {X} Baguette with Strawberry Jam",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17036,
+      "_note": "Craft {X} Ramen",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17037,
+      "_note": "Craft {X} Deluxe Ramen",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17038,
+      "_note": "Craft {X} Butter Corn",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 17039,
+      "_note": "Craft {X} Steak 'n' Fries",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17040,
+      "_note": "Craft {X} Fried Rice",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17041,
+      "_note": "Craft {X} Deluxe Fried Rice",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17042,
+      "_note": "Craft {X} Fruit 'n Vegetable Salad",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17043,
+      "_note": "Craft {X} Donut",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17044,
+      "_note": "Craft {X} Pumpkin Pie",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17045,
+      "_note": "Craft {X} Meat Pie",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17046,
+      "_note": "Craft {X} Small Health Potion",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 17047,
+      "_note": "Craft {X} Medium Health Potion",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 17048,
+      "_note": "Craft {X} Large Health Potion",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17049,
+      "_note": "Craft {X} Small Energy Potion",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 17050,
+      "_note": "Craft {X} Medium Energy Potion",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17051,
+      "_note": "Craft {X} Large Energy Potion",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17052,
+      "_note": "Craft {X} Small Haste Potion",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17053,
+      "_note": "Craft {X} Medium Haste Potion",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17054,
+      "_note": "Craft {X} Large Haste Potion",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17055,
+      "_note": "Craft {X} Small Potion of Shield",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17056,
+      "_note": "Craft {X} Medium Potion of Shield",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17057,
+      "_note": "Craft {X} Large Potion of Shield",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17058,
+      "_note": "Craft {X} Small Potion of Resistance",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 17059,
+      "_note": "Craft {X} Medium Potion of Resistance",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17060,
+      "_note": "Craft {X} Large Potion of Resistance",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17061,
+      "_note": "Craft {X} Small Potion of Cure Ailment",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17062,
+      "_note": "Craft {X} Medium Potion of Cure Ailment",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17063,
+      "_note": "Craft {X} Large Potion of Cure Ailment",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17064,
+      "_note": "Craft {X} Small Potion of Cure Disease",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 17065,
+      "_note": "Craft {X} Medium Potion of Cure Disease",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17066,
+      "_note": "Craft {X} Large Potion of Cure Disease",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17067,
+      "_note": "Craft {X} Small Potion of Might",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17068,
+      "_note": "Craft {X} Medium Potion of Might",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17069,
+      "_note": "Craft {X} Large Potion of Might",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17070,
+      "_note": "Craft {X} Small Potion of Stealth",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 17071,
+      "_note": "Craft {X} Medium Potion of Stealth",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17072,
+      "_note": "Craft {X} Large Potion of Stealth",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17073,
+      "_note": "Craft {X} Cotton Paper",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17074,
+      "_note": "Craft {X} Shell of Small Concentrated Damage",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17075,
+      "_note": "Craft {X} Shell of Medium Concentrated Damage",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17076,
+      "_note": "Craft {X} Shell of Large Concentrated Damage",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 17077,
+      "_note": "Craft {X} Shell of Small Area Damage",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17078,
+      "_note": "Craft {X} Shell of Medium Area Damage",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17079,
+      "_note": "Craft {X} Shell of Large Area Damage",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 17080,
+      "_note": "Craft {X} Shell of Blinding",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17081,
+      "_note": "Craft {X} Shell of Shock",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17082,
+      "_note": "Craft {X} Shell of Burn",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17083,
+      "_note": "Craft {X} Shell of Stun",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17084,
+      "_note": "Craft {X} Shell of Silence",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17085,
+      "_note": "Craft {X} Shell of Distraction",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17086,
+      "_note": "Craft {X} Shell of Weakness",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 17087,
+      "_note": "Craft {X} Shell of Broken Defense",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 17088,
+      "_note": "Craft {X} Shell of Slow",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17089,
+      "_note": "Craft {X} Copper Sword",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17090,
+      "_note": "Craft {X} Bronze Sword",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17091,
+      "_note": "Craft {X} Iron Sword",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17092,
+      "_note": "Craft {X} Steel Sword",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17093,
+      "_note": "Craft {X} Stone Hammer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17094,
+      "_note": "Craft {X} Copper Hammer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17095,
+      "_note": "Craft {X} Bronze Hammer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17096,
+      "_note": "Craft {X} Iron Hammer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17097,
+      "_note": "Craft {X} Steel Hammer",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17098,
+      "_note": "Craft {X} Wooden Staff",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17099,
+      "_note": "Craft {X} Silver Staff",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17100,
+      "_note": "Craft {X} Gold Staff",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17101,
+      "_note": "Craft {X} Longbow",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17102,
+      "_note": "Craft {X} Recurve Bow",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17103,
+      "_note": "Craft {X} Composite Bow",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17104,
+      "_note": "Craft {X} Wooden Arrow",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17105,
+      "_note": "Craft {X} Stone Arrow",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17106,
+      "_note": "Craft {X} Iron Arrow",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17107,
+      "_note": "Craft {X} Steel Arrow",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17108,
+      "_note": "Craft {X} Pumpkin Helm",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17109,
+      "_note": "Craft {X} Wool Hat",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17110,
+      "_note": "Craft {X} Wooden Helm",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17111,
+      "_note": "Craft {X} Copper Helm",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17112,
+      "_note": "Craft {X} Bronze Helm",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17113,
+      "_note": "Craft {X} Iron Helm",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17114,
+      "_note": "Craft {X} Steel Helm",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17115,
+      "_note": "Craft {X} Cotton Shirt",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17116,
+      "_note": "Craft {X} Wooden Armor",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17117,
+      "_note": "Craft {X} Leather Armor",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17118,
+      "_note": "Craft {X} Copper Armor",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17119,
+      "_note": "Craft {X} Bronze Armor",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17120,
+      "_note": "Craft {X} Iron Chain Mail",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17121,
+      "_note": "Craft {X} Steel Chain Mail",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17122,
+      "_note": "Craft {X} Iron Plate Mail",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17123,
+      "_note": "Craft {X} Steel Plate Mail",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17124,
+      "_note": "Craft {X} Wooden Shield",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17125,
+      "_note": "Craft {X} Stone Shield",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17126,
+      "_note": "Craft {X} Copper Shield",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17127,
+      "_note": "Craft {X} Bronze Shield",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17128,
+      "_note": "Craft {X} Iron Shield",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17129,
+      "_note": "Craft {X} Steel Shield",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17130,
+      "_note": "Craft {X} Silver Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17131,
+      "_note": "Craft {X} Gold Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17132,
+      "_note": "Craft {X} Silver Necklace",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17133,
+      "_note": "Craft {X} Gold Necklace",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17134,
+      "_note": "Craft {X} Silver Bracelet",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17135,
+      "_note": "Craft {X} Gold Bracelet",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17136,
+      "_note": "Craft {X} Silver Amethyst Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17137,
+      "_note": "Craft {X} Silver Emerald Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17138,
+      "_note": "Craft {X} Silver Ruby Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17139,
+      "_note": "Craft {X} Silver Topaz Ring",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17140,
+      "_note": "Craft {X} Silver Diamond Ring",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17141,
+      "_note": "Craft {X} Gold Amethyst Ring",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17142,
+      "_note": "Craft {X} Gold Emerald Ring",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17143,
+      "_note": "Craft {X} Gold Ruby Ring",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17144,
+      "_note": "Craft {X} Gold Topaz Ring",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17145,
+      "_note": "Craft {X} Gold Diamond Ring",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17146,
+      "_note": "Craft {X} Silver Amethyst Necklace",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17147,
+      "_note": "Craft {X} Silver Emerald Necklace",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17148,
+      "_note": "Craft {X} Silver Ruby Necklace",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17149,
+      "_note": "Craft {X} Silver Topaz Necklace",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17150,
+      "_note": "Craft {X} Silver Diamond Necklace",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17151,
+      "_note": "Craft {X} Gold Amethyst Necklace",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17152,
+      "_note": "Craft {X} Gold Emerald Necklace",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17153,
+      "_note": "Craft {X} Gold Ruby Necklace",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17154,
+      "_note": "Craft {X} Gold Topaz Necklace",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17155,
+      "_note": "Craft {X} Gold Diamond Necklace",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17156,
+      "_note": "Craft {X} Silver Amethyst Bracelet",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17157,
+      "_note": "Craft {X} Silver Emerald Bracelet",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17158,
+      "_note": "Craft {X} Silver Ruby Bracelet",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17159,
+      "_note": "Craft {X} Silver Topaz Bracelet",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17160,
+      "_note": "Craft {X} Silver Diamond Bracelet",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17161,
+      "_note": "Craft {X} Gold Amethyst Bracelet",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17162,
+      "_note": "Craft {X} Gold Emerald Bracelet",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17163,
+      "_note": "Craft {X} Gold Ruby Bracelet",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17164,
+      "_note": "Craft {X} Gold Topaz Bracelet",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 17165,
+      "_note": "Craft {X} Gold Diamond Bracelet",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 17166,
+      "_note": "Craft {X} Honey Apple Tart",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17167,
+      "_note": "Craft {X} Honey Roasted Chicken",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17168,
+      "_note": "Craft {X} Honey Carrot Soup",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17169,
+      "_note": "Craft {X} Honey Rainbow Fruit",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17170,
+      "_note": "Craft {X} Lamb Stew",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17171,
+      "_note": "Craft {X} Spaghetti",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17172,
+      "_note": "Craft {X} Honey",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 17173,
+      "_note": "Craft {X} Beeswax",
+      "required_value": 13
+    },
+    {
+      "quest_config_id": 17174,
+      "_note": "Craft {X} Platinum Long Sword",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17175,
+      "_note": "Craft {X} Platinum Dual Sword",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17176,
+      "_note": "Craft {X} Platinum Hammer",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17177,
+      "_note": "Craft {X} Platinum Axe",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17178,
+      "_note": "Craft {X} Ladle",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17179,
+      "_note": "Craft {X} Diamond Staff",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17180,
+      "_note": "Craft {X} Rosy Harp",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17181,
+      "_note": "Craft {X} Crossbow",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17182,
+      "_note": "Craft {X} Platinum Helm",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17183,
+      "_note": "Craft {X} Pot Helm",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17184,
+      "_note": "Craft {X} Platinum Chain Mail",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17185,
+      "_note": "Craft {X} Platinum Plate Mail",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17186,
+      "_note": "Craft {X} Bread Armor",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17187,
+      "_note": "Craft {X} Platinum Shield",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17188,
+      "_note": "Craft {X} Corn Sword",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17189,
+      "_note": "Craft {X} Leather Shoes",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17190,
+      "_note": "Craft {X} Wooden Shoes",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17191,
+      "_note": "Craft {X} Cotton Shoes",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17192,
+      "_note": "Craft {X} Copper Shoes",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17193,
+      "_note": "Craft {X} Steel Shoes",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17194,
+      "_note": "Craft {X} Platinum Shoes",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17195,
+      "_note": "Craft {X} Three Wonders Shoes",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17196,
+      "_note": "Craft {X} Knight Shoes",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17197,
+      "_note": "Craft {X} Talaria Shoes",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17198,
+      "_note": "Craft {X} Quad Powers Staff",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17199,
+      "_note": "Craft {X} Silver Book",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17200,
+      "_note": "Craft {X} Golden Book",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17201,
+      "_note": "Craft {X} Ruby Book",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17202,
+      "_note": "Craft {X} Ancient Book",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17203,
+      "_note": "Craft {X} Silver Sphere",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17204,
+      "_note": "Craft {X} Golden Sphere",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 17205,
+      "_note": "Craft {X} Moon Sphere",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17206,
+      "_note": "Craft {X} Platinum Sphere",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 17207,
+      "_note": "Craft {X} Wooden Lantern",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 17208,
+      "_note": "Craft {X} Golden Lantern",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 17209,
+      "_note": "Craft {X} Platinum Lantern",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 17210,
+      "_note": "Craft {X} Tri Light Lantern",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18000,
+      "_note": "Craft {X} Legendary+ Consumable",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18001,
+      "_note": "Craft {X} Legendary+ Equipment",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18002,
+      "_note": "Craft {X} Rare Food",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 18003,
+      "_note": "Craft {X} Rare Weapon",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18004,
+      "_note": "Craft {X} Rare Armor",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18005,
+      "_note": "Craft {X} Rare Potion",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18006,
+      "_note": "Craft {X} Rare Accessories",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18007,
+      "_note": "Craft {X} Rare Mystic Shell",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18008,
+      "_note": "Craft {X} Epic Food",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 18009,
+      "_note": "Craft {X} Epic Weapon",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18010,
+      "_note": "Craft {X} Epic Armor",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18011,
+      "_note": "Craft {X} Epic Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18012,
+      "_note": "Craft {X} Epic Accessories",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18013,
+      "_note": "Craft {X} Epic Mystic Shell",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18014,
+      "_note": "Craft {X} Legendary Food",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18015,
+      "_note": "Craft {X} Legendary Weapon",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18016,
+      "_note": "Craft {X} Legendary Armor",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18017,
+      "_note": "Craft {X} Legendary Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18018,
+      "_note": "Craft {X} Legendary Accessories",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18019,
+      "_note": "Craft {X} Legendary Mystic Shell",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18020,
+      "_note": "Craft {X} Epic+ Baguette",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18021,
+      "_note": "Craft {X} Epic+ Noodle",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18022,
+      "_note": "Craft {X} Epic+ Grilled Corn",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18023,
+      "_note": "Craft {X} Epic+ Sugar",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18024,
+      "_note": "Craft {X} Epic+ Lunacian Fries",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18025,
+      "_note": "Craft {X} Epic+ Steamed Rice",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18026,
+      "_note": "Craft {X} Epic+ Boiled Carrot",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18027,
+      "_note": "Craft {X} Epic+ Pumpkin Soup",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18028,
+      "_note": "Craft {X} Epic+ Boiled Cabbage",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18029,
+      "_note": "Craft {X} Epic+ Salad",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18030,
+      "_note": "Craft {X} Epic+ Apple Jam",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18031,
+      "_note": "Craft {X} Epic+ Orange Jam",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18032,
+      "_note": "Craft {X} Epic+ Strawberry Jam",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18033,
+      "_note": "Craft {X} Epic+ Apple Juice",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18034,
+      "_note": "Craft {X} Epic+ Orange Juice",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18035,
+      "_note": "Craft {X} Epic+ Strawberry Juice",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18036,
+      "_note": "Craft {X} Epic+ Peach Juice",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18037,
+      "_note": "Craft {X} Epic+ Pickled Peach",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18038,
+      "_note": "Craft {X} Epic+ Banana Juice",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18039,
+      "_note": "Craft {X} Epic+ Grilled Banana",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18040,
+      "_note": "Craft {X} Epic+ Sliced Watermelon",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18041,
+      "_note": "Craft {X} Epic+ Watermelon Juice",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18042,
+      "_note": "Craft {X} Epic+ Deluxe Fruit Plate",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18043,
+      "_note": "Craft {X} Epic+ Extra Deluxe Fruit Plate",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18044,
+      "_note": "Craft {X} Epic+ Boiled Egg",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18045,
+      "_note": "Craft {X} Epic+ Steamed Chicken",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18046,
+      "_note": "Craft {X} Epic+ Steamed Pork",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18047,
+      "_note": "Craft {X} Epic+ Fried Pork",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18048,
+      "_note": "Craft {X} Epic+ Cream",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18049,
+      "_note": "Craft {X} Epic+ Butter",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 18050,
+      "_note": "Craft {X} Epic+ Grilled Steak",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18051,
+      "_note": "Craft {X} Epic+ Butter Chicken",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18052,
+      "_note": "Craft {X} Epic+ Grilled Lamb Chop",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18053,
+      "_note": "Craft {X} Epic+ Baguette with Apple Jam",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18054,
+      "_note": "Craft {X} Epic+ Baguette with Orange Jam",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18055,
+      "_note": "Craft {X} Epic+ Baguette with Strawberry Jam",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18056,
+      "_note": "Craft {X} Epic+ Ramen",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18057,
+      "_note": "Craft {X} Epic+ Deluxe Ramen",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18058,
+      "_note": "Craft {X} Epic+ Butter Corn",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18059,
+      "_note": "Craft {X} Epic+ Steak 'n' Fries",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18060,
+      "_note": "Craft {X} Epic+ Fried Rice",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18061,
+      "_note": "Craft {X} Epic+ Deluxe Fried Rice",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18062,
+      "_note": "Craft {X} Epic+ Fruit 'n Vegetable Salad",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18063,
+      "_note": "Craft {X} Epic+ Donut",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18064,
+      "_note": "Craft {X} Epic+ Pumpkin Pie",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18065,
+      "_note": "Craft {X} Epic+ Meat Pie",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18066,
+      "_note": "Craft {X} Epic+ Small Health Potion",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 18067,
+      "_note": "Craft {X} Epic+ Medium Health Potion",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18068,
+      "_note": "Craft {X} Epic+ Large Health Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18069,
+      "_note": "Craft {X} Epic+ Small Energy Potion",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18070,
+      "_note": "Craft {X} Epic+ Medium Energy Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18071,
+      "_note": "Craft {X} Epic+ Large Energy Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18072,
+      "_note": "Craft {X} Epic+ Small Haste Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18073,
+      "_note": "Craft {X} Epic+ Medium Haste Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18074,
+      "_note": "Craft {X} Epic+ Large Haste Potion",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18075,
+      "_note": "Craft {X} Epic+ Small Potion of Shield",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18076,
+      "_note": "Craft {X} Epic+ Medium Potion of Shield",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18077,
+      "_note": "Craft {X} Epic+ Large Potion of Shield",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18078,
+      "_note": "Craft {X} Epic+ Small Potion of Resistance",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18079,
+      "_note": "Craft {X} Epic+ Medium Potion of Resistance",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18080,
+      "_note": "Craft {X} Epic+ Large Potion of Resistance",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18081,
+      "_note": "Craft {X} Epic+ Small Potion of Cure Ailment",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18082,
+      "_note": "Craft {X} Epic+ Medium Potion of Cure Ailment",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18083,
+      "_note": "Craft {X} Epic+ Large Potion of Cure Ailment",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18084,
+      "_note": "Craft {X} Epic+ Small Potion of Cure Disease",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18085,
+      "_note": "Craft {X} Epic+ Medium Potion of Cure Disease",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18086,
+      "_note": "Craft {X} Epic+ Large Potion of Cure Disease",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18087,
+      "_note": "Craft {X} Epic+ Small Potion of Might",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18088,
+      "_note": "Craft {X} Epic+ Medium Potion of Might",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18089,
+      "_note": "Craft {X} Epic+ Large Potion of Might",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18090,
+      "_note": "Craft {X} Epic+ Small Potion of Stealth",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18091,
+      "_note": "Craft {X} Epic+ Medium Potion of Stealth",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18092,
+      "_note": "Craft {X} Epic+ Large Potion of Stealth",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18093,
+      "_note": "Craft {X} Epic+ Cotton Paper",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18094,
+      "_note": "Craft {X} Epic+ Shell of Small Concentrated Damage",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18095,
+      "_note": "Craft {X} Epic+ Shell of Medium Concentrated Damage",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18096,
+      "_note": "Craft {X} Epic+ Shell of Large Concentrated Damage",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18097,
+      "_note": "Craft {X} Epic+ Shell of Small Area Damage",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18098,
+      "_note": "Craft {X} Epic+ Shell of Medium Area Damage",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18099,
+      "_note": "Craft {X} Epic+ Shell of Large Area Damage",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18100,
+      "_note": "Craft {X} Epic+ Shell of Blinding",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18101,
+      "_note": "Craft {X} Epic+ Shell of Shock",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18102,
+      "_note": "Craft {X} Epic+ Shell of Burn",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18103,
+      "_note": "Craft {X} Epic+ Shell of Stun",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18104,
+      "_note": "Craft {X} Epic+ Shell of Silence",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18105,
+      "_note": "Craft {X} Epic+ Shell of Distraction",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18106,
+      "_note": "Craft {X} Epic+ Shell of Weakness",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18107,
+      "_note": "Craft {X} Epic+ Shell of Broken Defense",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18108,
+      "_note": "Craft {X} Epic+ Shell of Slow",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18109,
+      "_note": "Craft {X} Epic+ Copper Sword",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18110,
+      "_note": "Craft {X} Epic+ Bronze Sword",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18111,
+      "_note": "Craft {X} Epic+ Iron Sword",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18112,
+      "_note": "Craft {X} Epic+ Steel Sword",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18113,
+      "_note": "Craft {X} Epic+ Stone Hammer",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18114,
+      "_note": "Craft {X} Epic+ Copper Hammer",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18115,
+      "_note": "Craft {X} Epic+ Bronze Hammer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18116,
+      "_note": "Craft {X} Epic+ Iron Hammer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18117,
+      "_note": "Craft {X} Epic+ Steel Hammer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18118,
+      "_note": "Craft {X} Epic+ Wooden Staff",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18119,
+      "_note": "Craft {X} Epic+ Silver Staff",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18120,
+      "_note": "Craft {X} Epic+ Gold Staff",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18121,
+      "_note": "Craft {X} Epic+ Longbow",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18122,
+      "_note": "Craft {X} Epic+ Recurve Bow",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18123,
+      "_note": "Craft {X} Epic+ Composite Bow",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18124,
+      "_note": "Craft {X} Epic+ Wooden Arrow",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18125,
+      "_note": "Craft {X} Epic+ Stone Arrow",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18126,
+      "_note": "Craft {X} Epic+ Iron Arrow",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18127,
+      "_note": "Craft {X} Epic+ Steel Arrow",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18128,
+      "_note": "Craft {X} Epic+ Pumpkin Helm",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18129,
+      "_note": "Craft {X} Epic+ Wool Hat",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18130,
+      "_note": "Craft {X} Epic+ Wooden Helm",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18131,
+      "_note": "Craft {X} Epic+ Copper Helm",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18132,
+      "_note": "Craft {X} Epic+ Bronze Helm",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18133,
+      "_note": "Craft {X} Epic+ Iron Helm",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18134,
+      "_note": "Craft {X} Epic+ Steel Helm",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18135,
+      "_note": "Craft {X} Epic+ Cotton Shirt",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18136,
+      "_note": "Craft {X} Epic+ Wooden Armor",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18137,
+      "_note": "Craft {X} Epic+ Leather Armor",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18138,
+      "_note": "Craft {X} Epic+ Copper Armor",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18139,
+      "_note": "Craft {X} Epic+ Bronze Armor",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18140,
+      "_note": "Craft {X} Epic+ Iron Chain Mail",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18141,
+      "_note": "Craft {X} Epic+ Steel Chain Mail",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18142,
+      "_note": "Craft {X} Epic+ Iron Plate Mail",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18143,
+      "_note": "Craft {X} Epic+ Steel Plate Mail",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18144,
+      "_note": "Craft {X} Epic+ Wooden Shield",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18145,
+      "_note": "Craft {X} Epic+ Stone Shield",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18146,
+      "_note": "Craft {X} Epic+ Copper Shield",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18147,
+      "_note": "Craft {X} Epic+ Bronze Shield",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18148,
+      "_note": "Craft {X} Epic+ Iron Shield",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18149,
+      "_note": "Craft {X} Epic+ Steel Shield",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18150,
+      "_note": "Craft {X} Epic+ Silver Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18151,
+      "_note": "Craft {X} Epic+ Gold Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18152,
+      "_note": "Craft {X} Epic+ Silver Necklace",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18153,
+      "_note": "Craft {X} Epic+ Gold Necklace",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18154,
+      "_note": "Craft {X} Epic+ Silver Bracelet",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18155,
+      "_note": "Craft {X} Epic+ Gold Bracelet",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18156,
+      "_note": "Craft {X} Epic+ Silver Amethyst Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18157,
+      "_note": "Craft {X} Epic+ Silver Emerald Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18158,
+      "_note": "Craft {X} Epic+ Silver Ruby Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18159,
+      "_note": "Craft {X} Epic+ Silver Topaz Ring",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18160,
+      "_note": "Craft {X} Epic+ Silver Diamond Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18161,
+      "_note": "Craft {X} Epic+ Gold Amethyst Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18162,
+      "_note": "Craft {X} Epic+ Gold Emerald Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18163,
+      "_note": "Craft {X} Epic+ Gold Ruby Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18164,
+      "_note": "Craft {X} Epic+ Gold Topaz Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18165,
+      "_note": "Craft {X} Epic+ Gold Diamond Ring",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18166,
+      "_note": "Craft {X} Epic+ Silver Amethyst Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18167,
+      "_note": "Craft {X} Epic+ Silver Emerald Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18168,
+      "_note": "Craft {X} Epic+ Silver Ruby Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18169,
+      "_note": "Craft {X} Epic+ Silver Topaz Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18170,
+      "_note": "Craft {X} Epic+ Silver Diamond Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18171,
+      "_note": "Craft {X} Epic+ Gold Amethyst Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18172,
+      "_note": "Craft {X} Epic+ Gold Emerald Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18173,
+      "_note": "Craft {X} Epic+ Gold Ruby Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18174,
+      "_note": "Craft {X} Epic+ Gold Topaz Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18175,
+      "_note": "Craft {X} Epic+ Gold Diamond Necklace",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18176,
+      "_note": "Craft {X} Epic+ Silver Amethyst Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18177,
+      "_note": "Craft {X} Epic+ Silver Emerald Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18178,
+      "_note": "Craft {X} Epic+ Silver Ruby Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18179,
+      "_note": "Craft {X} Epic+ Silver Topaz Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18180,
+      "_note": "Craft {X} Epic+ Silver Diamond Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18181,
+      "_note": "Craft {X} Epic+ Gold Amethyst Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18182,
+      "_note": "Craft {X} Epic+ Gold Emerald Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18183,
+      "_note": "Craft {X} Epic+ Gold Ruby Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18184,
+      "_note": "Craft {X} Epic+ Gold Topaz Bracelet",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18185,
+      "_note": "Craft {X} Epic+ Gold Diamond Bracelet",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18186,
+      "_note": "Craft {X} Epic+ Honey Apple Tart",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18187,
+      "_note": "Craft {X} Epic+ Honey Roasted Chicken",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18188,
+      "_note": "Craft {X} Epic+ Honey Carrot Soup",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18189,
+      "_note": "Craft {X} Epic+ Honey Rainbow Fruit",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18190,
+      "_note": "Craft {X} Epic+ Lamb Stew",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18191,
+      "_note": "Craft {X} Epic+ Spaghetti",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18192,
+      "_note": "Craft {X} Epic+ Honey",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18193,
+      "_note": "Craft {X} Epic+ Beeswax",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18194,
+      "_note": "Craft {X} Epic+ Platinum Long Sword",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18195,
+      "_note": "Craft {X} Epic+ Platinum Dual Sword",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18196,
+      "_note": "Craft {X} Epic+ Platinum Hammer",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18197,
+      "_note": "Craft {X} Epic+ Platinum Axe",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18198,
+      "_note": "Craft {X} Epic+ Ladle",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18199,
+      "_note": "Craft {X} Epic+ Diamond Staff",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18200,
+      "_note": "Craft {X} Epic+ Rosy Harp",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18201,
+      "_note": "Craft {X} Epic+ Crossbow",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18202,
+      "_note": "Craft {X} Epic+ Platinum Helm",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18203,
+      "_note": "Craft {X} Epic+ Pot Helm",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18204,
+      "_note": "Craft {X} Epic+ Platinum Chain Mail",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18205,
+      "_note": "Craft {X} Epic+ Platinum Plate Mail",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18206,
+      "_note": "Craft {X} Epic+ Bread Armor",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18207,
+      "_note": "Craft {X} Epic+ Platinum Shield",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18208,
+      "_note": "Craft {X} Epic+ Corn Sword",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18209,
+      "_note": "Craft {X} Epic+ Leather Shoes",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18210,
+      "_note": "Craft {X} Epic+ Wooden Shoes",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18211,
+      "_note": "Craft {X} Epic+ Cotton Shoes",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18212,
+      "_note": "Craft {X} Epic+ Copper Shoes",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18213,
+      "_note": "Craft {X} Epic+ Steel Shoes",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18214,
+      "_note": "Craft {X} Epic+ Platinum Shoes",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18215,
+      "_note": "Craft {X} Epic+ Three Wonders Shoes",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18216,
+      "_note": "Craft {X} Epic+ Knight Shoes",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18217,
+      "_note": "Craft {X} Epic+ Talaria Shoes",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18218,
+      "_note": "Craft {X} Epic+ Quad Powers Staff",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18219,
+      "_note": "Craft {X} Epic+ Silver Book",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18220,
+      "_note": "Craft {X} Epic+ Golden Book",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18221,
+      "_note": "Craft {X} Epic+ Ruby Book",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18222,
+      "_note": "Craft {X} Epic+ Ancient Book",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18223,
+      "_note": "Craft {X} Epic+ Silver Sphere",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18224,
+      "_note": "Craft {X} Epic+ Golden Sphere",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18225,
+      "_note": "Craft {X} Epic+ Moon Sphere",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18226,
+      "_note": "Craft {X} Epic+ Platinum Sphere",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 18227,
+      "_note": "Craft {X} Epic+ Wooden Lantern",
+      "required_value": 6
+    },
+    {
+      "quest_config_id": 18228,
+      "_note": "Craft {X} Epic+ Golden Lantern",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 18229,
+      "_note": "Craft {X} Epic+ Platinum Lantern",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 18230,
+      "_note": "Craft {X} Epic+ Tri Light Lantern",
+      "required_value": 2
+    },
+    {
+      "quest_config_id": 19000,
+      "_note": "Send {X} Adventurers",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 19001,
+      "_note": "Gain {X} Gold from Adventure Trading",
+      "required_value": 400
+    },
+    {
+      "quest_config_id": 19002,
+      "_note": "Equip {X} Item to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20000,
+      "_note": "Send {X} Warriors",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 20001,
+      "_note": "Send {X} Guardian",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 20002,
+      "_note": "Send {X} Healer",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 20003,
+      "_note": "Send {X} Mage",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 20004,
+      "_note": "Send {X} Ranger",
+      "required_value": 15
+    },
+    {
+      "quest_config_id": 20005,
+      "_note": "Sell {X} Consumable to Adventurer",
+      "required_value": 200
+    },
+    {
+      "quest_config_id": 20006,
+      "_note": "Sell {X} Equipment to Adventurer",
+      "required_value": 240
+    },
+    {
+      "quest_config_id": 20007,
+      "_note": "Sell {X} Baguette to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20009,
+      "_note": "Sell {X} Grilled Corn to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20011,
+      "_note": "Sell {X} Lunacian Fries to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20012,
+      "_note": "Sell {X} Steamed Rice to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20013,
+      "_note": "Sell {X} Boiled Carrot to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20014,
+      "_note": "Sell {X} Pumpkin Soup to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20015,
+      "_note": "Sell {X} Boiled Cabbage to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20016,
+      "_note": "Sell {X} Salad to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20017,
+      "_note": "Sell {X} Apple Jam to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20018,
+      "_note": "Sell {X} Orange Jam to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20019,
+      "_note": "Sell {X} Strawberry Jam to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20020,
+      "_note": "Sell {X} Apple Juice to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20021,
+      "_note": "Sell {X} Orange Juice to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20022,
+      "_note": "Sell {X} Strawberry Juice to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20023,
+      "_note": "Sell {X} Peach Juice to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20024,
+      "_note": "Sell {X} Pickled Peach to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20025,
+      "_note": "Sell {X} Banana Juice to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20026,
+      "_note": "Sell {X} Grilled Banana to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20027,
+      "_note": "Sell {X} Sliced Watermelon to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20028,
+      "_note": "Sell {X} Watermelon Juice to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20029,
+      "_note": "Sell {X} Deluxe Fruit Plate to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20030,
+      "_note": "Sell {X} Extra Deluxe Fruit Plate to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20031,
+      "_note": "Sell {X} Boiled Egg to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20032,
+      "_note": "Sell {X} Steamed Chicken to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20033,
+      "_note": "Sell {X} Steamed Pork to Adventurer",
+      "required_value": 47
+    },
+    {
+      "quest_config_id": 20034,
+      "_note": "Sell {X} Fried Pork to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20035,
+      "_note": "Sell {X} Cream to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20037,
+      "_note": "Sell {X} Grilled Steak to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20038,
+      "_note": "Sell {X} Butter Chicken to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20039,
+      "_note": "Sell {X} Grilled Lamb Chop to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20040,
+      "_note": "Sell {X} Baguette with Apple Jam to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20041,
+      "_note": "Sell {X} Baguette with Orange Jam to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20042,
+      "_note": "Sell {X} Baguette with Strawberry Jam to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20043,
+      "_note": "Sell {X} Ramen to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20044,
+      "_note": "Sell {X} Deluxe Ramen to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20045,
+      "_note": "Sell {X} Butter Corn to Adventurer",
+      "required_value": 33
+    },
+    {
+      "quest_config_id": 20046,
+      "_note": "Sell {X} Steak 'n' Fries to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20047,
+      "_note": "Sell {X} Fried Rice to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20048,
+      "_note": "Sell {X} Deluxe Fried Rice to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20049,
+      "_note": "Sell {X} Fruit 'n Vegetable Salad to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20050,
+      "_note": "Sell {X} Donut to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20051,
+      "_note": "Sell {X} Pumpkin Pie to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20052,
+      "_note": "Sell {X} Meat Pie to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20053,
+      "_note": "Sell {X} Small Health Potion to Adventurer",
+      "required_value": 31
+    },
+    {
+      "quest_config_id": 20054,
+      "_note": "Sell {X} Medium Health Potion to Adventurer",
+      "required_value": 26
+    },
+    {
+      "quest_config_id": 20055,
+      "_note": "Sell {X} Large Health Potion to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20056,
+      "_note": "Sell {X} Small Energy Potion to Adventurer",
+      "required_value": 26
+    },
+    {
+      "quest_config_id": 20057,
+      "_note": "Sell {X} Medium Energy Potion to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20058,
+      "_note": "Sell {X} Large Energy Potion to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20059,
+      "_note": "Sell {X} Small Haste Potion to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20060,
+      "_note": "Sell {X} Medium Haste Potion to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20061,
+      "_note": "Sell {X} Large Haste Potion to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20062,
+      "_note": "Sell {X} Small Potion of Shield to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20063,
+      "_note": "Sell {X} Medium Potion of Shield to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20064,
+      "_note": "Sell {X} Large Potion of Shield to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20065,
+      "_note": "Sell {X} Small Potion of Resistance to Adventurer",
+      "required_value": 26
+    },
+    {
+      "quest_config_id": 20066,
+      "_note": "Sell {X} Medium Potion of Resistance to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20067,
+      "_note": "Sell {X} Large Potion of Resistance to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20068,
+      "_note": "Sell {X} Small Potion of Cure Ailment to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20069,
+      "_note": "Sell {X} Medium Potion of Cure Ailment to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20070,
+      "_note": "Sell {X} Large Potion of Cure Ailment to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20071,
+      "_note": "Sell {X} Small Potion of Cure Disease to Adventurer",
+      "required_value": 26
+    },
+    {
+      "quest_config_id": 20072,
+      "_note": "Sell {X} Medium Potion of Cure Disease to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20073,
+      "_note": "Sell {X} Large Potion of Cure Disease to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20074,
+      "_note": "Sell {X} Small Potion of Might to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20075,
+      "_note": "Sell {X} Medium Potion of Might to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20076,
+      "_note": "Sell {X} Large Potion of Might to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20077,
+      "_note": "Sell {X} Small Potion of Stealth to Adventurer",
+      "required_value": 23
+    },
+    {
+      "quest_config_id": 20078,
+      "_note": "Sell {X} Medium Potion of Stealth to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20079,
+      "_note": "Sell {X} Large Potion of Stealth to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20081,
+      "_note": "Sell {X} Shell of Small Concentrated Damage to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20082,
+      "_note": "Sell {X} Shell of Medium Concentrated Damage to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20083,
+      "_note": "Sell {X} Shell of Large Concentrated Damage to Adventurer",
+      "required_value": 19
+    },
+    {
+      "quest_config_id": 20084,
+      "_note": "Sell {X} Shell of Small Area Damage to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20085,
+      "_note": "Sell {X} Shell of Medium Area Damage to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20086,
+      "_note": "Sell {X} Shell of Large Area Damage to Adventurer",
+      "required_value": 19
+    },
+    {
+      "quest_config_id": 20087,
+      "_note": "Sell {X} Shell of Blinding to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20088,
+      "_note": "Sell {X} Shell of Shock to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20089,
+      "_note": "Sell {X} Shell of Burn to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20090,
+      "_note": "Sell {X} Shell of Stun to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20091,
+      "_note": "Sell {X} Shell of Silence to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20092,
+      "_note": "Sell {X} Shell of Distraction to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20093,
+      "_note": "Sell {X} Shell of Weakness to Adventurer",
+      "required_value": 19
+    },
+    {
+      "quest_config_id": 20094,
+      "_note": "Sell {X} Shell of Broken Defense to Adventurer",
+      "required_value": 19
+    },
+    {
+      "quest_config_id": 20095,
+      "_note": "Sell {X} Shell of Slow to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20096,
+      "_note": "Sell {X} Copper Sword to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20097,
+      "_note": "Sell {X} Bronze Sword to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20098,
+      "_note": "Sell {X} Iron Sword to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20099,
+      "_note": "Sell {X} Steel Sword to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20100,
+      "_note": "Sell {X} Stone Hammer to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20101,
+      "_note": "Sell {X} Copper Hammer to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20102,
+      "_note": "Sell {X} Bronze Hammer to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20103,
+      "_note": "Sell {X} Iron Hammer to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20104,
+      "_note": "Sell {X} Steel Hammer to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20105,
+      "_note": "Sell {X} Wooden Staff to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20106,
+      "_note": "Sell {X} Silver Staff to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20107,
+      "_note": "Sell {X} Gold Staff to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20108,
+      "_note": "Sell {X} Longbow to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20109,
+      "_note": "Sell {X} Recurve Bow to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20110,
+      "_note": "Sell {X} Composite Bow to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20111,
+      "_note": "Sell {X} Wooden Arrow to Adventurer",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 20112,
+      "_note": "Sell {X} Stone Arrow to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20113,
+      "_note": "Sell {X} Iron Arrow to Adventurer",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 20114,
+      "_note": "Sell {X} Steel Arrow to Adventurer",
+      "required_value": 8
+    },
+    {
+      "quest_config_id": 20115,
+      "_note": "Sell {X} Pumpkin Helm to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20116,
+      "_note": "Sell {X} Wool Hat to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20117,
+      "_note": "Sell {X} Wooden Helm to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20118,
+      "_note": "Sell {X} Copper Helm to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20119,
+      "_note": "Sell {X} Bronze Helm to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20120,
+      "_note": "Sell {X} Iron Helm to Adventurer",
+      "required_value": 25
+    },
+    {
+      "quest_config_id": 20121,
+      "_note": "Sell {X} Steel Helm to Adventurer",
+      "required_value": 22
+    },
+    {
+      "quest_config_id": 20122,
+      "_note": "Sell {X} Cotton Shirt to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20123,
+      "_note": "Sell {X} Wooden Armor to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20124,
+      "_note": "Sell {X} Leather Armor to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20125,
+      "_note": "Sell {X} Copper Armor to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20126,
+      "_note": "Sell {X} Bronze Armor to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20127,
+      "_note": "Sell {X} Iron Chain Mail to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20128,
+      "_note": "Sell {X} Steel Chain Mail to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20129,
+      "_note": "Sell {X} Iron Plate Mail to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20130,
+      "_note": "Sell {X} Steel Plate Mail to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20131,
+      "_note": "Sell {X} Wooden Shield to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20132,
+      "_note": "Sell {X} Stone Shield to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20133,
+      "_note": "Sell {X} Copper Shield to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20134,
+      "_note": "Sell {X} Bronze Shield to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20135,
+      "_note": "Sell {X} Iron Shield to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20136,
+      "_note": "Sell {X} Steel Shield to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20143,
+      "_note": "Sell {X} Silver Amethyst Ring to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20144,
+      "_note": "Sell {X} Silver Emerald Ring to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20145,
+      "_note": "Sell {X} Silver Ruby Ring to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20146,
+      "_note": "Sell {X} Silver Topaz Ring to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20147,
+      "_note": "Sell {X} Silver Diamond Ring to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20148,
+      "_note": "Sell {X} Gold Amethyst Ring to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20149,
+      "_note": "Sell {X} Gold Emerald Ring to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20150,
+      "_note": "Sell {X} Gold Ruby Ring to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20151,
+      "_note": "Sell {X} Gold Topaz Ring to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20152,
+      "_note": "Sell {X} Gold Diamond Ring to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20153,
+      "_note": "Sell {X} Silver Amethyst Necklace to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20154,
+      "_note": "Sell {X} Silver Emerald Necklace to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20155,
+      "_note": "Sell {X} Silver Ruby Necklace to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20156,
+      "_note": "Sell {X} Silver Topaz Necklace to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20157,
+      "_note": "Sell {X} Silver Diamond Necklace to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20158,
+      "_note": "Sell {X} Gold Amethyst Necklace to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20159,
+      "_note": "Sell {X} Gold Emerald Necklace to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20160,
+      "_note": "Sell {X} Gold Ruby Necklace to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20161,
+      "_note": "Sell {X} Gold Topaz Necklace to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20162,
+      "_note": "Sell {X} Gold Diamond Necklace to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20163,
+      "_note": "Sell {X} Silver Amethyst Bracelet to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20164,
+      "_note": "Sell {X} Silver Emerald Bracelet to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20165,
+      "_note": "Sell {X} Silver Ruby Bracelet to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20166,
+      "_note": "Sell {X} Silver Topaz Bracelet to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20167,
+      "_note": "Sell {X} Silver Diamond Bracelet to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20168,
+      "_note": "Sell {X} Gold Amethyst Bracelet to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20169,
+      "_note": "Sell {X} Gold Emerald Bracelet to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20170,
+      "_note": "Sell {X} Gold Ruby Bracelet to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20171,
+      "_note": "Sell {X} Gold Topaz Bracelet to Adventurer",
+      "required_value": 21
+    },
+    {
+      "quest_config_id": 20172,
+      "_note": "Sell {X} Gold Diamond Bracelet to Adventurer",
+      "required_value": 19
+    },
+    {
+      "quest_config_id": 20173,
+      "_note": "Sell {X} Honey Apple Tart to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20174,
+      "_note": "Sell {X} Honey Roasted Chicken to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20175,
+      "_note": "Sell {X} Honey Carrot Soup to Adventurer",
+      "required_value": 24
+    },
+    {
+      "quest_config_id": 20176,
+      "_note": "Sell {X} Honey Rainbow Fruit to Adventurer",
+      "required_value": 27
+    },
+    {
+      "quest_config_id": 20177,
+      "_note": "Sell {X} Lamb Stew to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20178,
+      "_note": "Sell {X} Spaghetti to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20181,
+      "_note": "Sell {X} Platinum Long Sword to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20182,
+      "_note": "Sell {X} Platinum Dual Sword to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20183,
+      "_note": "Sell {X} Platinum Hammer to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20184,
+      "_note": "Sell {X} Platinum Axe to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20185,
+      "_note": "Sell {X} Ladle to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20186,
+      "_note": "Sell {X} Diamond Staff to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20187,
+      "_note": "Sell {X} Rosy Harp to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20188,
+      "_note": "Sell {X} Crossbow to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20189,
+      "_note": "Sell {X} Platinum Helm to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20190,
+      "_note": "Sell {X} Pot Helm to Adventurer",
+      "required_value": 25
+    },
+    {
+      "quest_config_id": 20191,
+      "_note": "Sell {X} Platinum Chain Mail to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20192,
+      "_note": "Sell {X} Platinum Plate Mail to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20193,
+      "_note": "Sell {X} Bread Armor to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20194,
+      "_note": "Sell {X} Platinum Shield to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20195,
+      "_note": "Sell {X} Corn Sword to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20196,
+      "_note": "Sell {X} Leather Shoes to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20197,
+      "_note": "Sell {X} Wooden Shoes to Adventurer",
+      "required_value": 36
+    },
+    {
+      "quest_config_id": 20198,
+      "_note": "Sell {X} Cotton Shoes to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20199,
+      "_note": "Sell {X} Copper Shoes to Adventurer",
+      "required_value": 29
+    },
+    {
+      "quest_config_id": 20200,
+      "_note": "Sell {X} Steel Shoes to Adventurer",
+      "required_value": 25
+    },
+    {
+      "quest_config_id": 20201,
+      "_note": "Sell {X} Platinum Shoes to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20202,
+      "_note": "Sell {X} Three Wonders Shoes to Adventurer",
+      "required_value": 22
+    },
+    {
+      "quest_config_id": 20203,
+      "_note": "Sell {X} Knight Shoes to Adventurer",
+      "required_value": 25
+    },
+    {
+      "quest_config_id": 20204,
+      "_note": "Sell {X} Talaria Shoes to Adventurer",
+      "required_value": 18
+    },
+    {
+      "quest_config_id": 20205,
+      "_note": "Sell {X} Quad Powers Staff to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20206,
+      "_note": "Sell {X} Silver Book to Adventurer",
+      "required_value": 11
+    },
+    {
+      "quest_config_id": 20207,
+      "_note": "Sell {X} Golden Book to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20208,
+      "_note": "Sell {X} Ruby Book to Adventurer",
+      "required_value": 9
+    },
+    {
+      "quest_config_id": 20209,
+      "_note": "Sell {X} Ancient Book to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 20210,
+      "_note": "Sell {X} Silver Sphere to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20211,
+      "_note": "Sell {X} Golden Sphere to Adventurer",
+      "required_value": 14
+    },
+    {
+      "quest_config_id": 20212,
+      "_note": "Sell {X} Moon Sphere to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20213,
+      "_note": "Sell {X} Platinum Sphere to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 20214,
+      "_note": "Sell {X} Wooden Lantern to Adventurer",
+      "required_value": 20
+    },
+    {
+      "quest_config_id": 20215,
+      "_note": "Sell {X} Golden Lantern to Adventurer",
+      "required_value": 16
+    },
+    {
+      "quest_config_id": 20216,
+      "_note": "Sell {X} Platinum Lantern to Adventurer",
+      "required_value": 12
+    },
+    {
+      "quest_config_id": 20217,
+      "_note": "Sell {X} Tri Light Lantern to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 21000,
+      "_note": "Defeat {X} Epic Enemies",
+      "required_value": ""
+    },
+    {
+      "quest_config_id": 21001,
+      "_note": "Defeat {X} Legendary Enemies",
+      "required_value": ""
+    },
+    {
+      "quest_config_id": 21002,
+      "_note": "Defeat {X} Mythical enemies",
+      "required_value": ""
+    },
+    {
+      "quest_config_id": 21003,
+      "_note": "Defeat {X} Bosses enemies",
+      "required_value": ""
+    },
+    {
+      "quest_config_id": 21004,
+      "_note": "Sell {X} Legendary+ Item to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 21005,
+      "_note": "Sell {X} Mythical+ Item to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21006,
+      "_note": "Sell {X} Rare Food to Adventurer",
+      "required_value": 10
+    },
+    {
+      "quest_config_id": 21007,
+      "_note": "Sell {X} Rare Sword to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21008,
+      "_note": "Sell {X} Rare Hammer to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21009,
+      "_note": "Sell {X} Rare Staff to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21010,
+      "_note": "Sell {X} Rare Bow to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21011,
+      "_note": "Sell {X} Rare Helm to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21012,
+      "_note": "Sell {X} Rare Body Armor to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21013,
+      "_note": "Sell {X} Rare Shield to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21014,
+      "_note": "Sell {X} Rare Lantern to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21015,
+      "_note": "Sell {X} Rare Shoes to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21016,
+      "_note": "Sell {X} Rare Book to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21017,
+      "_note": "Sell {X} Rare Orb to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21018,
+      "_note": "Sell {X} Rare Potion to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21019,
+      "_note": "Sell {X} Rare Mystic Shell to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21020,
+      "_note": "Sell {X} Rare Ring to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21021,
+      "_note": "Sell {X} Rare Necklace to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21022,
+      "_note": "Sell {X} Rare Bracelet to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21023,
+      "_note": "Sell {X} Rare Arrow to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21024,
+      "_note": "Sell {X} Epic Food to Adventurer",
+      "required_value": 7
+    },
+    {
+      "quest_config_id": 21025,
+      "_note": "Sell {X} Epic Sword to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21026,
+      "_note": "Sell {X} Epic Hammer to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21027,
+      "_note": "Sell {X} Epic Staff to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21028,
+      "_note": "Sell {X} Epic Bow to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21029,
+      "_note": "Sell {X} Epic Helm to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21030,
+      "_note": "Sell {X} Epic Body Armor to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21031,
+      "_note": "Sell {X} Epic Shield to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21032,
+      "_note": "Sell {X} Epic Lantern to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21033,
+      "_note": "Sell {X} Epic Shoes to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21034,
+      "_note": "Sell {X} Epic Book to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21035,
+      "_note": "Sell {X} Epic Orb to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21036,
+      "_note": "Sell {X} Epic Potion to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21037,
+      "_note": "Sell {X} Epic Mystic Shell to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21038,
+      "_note": "Sell {X} Epic Ring to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21039,
+      "_note": "Sell {X} Epic Necklace to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21040,
+      "_note": "Sell {X} Epic Bracelet to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21041,
+      "_note": "Sell {X} Epic Arrow to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21042,
+      "_note": "Sell {X} Legendary Food to Adventurer",
+      "required_value": 5
+    },
+    {
+      "quest_config_id": 21043,
+      "_note": "Sell {X} Legendary Sword to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21044,
+      "_note": "Sell {X} Legendary Hammer to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21045,
+      "_note": "Sell {X} Legendary Staff to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21046,
+      "_note": "Sell {X} Legendary Bow to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21047,
+      "_note": "Sell {X} Legendary Helm to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21048,
+      "_note": "Sell {X} Legendary Body Armor to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21049,
+      "_note": "Sell {X} Legendary Shield to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21050,
+      "_note": "Sell {X} Legendary Lantern to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21051,
+      "_note": "Sell {X} Legendary Shoes to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21052,
+      "_note": "Sell {X} Legendary Book to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21053,
+      "_note": "Sell {X} Legendary Orb to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21054,
+      "_note": "Sell {X} Legendary Potion to Adventurer",
+      "required_value": 4
+    },
+    {
+      "quest_config_id": 21055,
+      "_note": "Sell {X} Legendary Mystic Shell to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21056,
+      "_note": "Sell {X} Legendary Ring to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21057,
+      "_note": "Sell {X} Legendary Necklace to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21058,
+      "_note": "Sell {X} Legendary Bracelet to Adventurer",
+      "required_value": 3
+    },
+    {
+      "quest_config_id": 21059,
+      "_note": "Sell {X} Legendary Arrow to Adventurer",
+      "required_value": 2
+    }
+  ]

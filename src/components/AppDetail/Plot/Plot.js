@@ -2,7 +2,7 @@ import { Flex, Text, Image, Tooltip, Box, Table, TableContainer, Tbody, Tr, Th, 
 import { PlotDetail, formatDate } from '@/utils/tools'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { GameConfig } from '@/utils/tools'
+import { GameConfig, MoonfallConfig } from '@/utils/tools'
 import { InfoIcon } from '@chakra-ui/icons'
 
 export default function Plot(props) {
@@ -47,6 +47,20 @@ export default function Plot(props) {
                 <Text>current mAXS: {amount}</Text>
                 <Text>total mAXS: {total}</Text>
             </Flex>)
+    }
+
+    const renderMoonfall = () => {
+        if (item.moonfallData && item.moonfallData.length > 0) {
+            let renderItems = item.moonfallData.map((obj, index) => {
+                return (
+                    <Tooltip label={MoonfallConfig[obj.from_action].label} cursor={'pointer'}>
+                        <Image w={6} src={MoonfallConfig[obj.from_action].icon} />
+                    </Tooltip>
+                )
+            })
+            return renderItems
+        }
+        return
     }
 
     return (
@@ -103,13 +117,13 @@ export default function Plot(props) {
                                     </Td>
                                     <Td >
                                         <Flex direction={'row'} align={'center'} h={6} alignSelf={'flex-end'} justifyContent={'flex-end'} >
+                                            {renderMoonfall()}
                                             <Text
                                                 mr={2}
                                                 fontSize={16}
                                                 fontWeight={Math.floor(amount * 100 * 100 / total) / 100 == 100 ? 'bold' : 'medium'}
                                                 
                                             >{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
-                                            {item.moonfall > 0 ? <Image w={6} src="/icon-jackpot.png" /> : <></>}
                                         </Flex>
                                     </Td>
                                 </Tr>

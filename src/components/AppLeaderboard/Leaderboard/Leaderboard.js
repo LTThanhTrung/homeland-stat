@@ -46,7 +46,6 @@ export default function Leaderboard(props) {
 
     const renderLB = () => {
         let renderItem = items.map((item, index) => {
-            console.log(item)
             if (item.point) {
                 return (
                     <Flex key={index}>

@@ -34,8 +34,23 @@ export const PlotDetail = {
 }
 
 export const GameConfig = {
-    moonfall_action_id: [91, 92, 93, 94],
-    moonfall_amount: 6000
+    moonfall_action_id: [41, 42, 43, 91, 92, 93, 94],
+    moonfall_amount: [20000, 5000, 1000, 6000, 6000, 6000, 6000]
+}
+
+export const MoonfallConfig = {
+    "41" : {
+        "label" : "Extra Chest",
+        "icon"  : "/chest_extra.png"
+    },
+    "42" : {
+        "label" : "Premium Chest",
+        "icon"  : "/chest_premium.png"
+    },
+    "43" : {
+        "label" : "Common Chest",
+        "icon"  : "/chest_common.png"
+    }
 }
 
 export function formatDate(date) {

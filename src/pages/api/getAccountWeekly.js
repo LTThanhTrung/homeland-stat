@@ -29,6 +29,7 @@ async function getPlotData(gameToken) {
                 days[key][item.from_action] = (days[key][item.from_action] ? days[key][item.from_action] : 0) + item.axs_amount
                 if (GameConfig.moonfall_action_id.includes(item.from_action)) {
                     days[key].moonfallAXS = days[key].moonfallAXS + item.axs_amount
+                    days[key].moonfall[item.from_action] = days[key].moonfall[item.from_action] + 1
                 }
                 else {
                     days[key].dailyAXS = days[key].dailyAXS + item.axs_amount
@@ -56,7 +57,12 @@ function Last7Days() {
         d.setDate(d.getDate() - i);
         result[formatDate(d)] = {
             dailyAXS: 0,
-            moonfallAXS: 0
+            moonfallAXS: 0,
+            moonfall: {
+                '41': 0,
+                '42': 0,
+                '43': 0
+            }
         }
     }
 

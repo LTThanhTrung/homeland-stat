@@ -1,7 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react'
 
 export default function Item(props) {
-    console.log(props)
     return (
         <>
             <Flex w={800}>

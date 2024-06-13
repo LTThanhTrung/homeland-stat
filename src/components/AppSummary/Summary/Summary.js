@@ -1,15 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Text, Flex, TableContainer, Table, Tr, Th, Image, HStack, Tbody } from '@chakra-ui/react'
+import { Text, Flex, TableContainer, Table, Tr, Th, Image, HStack, Tbody, Tooltip } from '@chakra-ui/react'
 import WeeklyChart from "./Chart/WeeklyChart"
 import { CopyIcon } from '@chakra-ui/icons'
-import { PlotDetail, formatDate, GameConfig } from "@/utils/tools"
+import { PlotDetail, formatDate, GameConfig, MoonfallConfig } from "@/utils/tools"
 
 export default function Summary(props) {
 
     const [loading, setLoading] = useState(true)
-    const [dailyAmount, setDailyAmount] = useState({ axs: 0, moonfall: 0 })
-    const [weeklyAmount, setWeeklyAmount] = useState({ axs: 0, moonfall: 0 })
+    const [dailyAmount, setDailyAmount] = useState({ axs: 0, moonfall: {"41" : 0, "42" : 0, "43": 0} })
+    const [weeklyAmount, setWeeklyAmount] = useState({ axs: 0, moonfall: {"41" : 0, "42" : 0, "43": 0} })
     const [total, setTotal] = useState(0)
     const [account, setAccount] = useState(props.account)
     const [landTypes, setLandTypes] = useState({ '0': 0, '1': 0, '2': 0, '3': 0, '4': 0 }) // Hashmap to count different land types
@@ -51,16 +51,16 @@ export default function Summary(props) {
 
                 setDailyAmount({
                     axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
-                    moonfall: Math.floor(data[today].moonfallAXS / (GameConfig.moonfall_amount * 1000))
+                    moonfall: data[today].moonfall
                 })
                 let keys = Object.keys(data)
                 for (let i = 0; i < keys.length; i++) {
                     weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
-                    weeklyAmount.moonfall = (weeklyAmount.moonfall + data[keys[i]].moonfallAXS)
+                    weeklyAmount.moonfall['41'] = weeklyAmount.moonfall['41'] + data[keys[i]].moonfall['41']
+                    weeklyAmount.moonfall['42'] = weeklyAmount.moonfall['42'] + data[keys[i]].moonfall['42']
+                    weeklyAmount.moonfall['43'] = weeklyAmount.moonfall['43'] + data[keys[i]].moonfall['43']
                 }
-
                 weeklyAmount.axs = weeklyAmount.axs / 1000
-                weeklyAmount.moonfall = weeklyAmount.moonfall / (GameConfig.moonfall_amount * 1000)
                 setChartData(data)
                 setWeeklyAmount(weeklyAmount)
             })
@@ -88,6 +88,23 @@ export default function Summary(props) {
                 }
             })
         )
+    }
+
+    const renderMoonfall = (obj) => {
+        let keys = Object.keys(obj.moonfall)
+        const renderItems = keys.map((item, index) => {
+            return (
+                <>
+                    {obj.moonfall[item] > 0 ? <>
+                        <Text>+{obj.moonfall[item]}</Text>
+                        <Tooltip label={MoonfallConfig[item].label} cursor={'pointer'}>
+                            <Image w={6} src={MoonfallConfig[item].icon} />
+                        </Tooltip>
+                    </> : <></>}
+                </>
+            )
+        })
+        return renderItems
     }
 
     const renderBody = () => {
@@ -147,12 +164,7 @@ export default function Summary(props) {
                                     <Text>{dailyAmount.axs}</Text>
                                     <Text> / {total}</Text>
                                     <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                                    {dailyAmount.moonfall > 0 ?
-                                        <>
-                                            <Text>+{Math.floor(dailyAmount.moonfall)}</Text>
-                                            <Image w={8} src="/icon-jackpot.png" />
-                                        </>
-                                        : <></>}
+                                    {renderMoonfall(dailyAmount)}
                                 </Flex>
                             </Th>
                         </Tr>
@@ -163,7 +175,6 @@ export default function Summary(props) {
                                 </Text>
                             </Th>
                             <Th >{Math.floor(dailyAmount.axs * 100 * 100 / total) / 100} %</Th>
-
 
                         </Tr>
                         <Tr>
@@ -177,12 +188,7 @@ export default function Summary(props) {
                                     <Text>{Math.floor(weeklyAmount.axs / 1000 * 100) / 100}</Text>
                                     <Text> / {Math.round(total * 7 * 1000) / 1000}</Text>
                                     <Image src="https://storage.googleapis.com/sm-prod-ecosystem-portal/prod/1699601003-blob" w={8} />
-                                    {weeklyAmount.moonfall > 0 ?
-                                        <>
-                                            <Text>+{Math.floor(weeklyAmount.moonfall)} </Text>
-                                            <Image w={8} src="/icon-jackpot.png" />
-                                        </>
-                                        : <></>}
+                                    {renderMoonfall(weeklyAmount)}
                                 </Flex>
                             </Th>
 

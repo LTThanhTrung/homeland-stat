@@ -45,11 +45,13 @@ export default function Detail(props) {
                             }
 
                             let filteredData = data.filter((e) => !((GameConfig.moonfall_action_id.includes(e.from_action) && e.created_at.startsWith(today))))
-                            if (filteredData.length != data.length) plotsItem[i].moonfall = 1 // TODO: Change logic to support custom moonfall
+                            if (filteredData.length != data.length){
+                                plotsItem[i].moonfall = 1
+                                plotsItem[i].moonfallData = data.filter(x => !filteredData.includes(x));
+                            }
                             plotsItem[i].plotData = filteredData
                             plotsItem[i].loaded = true
                             plotsItem[i].plotDetail = plotData.data.landData[0]
-
                             let x = [...plotsItem]
                             setPlots(x)
                         }
