@@ -29,8 +29,6 @@ async function getPlotData(gameToken) {
                 if (item.created_at.startsWith(key)) {
                     days[key][item.from_action] = (days[key][item.from_action] ? days[key][item.from_action] : 0) + item.axs_amount
                     if (GameConfig.moonfall_action_id.includes(item.from_action)) {
-                        console.log(item.axs_amount)
-                        console.log(MoonfallConfig[item.from_action].axs_amount)
                         days[key].moonfallAXS = days[key].moonfallAXS + item.axs_amount
                         days[key].moonfall[item.from_action] = days[key].moonfall[item.from_action] + item.axs_amount / MoonfallConfig[item.from_action].axs_amount / 1000
                     }

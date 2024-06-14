@@ -1,27 +1,24 @@
-import { Flex, Text, Image, HStack, Box, Progress } from '@chakra-ui/react'
-import { PlotDetail, formatDate } from '@/utils/tools'
-import { useState, useEffect } from 'react'
+import { Flex, Text, Image, Box } from '@chakra-ui/react'
+import { PlotDetail } from '@/utils/tools'
+import { useState } from 'react'
 import axios from 'axios'
-import { GameConfig, MoonfallConfig } from '@/utils/tools'
-import { InfoIcon } from '@chakra-ui/icons'
 import questData from '@/utils/moonfall_quests.json'
-
+import QuestDetail from './QuestDetail'
 
 export default function QuestItem({ item, account }) {
 
     const [quests, setQuests] = useState(item.quests.data.questData)
 
-    const resetPlotData = async () => { 
+    const resetPlotData = async () => {
         try {
             let questData = (await axios.post('/api/getQuest', { account: account, plotData: item })).data
 
-            if(questData.success){
+            if (questData.success) {
                 setQuests(questData.data.questData)
             }
         }
         catch (ex) {
             console.log(ex)
-            setItem(prev => ({ ...prev, loaded: true }))
         }
     }
 
@@ -29,17 +26,14 @@ export default function QuestItem({ item, account }) {
         const renderItem = quests.map((item, index) => {
             let questDetail = questData.find(x => x.quest_config_id === item.quest_id)
             return (
-                <Flex key={index} w={'100%'} pos={'relative'} display={item.status == "Claimed" ? "none" : 'unset'} justify={'center'} align={'center'} mb={2}>
-                    <Text fontSize={13} color={'white'} fontWeight={'bold'}>{questDetail._note.replace('{X}', questDetail.required_value)} ({item.progress}/{questDetail.required_value})</Text>
-                        <Progress h={2} hasStripe value={item.progress / questDetail.required_value * 100 } w={'100%'} colorScheme={item.status == "Claimable" ? "green" : "yellow" } background={'gray.500'} />
-                        <Text fontWeight={'bold'} fontSize={12} position={'absolute'} right={0} bottom={0}></Text>
-                </Flex>)
+                <QuestDetail key={index} item={item} questDetail={questDetail} />
+            )
         })
         return renderItem
     }
 
     return (
-        <Flex width={400} direction={'column'} align={'center'} p={5} shadow={'lg'} borderRadius={10} bg={'#13161b'} color={"#e2e4e9b3"} >
+        <Flex width={460} direction={'column'} align={'center'} p={5} shadow={'lg'} borderRadius={10} bg={'#13161b'} color={"#e2e4e9b3"} >
             <Flex height={24} w={64} p={4} justifyContent={'space-around'} alignItems={'center'} >
                 <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'lightblue'} justifyContent={'center'} align={'center'} pos={'relative'}>
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />

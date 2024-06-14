@@ -5,7 +5,6 @@ export default async function handler(req, res) {
     try {
         let { account, plotData } = req.body
         let questData = await getQuestData(plotData, account)
-        console.log(questData)
         res.status(200).send({ success: true, data: { questData } })
     } catch (error) {
         res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })

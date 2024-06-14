@@ -31,7 +31,6 @@ export default function Quest(props) {
                     }
 
                     setQuests(plotsItem)
-                    console.log(plotsItem)
                 }
             })
         }
@@ -49,7 +48,6 @@ export default function Quest(props) {
             let renderItem = quests.map((item, index) => {
                 return (
                     <QuestItem item={item} account={account} key={index} />
-                    // <Plot key={index} item={item} account={account} />
                 )
             })
             return renderItem
