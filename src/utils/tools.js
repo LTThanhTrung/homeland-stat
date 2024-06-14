@@ -41,15 +41,30 @@ export const GameConfig = {
 export const MoonfallConfig = {
     "41" : {
         "label" : "Extra Chest",
-        "icon"  : "/chest_extra.png"
+        "icon"  : "/chest_extra.png",
+        "axs_amount" : 20000
     },
     "42" : {
         "label" : "Premium Chest",
-        "icon"  : "/chest_premium.png"
+        "icon"  : "/chest_premium.png",
+        "axs_amount" : 5000
     },
     "43" : {
         "label" : "Common Chest",
-        "icon"  : "/chest_common.png"
+        "icon"  : "/chest_common.png",
+        "axs_amount" : 1000
+    },
+    "91" : {
+        "axs_amount" : 6000
+    },
+    "92" : {
+        "axs_amount" : 6000
+    },    
+    "93" : {
+        "axs_amount" : 6000
+    },
+    "94" : {
+        "axs_amount" : 6000
     }
 }
 

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { formatDate, GameConfig } from "@/utils/tools"
+import { formatDate, GameConfig, MoonfallConfig } from "@/utils/tools"
 
 export default async function handler(req, res) {
     res.setHeader('Cache-Control', 'public, s-maxage=1');
@@ -23,20 +23,29 @@ async function getPlotData(gameToken) {
         }
     }
 
-    logs.map((item) => {
-        Object.keys(days).forEach(key => {
-            if (item.created_at.startsWith(key)) {
-                days[key][item.from_action] = (days[key][item.from_action] ? days[key][item.from_action] : 0) + item.axs_amount
-                if (GameConfig.moonfall_action_id.includes(item.from_action)) {
-                    days[key].moonfallAXS = days[key].moonfallAXS + item.axs_amount
-                    days[key].moonfall[item.from_action] = days[key].moonfall[item.from_action] + 1
+    try {
+        logs.map((item) => {
+            Object.keys(days).forEach(key => {
+                if (item.created_at.startsWith(key)) {
+                    days[key][item.from_action] = (days[key][item.from_action] ? days[key][item.from_action] : 0) + item.axs_amount
+                    if (GameConfig.moonfall_action_id.includes(item.from_action)) {
+                        console.log(item.axs_amount)
+                        console.log(MoonfallConfig[item.from_action].axs_amount)
+                        days[key].moonfallAXS = days[key].moonfallAXS + item.axs_amount
+                        days[key].moonfall[item.from_action] = days[key].moonfall[item.from_action] + item.axs_amount / MoonfallConfig[item.from_action].axs_amount / 1000
+                    }
+                    else {
+                        days[key].dailyAXS = days[key].dailyAXS + item.axs_amount
+                    }
                 }
-                else {
-                    days[key].dailyAXS = days[key].dailyAXS + item.axs_amount
-                }
-            }
+            })
         })
-    })
+    }
+
+    catch(ex){
+        console.log(ex)
+    }
+    
 
     return days
 }
