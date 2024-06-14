@@ -1,6 +1,7 @@
 import { Flex, VStack, Switch, FormLabel, HStack } from '@chakra-ui/react'
 import { StorageItem } from '@/utils/tools'
 import Detail from './Detail/Detail'
+import Quest from './Quest/Quest'
 import { useState } from 'react'
 
 export default function AppDetail() {
@@ -16,15 +17,17 @@ export default function AppDetail() {
                             <FormLabel color={'white'} mr={2}>Detail</FormLabel>
                             <Switch onChange={() => {
                                 setFlag(!flag)
-                            }}/>
+                            }} />
                             <FormLabel ml={2} color={'white'}>Quest</FormLabel>
                         </Flex>
 
                         <Flex display={flag ? "none" : "unset"}>
                             <Detail key={index} account={account} />
                         </Flex>
-                        <Flex display={!flag ? "none" : "unset"}>123</Flex>
 
+                        <Flex display={!flag ? "none" : "unset"}>
+                            <Quest key={index} account={account} />
+                        </Flex>
                     </Flex>
                 )
             })
