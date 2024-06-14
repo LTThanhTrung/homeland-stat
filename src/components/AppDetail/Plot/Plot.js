@@ -53,7 +53,7 @@ export default function Plot(props) {
         if (item.moonfallData && item.moonfallData.length > 0) {
             let renderItems = item.moonfallData.map((obj, index) => {
                 return (
-                    <Tooltip label={MoonfallConfig[obj.from_action].label} cursor={'pointer'}>
+                    <Tooltip key={index} label={MoonfallConfig[obj.from_action].label} cursor={'pointer'}>
                         <Image w={6} src={MoonfallConfig[obj.from_action].icon} />
                     </Tooltip>
                 )
