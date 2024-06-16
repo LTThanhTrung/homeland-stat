@@ -7,7 +7,7 @@ import { StorageItem, upsert, track } from '@/utils/tools'
 
 const useAccount = () => {
     const router = useRouter()
-    const accounts = useRef([])
+    const [accounts, setAccounts] = useState([])
     const count = useRef(0)
 
     const refreshToken = async (refreshToken) => {
@@ -19,15 +19,15 @@ const useAccount = () => {
 
     const logout = () => {
         localStorage.clear()
-        accounts.current = []
+        setAccounts([])
         router.reload()
     }
 
-    const sendHeartBeats = () => {
+    const sendHeartBeats = (accountsStorage) => {
         setInterval(() => {
             count.current = count.current + 1
-            try{
-                for (let i = 0; i < accounts.current.length; i++) {
+            try {
+                for (let i = 0; i < accountsStorage.length; i++) {
                     track({
                         "events": [
                             {
@@ -36,20 +36,20 @@ const useAccount = () => {
                                     "uuid": uuid(),
                                     "ref": "root",
                                     "timestamp": new Date().toISOString(),
-                                    "session_id": accounts.current[i].sessionID,
-                                    "user_id": accounts.current[i].userID,
+                                    "session_id": accountsStorage[i].sessionID,
+                                    "user_id": accountsStorage[i].userID,
                                     "offset": count.current,
-                                    "device_name" : navigator.userAgent
+                                    "device_name": navigator.userAgent
                                 }
                             }
                         ]
                     })
                 }
             }
-            catch(ex){
+            catch (ex) {
                 return
             }
-            
+
         }, 60000);
     }
 
@@ -88,21 +88,19 @@ const useAccount = () => {
                                 "session_id": accountsStorage[i].sessionID,
                                 "user_id": accountsStorage[i].userID,
                                 "offset": count.current,
-                                "device_name" : navigator.userAgent
+                                "device_name": navigator.userAgent
                             }
                         }
                     ]
                 })
             }
-
-            accounts.current = accountsStorage
+            setAccounts(accountsStorage)
 
             setTimeout(() => {
-                sendHeartBeats()   
+                sendHeartBeats(accountsStorage)
             }, 60000);
         }
         getItemsFromStorage()
-
     }, [])
 
     return { accounts, logout }
