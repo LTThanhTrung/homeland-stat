@@ -98,14 +98,14 @@ export default function Summary(props) {
         let keys = Object.keys(obj.moonfall)
         const renderItems = keys.map((item, index) => {
             return (
-                <>
+                <Flex key={index} justify={'center'} align={'center'}>
                     {obj.moonfall[item] > 0 ? <>
                         <Text>+{obj.moonfall[item]}</Text>
                         <Tooltip label={MoonfallConfig[item].label} cursor={'pointer'}>
                             <Image w={6} src={MoonfallConfig[item].icon} />
                         </Tooltip>
                     </> : <></>}
-                </>
+                </Flex>
             )
         })
         return renderItems

@@ -57,17 +57,23 @@ export default function Header() {
             </Modal>
 
             <Flex direction={'row'} align={'center'} bg={"#13161b"} w={'100%'} justify={'space-between'} padding={4} color={'white'}>
-                <Heading mr={4}>Homeland Stats {packageInfo.version}  </Heading>
+                <Heading size={'lg'} mr={4}>Homeland Stats {packageInfo.version}  </Heading>
                 <Flex flex={1} justify={'center'} align={'center'}>
                     <HStack spacing={6}>
                         <Link href={"/"}>
-                            <Text fontWeight={'bold'}>Summary</Text>
+                            <Button bg={'#282c34'} _hover={{ background: "#3c424d" }}>
+                                <Text color={'white'} fontWeight={'bold'} >Summary</Text>
+                            </Button>
                         </Link>
                         <Link href={"/detail"}>
-                            <Text fontWeight={'bold'}>Detail</Text>
+                            <Button bg={'#282c34'} _hover={{ background: "#3c424d" }}>
+                                <Text color={'white'} fontWeight={'bold'} >Detail</Text>
+                            </Button>
                         </Link>
                         <Link href={"/leaderboard"}>
-                            <Text fontWeight={'bold'}>Leaderboard</Text>
+                            <Button bg={'#282c34'} _hover={{ background: "#3c424d" }}>
+                                <Text color={'white'} fontWeight={'bold'} >Leaderboard</Text>
+                            </Button>
                         </Link>
                         <Link href={"/"} _disabled={true}>
                             <Text fontWeight={'bold'}>??</Text>
