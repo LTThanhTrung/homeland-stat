@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         let questData = await getQuestData(plotData, account)
         res.status(200).send({ success: true, data: { questData } })
     } catch (error) {
-        res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
+        res.status(200).json({ success: false, error: error instanceof Error ? error.message : error })
     }
 }
 

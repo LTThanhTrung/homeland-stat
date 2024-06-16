@@ -1,12 +1,17 @@
-import { Flex, VStack, Switch, FormLabel, HStack } from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Flex, VStack, Switch, FormLabel } from '@chakra-ui/react'
 import { StorageItem } from '@/utils/tools'
-import Detail from './Detail/Detail'
-import Quest from './Quest/Quest'
-import { useState } from 'react'
+import Detail from '@/components/Detail/Detail/Detail'
+import Quest from '@/components/Detail/Quest/Quest'
 
 export default function AppDetail() {
-    let accounts = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
     const [flag, setFlag] = useState(false)
+    const [accounts, setAccounts] = useState()
+
+    useEffect(()=>{
+        let accounts = JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
+        setAccounts(accounts)
+    },[])
 
     const renderAccount = () => {
         if (accounts != undefined && accounts.length > 0) {
@@ -38,6 +43,7 @@ export default function AppDetail() {
     return (
         <VStack w={'100%'} flexDirection={'column'} spacing={4}>
             <>{renderAccount()}</>
+            123
         </VStack>
     )
 }

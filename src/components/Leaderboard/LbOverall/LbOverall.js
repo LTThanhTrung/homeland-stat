@@ -1,6 +1,6 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { Flex, Grid } from '@chakra-ui/react'
+import axios from "axios"
 import Pagination from "./Pagination"
 import Item from "../Leaderboard/Item"
 
@@ -40,7 +40,7 @@ export default function LbOverall(props) {
 
     return (
         <>
-            <Flex mt={4} flexDirection={'column'} align={'center'}>
+            <Flex mt={4} flexDirection={'column'} align={'center'} color={'white'}>
                 <>{renderLB()}</>
                 <Pagination page={page} total={total} setPage={setPage} fetchData={fetchData} />
             </Flex>

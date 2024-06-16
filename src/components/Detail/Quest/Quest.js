@@ -1,15 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Flex, Grid } from '@chakra-ui/react'
-import Plot from "../Plot/Plot"
-import { GameConfig, formatDate } from "@/utils/tools"
 import QuestItem from "./QuestItem"
+import {  formatDate } from "@/utils/tools"
 
 export default function Quest(props) {
 
     const [quests, setQuests] = useState()
     const [account, setAccount] = useState(props.account)
-    const today = formatDate(new Date())
 
     useEffect(() => {
         const fetchData = async () => {

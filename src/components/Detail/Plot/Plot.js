@@ -1,9 +1,8 @@
-import { Flex, Text, Image, Tooltip, Box, Table, TableContainer, Tbody, Tr, Th, Td, HStack } from '@chakra-ui/react'
-import { PlotDetail, formatDate } from '@/utils/tools'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { GameConfig, MoonfallConfig } from '@/utils/tools'
+import { Flex, Text, Image, Tooltip, Box, Table, TableContainer, Tbody, Tr, Th, Td, HStack } from '@chakra-ui/react'
 import { InfoIcon } from '@chakra-ui/icons'
+import axios from 'axios'
+import { GameConfig, MoonfallConfig, PlotDetail, formatDate } from '@/utils/tools'
 
 export default function Plot(props) {
     const [item, setItem] = useState(props.item)

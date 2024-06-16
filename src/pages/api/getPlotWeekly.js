@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         let response = await getPlotData(plotData, account.gameToken)
         res.status(200).send({ success: true, data: response })
     } catch (error) {
-        res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
+        res.status(200).json({ success: false, error: error instanceof Error ? error.message : error })
     }
 }
 

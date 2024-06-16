@@ -1,4 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react'
+import { numberWithCommas } from '@/utils/tools';
 
 export default function Item(props) {
     return (
@@ -17,8 +18,4 @@ export default function Item(props) {
             </Flex>
         </>
     )
-
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
 }

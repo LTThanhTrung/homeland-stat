@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     catch (ex) {
         console.log(ex)
         if (ex.response.data.error_message != undefined) {
-            res.status(200).json({ success: false, error: ex.response.data.error_message })
+            res.status(200).json({ success: false, error: ex.response.data })
         }
         else {
             res.status(200).json({ success: false, error: "Something went wrong" })

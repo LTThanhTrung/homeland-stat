@@ -30,6 +30,6 @@ export default async function handler(req, res) {
         }).then(response => response.json())
         res.status(200).send({ success: true, accessToken: tokenResponseData.access_token, data: userResult })
     } catch (error) {
-        res.status(500).json({ success: false, error: error instanceof Error ? error.message : error })
+        res.status(200).json({ success: false, error: error instanceof Error ? error.message : error })
     }
 }

@@ -1,6 +1,6 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
-import { Flex, Grid } from '@chakra-ui/react'
+import { Flex} from '@chakra-ui/react'
+import axios from "axios"
 import Item from "./Item"
 
 export default function Leaderboard(props) {
@@ -48,7 +48,7 @@ export default function Leaderboard(props) {
         let renderItem = items.map((item, index) => {
             if (item.point) {
                 return (
-                    <Flex key={index}>
+                    <Flex key={index} color={'white'}>
                         <Item item={item} />
                     </Flex>
                 )

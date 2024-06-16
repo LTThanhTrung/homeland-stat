@@ -46,23 +46,27 @@ export default function Summary(props) {
             })
 
             await axios.post('/api/getAccountWeekly', { account }).then(async (response) => {
-                let data = response.data.data
-                let today = formatDate(new Date())
+                let responseData = response.data
+                if(responseData.success){
+                    let data = responseData.data
+                    let today = formatDate(new Date())
 
-                setDailyAmount({
-                    axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
-                    moonfall: data[today].moonfall
-                })
-                let keys = Object.keys(data)
-                for (let i = 0; i < keys.length; i++) {
-                    weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
-                    weeklyAmount.moonfall['41'] = weeklyAmount.moonfall['41'] + data[keys[i]].moonfall['41']
-                    weeklyAmount.moonfall['42'] = weeklyAmount.moonfall['42'] + data[keys[i]].moonfall['42']
-                    weeklyAmount.moonfall['43'] = weeklyAmount.moonfall['43'] + data[keys[i]].moonfall['43']
+                    setDailyAmount({
+                        axs: Math.floor(data[today].dailyAXS / 1000 / 1000 * 1000) / 1000,
+                        moonfall: data[today].moonfall
+                    })
+                    let keys = Object.keys(data)
+                    for (let i = 0; i < keys.length; i++) {
+                        weeklyAmount.axs = (weeklyAmount.axs + data[keys[i]].dailyAXS)
+                        weeklyAmount.moonfall['41'] = weeklyAmount.moonfall['41'] + data[keys[i]].moonfall['41']
+                        weeklyAmount.moonfall['42'] = weeklyAmount.moonfall['42'] + data[keys[i]].moonfall['42']
+                        weeklyAmount.moonfall['43'] = weeklyAmount.moonfall['43'] + data[keys[i]].moonfall['43']
+                    }
+                    weeklyAmount.axs = weeklyAmount.axs / 1000
+                    setChartData(data)
+                    setWeeklyAmount(weeklyAmount)
                 }
-                weeklyAmount.axs = weeklyAmount.axs / 1000
-                setChartData(data)
-                setWeeklyAmount(weeklyAmount)
+                
             })
             setLoading(false)
         }
@@ -224,7 +228,7 @@ export default function Summary(props) {
 
     return (
         <>
-            <Flex direction={'column'} minW={850} minH={900} bg={"#13161b"} borderColor={'#282c34'} borderWidth={2} shadow={'lg'} borderRadius={10} p={5}>
+            <Flex color={'white'} direction={'column'} minW={850} minH={900} bg={"#13161b"} borderColor={'#282c34'} borderWidth={2} shadow={'lg'} borderRadius={10} p={5}>
                 {loading ?
                     <Flex display={'flex'} minW={"100%"} height={"100%"} justify={'center'} align={'center'}>
                         <Text fontWeight={'bold'}>Loading</Text>

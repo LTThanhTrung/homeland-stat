@@ -1,7 +1,8 @@
-import { Flex, Text, Image, Box } from '@chakra-ui/react'
-import { PlotDetail } from '@/utils/tools'
 import { useState } from 'react'
+import { Flex, Text, Image, Box } from '@chakra-ui/react'
+
 import axios from 'axios'
+import { PlotDetail } from '@/utils/tools'
 import questData from '@/utils/moonfall_quests.json'
 import QuestDetail from './QuestDetail'
 

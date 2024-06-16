@@ -1,5 +1,3 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import { Flex, Button, Text } from '@chakra-ui/react'
 
 export default function Pagination(props) {

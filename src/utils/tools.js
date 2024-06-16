@@ -1,3 +1,5 @@
+const axios = require('axios').default
+
 export const StorageItem = {
     ACCESS_TOKEN: 'ACCESS_TOKEN',
     REFRESH_TOKEN: 'REFRESH_TOKEN',
@@ -39,32 +41,32 @@ export const GameConfig = {
 }
 
 export const MoonfallConfig = {
-    "41" : {
-        "label" : "Extra Chest",
-        "icon"  : "/chest_extra.png",
-        "axs_amount" : 20000
+    "41": {
+        "label": "Extra Chest",
+        "icon": "/chest_extra.png",
+        "axs_amount": 20000
     },
-    "42" : {
-        "label" : "Premium Chest",
-        "icon"  : "/chest_premium.png",
-        "axs_amount" : 5000
+    "42": {
+        "label": "Premium Chest",
+        "icon": "/chest_premium.png",
+        "axs_amount": 5000
     },
-    "43" : {
-        "label" : "Common Chest",
-        "icon"  : "/chest_common.png",
-        "axs_amount" : 1000
+    "43": {
+        "label": "Common Chest",
+        "icon": "/chest_common.png",
+        "axs_amount": 1000
     },
-    "91" : {
-        "axs_amount" : 6000
+    "91": {
+        "axs_amount": 6000
     },
-    "92" : {
-        "axs_amount" : 6000
-    },    
-    "93" : {
-        "axs_amount" : 6000
+    "92": {
+        "axs_amount": 6000
     },
-    "94" : {
-        "axs_amount" : 6000
+    "93": {
+        "axs_amount": 6000
+    },
+    "94": {
+        "axs_amount": 6000
     }
 }
 
@@ -80,4 +82,24 @@ export function formatDate(date) {
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export const upsert = (array, item) => {
+    if (array == null) array = []
+    let i = array.findIndex(_item => _item.userID == item.userID)
+    if (i > -1) array[i] = item
+    else array.push(item)
+    return array
+}
+
+export function track(data) {
+    const url = 'https://x.skymavis.com/track'
+    const body = data
+
+    const header = {
+        "Authorization": "Basic OTc1YmExYjItMmEyYi00YWM4LWJkN2MtMjZhYjczZDJmMzljOg==",
+        "Content-Type": "application/json"
+    }
+
+    axios.post(url, body, { headers: header })
 }
