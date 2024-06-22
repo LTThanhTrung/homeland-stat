@@ -2,12 +2,12 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Flex, Grid } from '@chakra-ui/react'
 import QuestItem from "./QuestItem"
-import {  formatDate } from "@/utils/tools"
 
 export default function Quest(props) {
 
     const [quests, setQuests] = useState()
     const [account, setAccount] = useState(props.account)
+    const [tags, setTags] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,7 +36,6 @@ export default function Quest(props) {
         if (account.display == undefined || account.display == true) {
             fetchData()
         }
-
     }, [account])
 
     useEffect(() => { }, [quests])
@@ -45,7 +44,9 @@ export default function Quest(props) {
         if (quests != undefined && (account.display == true || account.display == undefined)) {
             let renderItem = quests.map((item, index) => {
                 return (
-                    <QuestItem item={item} account={account} key={index} />
+                    <Flex w={'100%'} key={index}>
+                        <QuestItem item={item} account={account} tags={tags} setTags={setTags} />
+                    </Flex>
                 )
             })
             return renderItem
@@ -58,8 +59,8 @@ export default function Quest(props) {
     return (
         // TODO: Make a better loading ^_^
         <>
-            <Flex mt={4}>
-                <Grid w={'100%'} templateColumns='repeat(4, 1fr)' gap={6}>
+            <Flex mt={4} w={'100%'}>
+                <Grid w={'100%'} templateColumns='repeat(auto-fill,minmax(400px,1fr))' gap={'16px'}>
                     <>{renderQuest()}</>
                 </Grid>
             </Flex>

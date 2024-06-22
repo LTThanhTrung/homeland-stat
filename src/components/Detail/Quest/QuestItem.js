@@ -6,8 +6,7 @@ import { PlotDetail } from '@/utils/tools'
 import questData from '@/utils/moonfall_quests.json'
 import QuestDetail from './QuestDetail'
 
-export default function QuestItem({ item, account }) {
-
+export default function QuestItem({ item, account, tags, setTags }) {
     const [quests, setQuests] = useState(item.quests.data.questData)
 
     const resetPlotData = async () => {
@@ -27,20 +26,17 @@ export default function QuestItem({ item, account }) {
         const renderItem = quests.map((item, index) => {
             let questDetail = questData.find(x => x.quest_config_id === item.quest_id)
             return (
-                <QuestDetail key={index} item={item} questDetail={questDetail} />
+                <QuestDetail key={index} item={item} questDetail={questDetail} tags={tags} setTags={setTags} />
             )
         })
         return renderItem
     }
 
     return (
-        <Flex width={460} direction={'column'} align={'center'} p={5} shadow={'lg'} borderRadius={10} bg={'#13161b'} color={"#e2e4e9b3"} >
+        <Flex width={"100%"} direction={'column'} align={'center'} p={5} shadow={'lg'} borderRadius={10} bg={'#13161b'} color={"#e2e4e9b3"}>
             <Flex height={24} w={64} p={4} justifyContent={'space-around'} alignItems={'center'} >
                 <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'lightblue'} justifyContent={'center'} align={'center'} pos={'relative'}>
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />
-                    <Box pos={'absolute'} bottom={0} right={0}>
-
-                    </Box>
                 </Flex>
                 <Flex w={24} h={'100%'} flexDirection={'column'} >
                     <Box w={40} >

@@ -14,7 +14,7 @@ export default function Plot(props) {
     const total = PlotDetail[item.land_type].dailyAXS
     const [isFull, setIsFull] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         let isFull = Math.floor(amount * 100 * 100 / total) / 100 == 100
         setIsFull(isFull)
     })
@@ -63,7 +63,7 @@ export default function Plot(props) {
     }
 
     return (
-        <Flex width={64} minH={60} direction={'column'} align={'center'} shadow={'lg'} borderRadius={10} bg={isFull? 'seagreen':'#13161b'} color={isFull? "white" : "#e2e4e9b3"}>
+        <Flex width={64} minH={60} direction={'column'} align={'center'} shadow={'lg'} borderRadius={10} bg={isFull ? 'seagreen' : '#13161b'} color={isFull ? "white" : "#e2e4e9b3"}>
             <Flex height={24} w={64} p={4} justifyContent={'space-around'} alignItems={'center'} >
                 <Flex w={"60px"} h={"60px"} borderRadius={100} bg={'lightblue'} justifyContent={'center'} align={'center'} pos={'relative'}>
                     <Image src={`/plot_${item.land_type}.png`} width={12} h={12} alt="Plot" />
@@ -106,7 +106,7 @@ export default function Plot(props) {
             {item.loaded ?
                 <>
                     <TableContainer w={'100%'}>
-                        <Table variant='unstyled' size={'sm'}  w={'100%'} >
+                        <Table variant='unstyled' size={'sm'} w={'100%'} >
                             <Tbody>
                                 <Tr>
                                     <Td textAlign={'left'} >
@@ -121,7 +121,7 @@ export default function Plot(props) {
                                                 mr={2}
                                                 fontSize={16}
                                                 fontWeight={Math.floor(amount * 100 * 100 / total) / 100 == 100 ? 'bold' : 'medium'}
-                                                
+
                                             >{Math.floor(amount * 100 * 100 / total) / 100} %</Text>
                                         </Flex>
                                     </Td>
@@ -147,7 +147,7 @@ export default function Plot(props) {
                         </Table>
                     </TableContainer>
                     <Flex w={'100%'} direction={'row'} justify={'space-between'} align={'center'} p={4} >
-                        <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'center'} align={'center'} borderRadius={10} mr={2}>
+                        <Flex bg={item.plotDetail.number_of_working_workers == 0 ? "#F27457" : "#282c34"} p={3} flexDirection={'row'} justify={'center'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-pawnworker.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
@@ -159,7 +159,7 @@ export default function Plot(props) {
                                 /{item.plotDetail.number_of_workers}
                             </Text>
                         </Flex>
-                        <Flex bg={"#282c34"} p={3} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
+                        <Flex bg={item.plotDetail.number_of_idle_npcs == item.plotDetail.number_of_npcs ? "#F27457" : "#282c34"} p={3} flexDirection={'row'} justify={'space-around'} align={'center'} borderRadius={10} mr={2}>
                             <Image src='icon-flat-npc.png' w={4} h={4} mr={1} />
                             <Text
                                 color={"white"}
@@ -179,7 +179,6 @@ export default function Plot(props) {
                                 {item.plotDetail.number_of_buildings}
                             </Text>
                         </Flex>
-
                     </Flex>
                 </>
                 : <Text color={"#A28C76"}>Loading</Text>}

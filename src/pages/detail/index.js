@@ -17,7 +17,7 @@ export default function AppDetail() {
         if (accounts != undefined && accounts.length > 0) {
             let renderItems = accounts.map((account, index) => {
                 return (
-                    <Flex key={index} direction={'column'} justify={'center'} align={'center'}>
+                    <Flex key={index} w={'100%'} direction={'column'} justify={'center'} align={'center'}>
                         <Flex direction={'row'} justify={'center'}>
                             <FormLabel color={'white'} mr={2}>Detail</FormLabel>
                             <Switch onChange={() => {
@@ -30,7 +30,7 @@ export default function AppDetail() {
                             <Detail key={index} account={account} />
                         </Flex>
 
-                        <Flex display={!flag ? "none" : "unset"}>
+                        <Flex w={'100%'} display={!flag ? "none" : "unset"}>
                             <Quest key={index} account={account} />
                         </Flex>
                     </Flex>
