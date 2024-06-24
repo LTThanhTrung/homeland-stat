@@ -23,13 +23,16 @@ export default function QuestItem({ item, account, tags, setTags }) {
     }
 
     const renderQuest = () => {
-        const renderItem = quests.map((item, index) => {
-            let questDetail = questData.find(x => x.quest_config_id === item.quest_id)
-            return (
-                <QuestDetail key={index} item={item} questDetail={questDetail} tags={tags} setTags={setTags} />
-            )
-        })
-        return renderItem
+        if (quests) {
+            const renderItem = quests.map((item, index) => {
+                let questDetail = questData.find(x => x.quest_config_id === item.quest_id)
+                return (
+                    <QuestDetail key={index} item={item} questDetail={questDetail} tags={tags} setTags={setTags} />
+                )
+            })
+            return renderItem
+        }
+        return <></>
     }
 
     return (
