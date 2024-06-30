@@ -55,7 +55,6 @@ export default function Login({ close }) {
 
     const login = async () => {
         let data = (await axios.post('/api/login', { email: email, password: password, captcha: captcha })).data
-
         if (data.success) {
             let storageItem = await JSON.parse(localStorage.getItem(StorageItem.ACCOUNTS_DATA))
             storageItem = upsert(storageItem, data.data)
@@ -69,7 +68,12 @@ export default function Login({ close }) {
                 onClose()
             }
             else {
-                setError(data.error)
+                if(data.error.error_message){
+                    setError(data.error.error_message)
+                }
+                else{
+                    setError(data.error)
+                }
                 onClose()
             }
         }
